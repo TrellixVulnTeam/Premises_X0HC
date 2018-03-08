@@ -11,8 +11,21 @@ import { MainBuySearchPage } from '../pages/main-buy-search/main-buy-search';
 import { MainRentSearchPage } from '../pages/main-rent-search/main-rent-search';
 import { PropertySubmissionPage } from '../pages/property-submission/property-submission'
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AuthProvider } from '../providers/auth/auth';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBPIuf4cdQ1TIII2tJ0YmCbdcdH99JGkHc",
+  authDomain: "premises-1bc9e.firebaseapp.com",
+  databaseURL: "https://premises-1bc9e.firebaseio.com",
+  projectId: "premises-1bc9e",
+  storageBucket: "premises-1bc9e.appspot.com",
+  messagingSenderId: "1059170929031"
+};
 
 @NgModule({
   declarations: [
@@ -27,7 +40,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -43,7 +58,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthProvider
   ]
 })
 export class AppModule {}
