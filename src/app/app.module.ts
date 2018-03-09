@@ -11,6 +11,11 @@ import { MainBuySearchPage } from '../pages/main-buy-search/main-buy-search';
 import { MainRentSearchPage } from '../pages/main-rent-search/main-rent-search';
 import { PropertySubmissionPage } from '../pages/property-submission/property-submission'
 
+import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
+
+import { ProfilePage } from '../pages/profile/profile'
+
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
@@ -36,7 +41,10 @@ const firebaseConfig = {
     TabsPage,
     MainBuySearchPage,
     MainRentSearchPage,
-    PropertySubmissionPage
+    PropertySubmissionPage,
+    LoginPage,
+    SignupPage,
+    ProfilePage,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +61,10 @@ const firebaseConfig = {
     TabsPage,
     MainBuySearchPage,
     MainRentSearchPage,
-    PropertySubmissionPage
+    PropertySubmissionPage,
+    LoginPage,
+    SignupPage,
+    ProfilePage
   ],
   providers: [
     StatusBar,
