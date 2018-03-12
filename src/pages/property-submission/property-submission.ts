@@ -3,13 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { LoginPage } from '../login/login'
-
-/**
- * Generated class for the PropertySubmissionPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 @IonicPage()
 @Component({
@@ -20,7 +15,7 @@ export class PropertySubmissionPage {
 
   public authUser: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public authData: AuthProvider, afAuth: AngularFireAuth,) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public authData: AuthProvider, public afAuth: AngularFireAuth, public AFdb: AngularFireDatabase) {
     const authObserver = afAuth.authState.subscribe(user => {
       if (user) {
         console.log("auth")
