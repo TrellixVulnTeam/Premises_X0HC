@@ -41,7 +41,44 @@ export class PropertySubmissionPage {
 
     this.propertySubmissionForm = formBuilder.group({
       fullName: [''],
-      agencyName: [''],
+      agencyName: [''], //If applicable.
+      premisesType: [''], //Radio Group Selector
+      otherProperty: [''], //If not listed
+//Address Fields
+      unitNumber: [''],
+      complexName: [''],
+      streetNumber: [''],
+      streetName: [''],
+      suburb: [''],
+      city: [''],
+      province: [''],
+      postalCode: [''],
+      erf: [''],
+      //Property Size Fields
+      factorySize: [''],
+      officeSize: [''],
+      totalSize: [''],
+      shopSize: [''],
+      underCoverParking: [''],
+      openParking: [''],
+      usableYard: [''],
+      sizeOfERF: [''],
+      //Heights Field
+      floorToCeilingHeights: [''], 
+      accessDoorHeights: [''], 
+      //AccessFields
+      truckAccess: [''],
+      power: [''],
+      amperage: [''],
+      // overheads: [''],
+      rates: [''],
+      levy: [''],
+      serviceCosts: [''],
+      otherOverheads: [''],
+      sellingPrice: [''],
+      VAT: [''],
+      description: [''],
+      uploadPhotos: [''],
     });
   }
 
