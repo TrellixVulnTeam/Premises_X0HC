@@ -4,7 +4,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { LoginPage } from '../login/login'
 import { AngularFireDatabase } from 'angularfire2/database';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabaseModule, AngularFireList } from 'angularfire2/database';
 import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -18,7 +18,7 @@ export class PropertySubmissionPage {
 
   public authUser: any;
   propertySubmissionForm: FormGroup;
-  public adminDB: FirebaseListObservable<any>;
+  public adminDB: AngularFireList<any>;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
