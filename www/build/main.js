@@ -248,6 +248,7 @@ var MainRentSearchPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_database__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_forms__ = __webpack_require__(19);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -263,14 +264,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var PropertySubmissionPage = (function () {
-    function PropertySubmissionPage(navCtrl, navParams, authData, afAuth, AFdb) {
+    function PropertySubmissionPage(navCtrl, navParams, authData, afAuth, AFdb, formBuilder) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.authData = authData;
         this.afAuth = afAuth;
         this.AFdb = AFdb;
+        this.formBuilder = formBuilder;
         var authObserver = afAuth.authState.subscribe(function (user) {
             if (user) {
                 console.log("auth");
@@ -282,17 +285,27 @@ var PropertySubmissionPage = (function () {
                 authObserver.unsubscribe();
             }
         });
+        this.adminDB = this.AFdb.list('/Admin/SubmittedProperties/');
+        this.propertySubmissionForm = formBuilder.group({
+            fullName: [''],
+            agencyName: [''],
+        });
     }
+    PropertySubmissionPage.prototype.submitProperty = function () {
+        this.adminDB.push(this.propertySubmissionForm.value);
+    };
+    ;
     PropertySubmissionPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad PropertySubmissionPage');
     };
     PropertySubmissionPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-property-submission',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/property-submission/property-submission.html"*/'<!--\n  Generated template for the PropertySubmissionPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>Submit Your Property</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    Form Here\n</ion-content>'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/property-submission/property-submission.html"*/,
+            selector: 'page-property-submission',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/property-submission/property-submission.html"*/'<ion-header>\n\n    <ion-navbar>\n        <ion-title>Submit Your Property</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <form [formGroup]="propertySubmissionForm" (submit)="submitProperty()">\n        <ion-item>\n            <ion-label stacked>Full Name</ion-label>\n            <ion-input formControlName="fullName" type="text" placeholder="Full Name"></ion-input>\n        </ion-item>\n        <ion-item>\n            <ion-label stacked>Full Name</ion-label>\n            <ion-input formControlName="agencyName" type="text" placeholder="Agency Name"></ion-input>\n        </ion-item>\n        <button ion-button block type="submit">Submit Property</button>\n    </form>\n</ion-content>'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/property-submission/property-submission.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_5_angularfire2_database__["a" /* AngularFireDatabase */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__angular_forms__["a" /* FormBuilder */]) === "function" && _f || Object])
     ], PropertySubmissionPage);
     return PropertySubmissionPage;
+    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=property-submission.js.map
