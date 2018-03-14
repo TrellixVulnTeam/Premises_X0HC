@@ -1,7 +1,8 @@
 // import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
-import firebase from 'firebase/app';
+// import firebase from 'firebase/app';
+import * as firebase from 'firebase/app';
 
 
 /*
@@ -12,6 +13,9 @@ import firebase from 'firebase/app';
 */
 @Injectable()
 export class AuthProvider {
+
+  private currentUser: firebase.User;
+
 
   constructor(public afAuth: AngularFireAuth) {
   }
@@ -28,9 +32,13 @@ export class AuthProvider {
     return this.afAuth.auth.signOut();
   }
 
-  signupUser(newEmail: string, newPassword: string): Promise<any> {
-    return this.afAuth.auth.createUserWithEmailAndPassword(newEmail, newPassword);
+  // signupUser(newEmail: string, newPassword: string): Promise<any> {
+  //   return this.afAuth.auth.createUserWithEmailAndPassword(newEmail, newPassword);
+  // }
+
+  signupUser(email: any, password: any): Promise<any> {
+    return this.afAuth.auth.createUserWithEmailAndPassword(email, password);
   }
 
-  
+
 }

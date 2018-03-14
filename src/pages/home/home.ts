@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { MainBuySearchPage } from '../main-buy-search/main-buy-search';
 import { MainRentSearchPage } from '../main-rent-search/main-rent-search';
 import { PropertySubmissionPage } from '../property-submission/property-submission'
+import { MetroListPage } from '../metro-list/metro-list'
 import { AuthProvider } from '../../providers/auth/auth';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { LoginPage } from '../login/login';
@@ -36,6 +37,11 @@ export class HomePage {
 
   toPropertySubmission() {
     this.navCtrl.push(PropertySubmissionPage)
+  }
+
+
+  toMetroList() {
+    this.navCtrl.push(MetroListPage)
   }
 
 }

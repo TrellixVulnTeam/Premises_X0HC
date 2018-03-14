@@ -8,8 +8,19 @@
 
 
 <ion-content padding>
+
+    <p>Currently submitting a property in <b>{{ suburb.suburb }}, {{ suburb.metro }}.</b></p>
+    <hr>
     <form [formGroup]="propertySubmissionForm" (submit)="submitProperty()">
         <ion-label><b><u>General Details:</u></b></ion-label>
+        <!-- <ion-item no-lines>
+            <ion-label floating>Full Name:</ion-label>
+            <ion-input formControlName="suburb" type="text"></ion-input>
+        </ion-item> -->
+        <ion-item hidden no-lines>
+            <ion-label floating>Email Address:</ion-label>
+            <ion-input formControlName="userEmail" type="text" value="{{(profile | async)?.email}}">{{(profile | async)?.email}}</ion-input>
+        </ion-item>
         <ion-item no-lines>
             <ion-label floating>Full Name:</ion-label>
             <ion-input formControlName="fullName" type="text"></ion-input>
@@ -71,18 +82,18 @@
             <ion-label floating>Street Name:</ion-label>
             <ion-input formControlName="streetName" type="text"></ion-input>
         </ion-item>
-        <ion-item no-lines>
+        <ion-item hidden no-lines>
             <ion-label floating>Suburb/Town:</ion-label>
-            <ion-input formControlName="suburb" type="text"></ion-input>
+            <ion-input formControlName="suburb1" type="text" value=" {{ suburb.suburb }}">{{ suburb.suburb }}</ion-input>
         </ion-item>
-        <ion-item no-lines>
+        <ion-item hidden no-lines>
             <ion-label floating>City:</ion-label>
-            <ion-input formControlName="city" type="text"></ion-input>
+            <ion-input formControlName="city" type="text" value="{{ suburb.metro }}">{{ suburb.metro }}</ion-input>
         </ion-item>
-        <ion-item no-lines>
+        <!-- <ion-item no-lines>
             <ion-label floating>Province:</ion-label>
             <ion-input formControlName="province" type="text"></ion-input>
-        </ion-item>
+        </ion-item> -->
         <ion-item no-lines>
             <ion-label floating>Postal Code:</ion-label>
             <ion-input formControlName="postalCode" type="number"></ion-input>
@@ -234,11 +245,39 @@
         </ion-item>
         <ion-textarea formControlName="description" placeholder="Describe the property here:"></ion-textarea>
         <hr>
-        <ion-item no-lines>
-            <ion-label><u>Upload Photos:</u></ion-label>
+        <ion-label><u>Upload Photos:</u></ion-label>
+        <!-- <ion-item>
+            <p>{{imageURI}}</p>
+            <button ion-button color="secondary" (click)="getImage()">Get Image</button>
         </ion-item>
+        <ion-item>
+            <h4>Image Preview</h4>
+            <img src="{{imageFileName}}" *ngIf="imageFileName" alt="Ionic File" width="300" />
+        </ion-item> -->
         <hr>
-        <!-- Submit Below -->
         <button ion-button block type="submit">Submit Property For Review</button>
     </form>
+    <ion-item>
+        <button ion-button (click)="upload()">Upload</button>
+    </ion-item>
+
+
+    <div>
+
+
+        <h3>Angular 2 File Upload - Example (ng2FileDrop - ng2FileSelect) </h3>
+
+
+        <div ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)" [uploader]="uploader" class="well my-drop-zone">
+            Drop File Here
+        </div>
+
+
+
+        <div ng2FileDrop [ngClass]="{'another-file-over-class': hasAnotherDropZoneOver}" (fileOver)="fileOverAnother($event)" [uploader]="uploader" class="well my-drop-zone">
+            Drop More Files Here
+        </div>
+
+    </div>
+
 </ion-content>

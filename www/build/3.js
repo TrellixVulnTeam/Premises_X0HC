@@ -1,14 +1,14 @@
 webpackJsonp([3],{
 
-/***/ 450:
+/***/ 521:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MainRentSearchPageModule", function() { return MainRentSearchPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PropertySubmissionPageModule", function() { return PropertySubmissionPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__main_rent_search__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__property_submission__ = __webpack_require__(90);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var MainRentSearchPageModule = (function () {
-    function MainRentSearchPageModule() {
+var PropertySubmissionPageModule = (function () {
+    function PropertySubmissionPageModule() {
     }
-    MainRentSearchPageModule = __decorate([
+    PropertySubmissionPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__main_rent_search__["a" /* MainRentSearchPage */],
+                __WEBPACK_IMPORTED_MODULE_2__property_submission__["a" /* PropertySubmissionPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__main_rent_search__["a" /* MainRentSearchPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__property_submission__["a" /* PropertySubmissionPage */]),
             ],
         })
-    ], MainRentSearchPageModule);
-    return MainRentSearchPageModule;
+    ], PropertySubmissionPageModule);
+    return PropertySubmissionPageModule;
 }());
 
-//# sourceMappingURL=main-rent-search.module.js.map
+//# sourceMappingURL=property-submission.module.js.map
 
 /***/ })
 
