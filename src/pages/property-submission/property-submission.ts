@@ -5,12 +5,14 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { LoginPage } from '../login/login'
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { AngularFireDatabaseModule, AngularFireList } from 'angularfire2/database';
+import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage';
 import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoadingController, ToastController } from 'ionic-angular';
-import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
-import { File } from '@ionic-native/file';
-import { FileUpload } from "ng2-fileupload";
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { DataProvider } from './../../providers/data';
+import { AlertController } from 'ionic-angular'
+import { Observable } from 'rxjs/Observable';
 
 @IonicPage()
 @Component({
@@ -19,6 +21,7 @@ import { FileUpload } from "ng2-fileupload";
 })
 export class PropertySubmissionPage {
 
+  files: Observable<any[]>;
   public authUser: any;
   propertySubmissionForm: FormGroup;
   public adminDB: AngularFireList<any>;
@@ -31,18 +34,20 @@ export class PropertySubmissionPage {
   profileArray: any = [];
   profile: any;
   uid: any;
-  fileTransfer: FileTransferObject = this.transfer.create();
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public authData: AuthProvider,
     public afAuth: AngularFireAuth,
+    public afStorage: AngularFireStorage,
     public AFdb: AngularFireDatabase,
     public formBuilder: FormBuilder,
-    private transfer: FileTransfer,
-    private file: File,
     public loadingCtrl: LoadingController,
-    public toastCtrl: ToastController,) {
+    public toastCtrl: ToastController,
+    private dataProvider: DataProvider,
+    private alertCtrl: AlertController,
+    private iab: InAppBrowser,
+  ) {
     const authObserver = afAuth.authState.subscribe(user => {
       if (user) {
         this.uid = user.uid;
@@ -63,6 +68,8 @@ export class PropertySubmissionPage {
       }
     });
   
+     this.files = this.dataProvider.getFiles();
+
     this.suburb = this.navParams.data;
 
     this.adminDB = this.AFdb.list('/Admin/SubmittedProperties/'); //This needs to be the Admin Dashboard!
@@ -108,9 +115,63 @@ export class PropertySubmissionPage {
       sellingPrice: [''],
       VAT: [''],
       description: [''],
-      uploadPhotos: [''],
+      imageUplaod: [''],
     });
   
+  }
+
+ addFile() {
+    let inputAlert = this.alertCtrl.create({
+      title: 'Store new information',
+      inputs: [
+        {
+          name: 'info',
+          placeholder: 'Lorem ipsum dolor...'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        },
+        {
+          text: 'Store',
+          handler: data => {
+            this.uploadInformation(data.info);
+          }
+        }
+      ]
+    });
+    inputAlert.present();
+  }
+ 
+  uploadInformation(text) {
+    let upload = this.dataProvider.uploadToStorage(text);
+ 
+    // Perhaps this syntax might change, it's no error here!
+    upload.then().then(res => {
+      this.dataProvider.storeInfoToDatabase(res.metadata).then(() => {
+        let toast = this.toastCtrl.create({
+          message: 'New File added!',
+          duration: 3000
+        });
+        toast.present();
+      });
+    });
+  }
+ 
+  deleteFile(file) {
+    this.dataProvider.deleteFile(file).subscribe(() => {
+      let toast = this.toastCtrl.create({
+        message: 'File removed!',
+        duration: 3000
+      });
+      toast.present();
+    });
+  }
+ 
+  viewFile(url) {
+    this.iab.create(url);
   }
 
   submitProperty() {
@@ -122,25 +183,11 @@ export class PropertySubmissionPage {
   //   this.propertyList.push(this.propertySubmissionForm.value)
   // };
 
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad PropertySubmissionPage');
   }
   
-  upload() {
-    let options: FileUploadOptions = {
-      fileKey: 'file',
-      fileName: 'name.jpg',
-      headers: {}
-       }
-
-    this.fileTransfer.upload('<file path>', '<api endpoint>', options)
-      .then((data) => {
-        console.log("success")
-      }, (err) => {
-        console.log("error")
-      })
-  }
-
 }
 
 

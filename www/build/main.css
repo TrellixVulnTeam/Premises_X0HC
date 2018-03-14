@@ -25735,6 +25735,29 @@ page-login .error-message .item-inner {
   border-bottom: 0 !important;
 }
 
+page-property-submission {
+  /* Default class applied to drop zones on over */
+}
+
+page-property-submission .my-drop-zone {
+  border: dotted 3px blue;
+  height: 100px;
+  width: 100%;
+}
+
+page-property-submission .nv-file-over {
+  border: dotted 3px red;
+}
+
+page-property-submission .another-file-over-class {
+  border: dotted 3px green;
+}
+
+page-property-submission html,
+page-property-submission body {
+  height: 100%;
+}
+
 page-reset-password form {
   margin-bottom: 32px;
 }

@@ -246,38 +246,38 @@
         <ion-textarea formControlName="description" placeholder="Describe the property here:"></ion-textarea>
         <hr>
         <ion-label><u>Upload Photos:</u></ion-label>
-        <!-- <ion-item>
-            <p>{{imageURI}}</p>
-            <button ion-button color="secondary" (click)="getImage()">Get Image</button>
+        <ion-item no-lines>
+            <ion-input formControlName="imageUplaod" id="upimgfile" type="file"></ion-input>
         </ion-item>
-        <ion-item>
-            <h4>Image Preview</h4>
-            <img src="{{imageFileName}}" *ngIf="imageFileName" alt="Ionic File" width="300" />
-        </ion-item> -->
         <hr>
         <button ion-button block type="submit">Submit Property For Review</button>
     </form>
-    <ion-item>
-        <button ion-button (click)="upload()">Upload</button>
-    </ion-item>
 
 
-    <div>
+    <ion-card *ngFor="let file of files | async">
+        <ion-card-header>
+            {{ file.created | date:'medium' }}
+        </ion-card-header>
 
+        <ion-card-content>
 
-        <h3>Angular 2 File Upload - Example (ng2FileDrop - ng2FileSelect) </h3>
+            <button ion-button block icon-left outline (click)="viewFile(file.url)">
+        <ion-icon name="eye"></ion-icon>
+        {{ file.fullPath }}
+      </button>
 
+            <button ion-button block outline icon-left color="danger" (click)="deleteFile(file)">
+        <ion-icon name="trash"></ion-icon> Delete
+      </button>
 
-        <div ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)" [uploader]="uploader" class="well my-drop-zone">
-            Drop File Here
-        </div>
+        </ion-card-content>
 
+    </ion-card>
 
-
-        <div ng2FileDrop [ngClass]="{'another-file-over-class': hasAnotherDropZoneOver}" (fileOver)="fileOverAnother($event)" [uploader]="uploader" class="well my-drop-zone">
-            Drop More Files Here
-        </div>
-
-    </div>
+    <ion-fab right bottom>
+        <button ion-fab color="primary" (click)="addFile()">
+      <ion-icon name="cloud-upload"></ion-icon>
+    </button>
+    </ion-fab>
 
 </ion-content>

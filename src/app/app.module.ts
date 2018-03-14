@@ -5,6 +5,9 @@ import { MyApp } from './app.component';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 //import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { DataProvider } from '../providers/data';
+
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -16,6 +19,7 @@ import { PropertySubmissionPage } from '../pages/property-submission/property-su
 import { MetroListPage } from '../pages/metro-list/metro-list'
 import { SuburbListPage } from '../pages/suburb-list/suburb-list'
 import { SuburbDetailPage } from '../pages/suburb-detail/suburb-detail'
+import { FileChooser } from '@ionic-native/file-chooser';
 
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
@@ -33,6 +37,7 @@ import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-nati
 import { File } from '@ionic-native/file';
 import { Camera } from '@ionic-native/camera';
 import { ImagePicker } from '@ionic-native/image-picker';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBPIuf4cdQ1TIII2tJ0YmCbdcdH99JGkHc",
@@ -75,6 +80,7 @@ class CameraMock extends Camera {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    AngularFireStorageModule,
 
   ],
   bootstrap: [IonicApp],
@@ -101,10 +107,10 @@ class CameraMock extends Camera {
     AuthProvider,
     FileTransfer,
     FileTransferObject,
+    FileChooser,
     File,
-    Camera,
-    ImagePicker,
-    { provide: Camera, useClass: CameraMock }
+    InAppBrowser,
+    DataProvider,
   ]
 })
 export class AppModule {}
