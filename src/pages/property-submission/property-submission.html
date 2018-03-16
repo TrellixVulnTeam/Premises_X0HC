@@ -9,7 +9,7 @@
 
 <ion-content padding>
 
-    <p>Currently submitting a property in <b>{{ suburb.suburb }}, {{ suburb.metro }}.</b></p>
+    <!-- <p>Currently submitting a property in <b>{{ suburb.suburb }}, {{ suburb.metro }}.</b></p> -->
     <hr>
     <form [formGroup]="propertySubmissionForm" (submit)="submitProperty()">
         <ion-label><b><u>General Details:</u></b></ion-label>
@@ -82,14 +82,14 @@
             <ion-label floating>Street Name:</ion-label>
             <ion-input formControlName="streetName" type="text"></ion-input>
         </ion-item>
-        <ion-item hidden no-lines>
+        <!-- <ion-item hidden no-lines>
             <ion-label floating>Suburb/Town:</ion-label>
             <ion-input formControlName="suburb1" type="text" value=" {{ suburb.suburb }}">{{ suburb.suburb }}</ion-input>
         </ion-item>
         <ion-item hidden no-lines>
             <ion-label floating>City:</ion-label>
             <ion-input formControlName="city" type="text" value="{{ suburb.metro }}">{{ suburb.metro }}</ion-input>
-        </ion-item>
+        </ion-item> -->
         <!-- <ion-item no-lines>
             <ion-label floating>Province:</ion-label>
             <ion-input formControlName="province" type="text"></ion-input>
@@ -263,8 +263,9 @@
 
             <button ion-button block icon-left outline (click)="viewFile(file.url)">
         <ion-icon name="eye"></ion-icon>
-        {{ file.fullPath }}
+        {{ file.fullPath }} <!--this is what you will need to be submitted for each image to the Firebase database for referencing later-->
       </button>
+
 
             <button ion-button block outline icon-left color="danger" (click)="deleteFile(file)">
         <ion-icon name="trash"></ion-icon> Delete
@@ -279,5 +280,62 @@
       <ion-icon name="cloud-upload"></ion-icon>
     </button>
     </ion-fab>
+
+    <!-- <ion-grid>
+        <ion-row>
+            <ion-col>
+                <h3>Select files</h3>
+                <input type="file" ng2FileSelect [uploader]="uploader" multiple /><br/>
+            </ion-col>
+            <ion-col>
+                <h3>Upload queue</h3>
+                <p>Queue length: {{ uploader?.queue?.length }}</p>
+                <table class="table">
+                    <tbody>
+                        <tr *ngFor="let item of uploader.queue">
+                            <td><strong>{{ item?.file?.name }}</strong></td>
+                            <td *ngIf="uploader.isHTML5" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+                            <td *ngIf="uploader.isHTML5">
+                                <progress id="progressbar" max="100" value="{{ item.progress }}"> </progress>
+                                <div id="progressbarlabel">{{ item.progress }} %</div>
+                            </td>
+                            <td class="text-center">
+                                <span *ngIf="item.isCancel"><ion-icon name="close-circle"></ion-icon></span>
+                                <span *ngIf="item.isError"><ion-icon name="trash"></ion-icon></span>
+                            </td>
+                            <td nowrap>
+                                <button ion-button icon-right *ngIf="!item.isSuccess" (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">Upload<ion-icon name="cloud-upload"></ion-icon></button>
+                                <button ion-button icon-right *ngIf="!item.isSuccess" (click)="item.remove()" [ngStyle]="{'background-color': '#D2691E'}">Cancel<ion-icon name="close-circle"></ion-icon></button>
+                                <button ion-button icon-right *ngIf="!item.isSuccess" color="danger">Remove<ion-icon name="trash"></ion-icon></button>
+                                <button ion-button icon-right *ngIf="item.isSuccess" [ngStyle]="{'background-color': 'Green'}">Image Uploaded!<ion-icon name="checkmark-circle-outline"></ion-icon></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <div>
+                        Queue progress:
+                        <progress id="progressbar" [ngStyle]="{'background-color': 'Green'}" max="100" value="{{ uploader.progress }}"> </progress>
+                        <div id="progressbarlabel">{{ uploader.progress }} %</div>
+                    </div>
+                    <button ion-button icon-right (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">Upload all<ion-icon name="cloud-upload"></ion-icon></button>
+                    <button ion-button icon-right (click)="uploader.cancelAll()" [ngStyle]="{'background-color': '#D2691E'}" [disabled]="!uploader.isUploading">Cancel all<ion-icon name="close-circle"></ion-icon></button>
+                    <button ion-button icon-right color="danger" (click)="uploader.clearQueue()" [disabled]="!uploader.queue.length">Remove all<ion-icon name="trash"></ion-icon></button>
+                    <button type="button" class="btn btn-warning btn-s" (click)="uploader.cancelAll()" [disabled]="!uploader.isUploading"></button>
+                    <button type="button" class="btn btn-danger btn-s" (click)="uploader.clearQueue()" [disabled]="!uploader.queue.length">
+                </button>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid> -->
+
+    <h1>File Upload</h1>
+
+    <input type="file" (change)="onFileSelected($event)" />
+    <button type="button" (click)="onUpload()">Upload</button>
+
+    <!-- <img ng-src="imagesrc" class="avatar" ng-click="uploadProfilePic()" />
+    <button class="button button-primary" ng-click="uploadProfilePic()">Change Picture</button>
+    <input type="file" accept="image/*" id="upload" /> -->
 
 </ion-content>

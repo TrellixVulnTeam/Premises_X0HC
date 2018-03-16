@@ -20,6 +20,7 @@ import { MetroListPage } from '../pages/metro-list/metro-list'
 import { SuburbListPage } from '../pages/suburb-list/suburb-list'
 import { SuburbDetailPage } from '../pages/suburb-detail/suburb-detail'
 import { FileChooser } from '@ionic-native/file-chooser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
@@ -38,6 +39,10 @@ import { File } from '@ionic-native/file';
 import { Camera } from '@ionic-native/camera';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+
+// import { FileSelectDirective, FileDropDirective, FileUploader, FileUploadModule } from '../../node_modules/ng2-file-upload';
+
+import { FileUploadModule } from '../../node_modules/ng2-file-upload';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBPIuf4cdQ1TIII2tJ0YmCbdcdH99JGkHc",
@@ -71,7 +76,8 @@ class CameraMock extends Camera {
     ProfilePage,
     MetroListPage,
     SuburbListPage,
-    SuburbDetailPage
+    SuburbDetailPage,
+    // FileSelectDirective,
 
   ],
   imports: [
@@ -81,6 +87,9 @@ class CameraMock extends Camera {
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
+    FileUploadModule,
+    HttpClientModule,
+    // FileSelectDirective,
 
   ],
   bootstrap: [IonicApp],

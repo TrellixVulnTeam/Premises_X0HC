@@ -1,6 +1,6 @@
 webpackJsonp([4],{
 
-/***/ 635:
+/***/ 645:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19,7 +19,7 @@ var ProfilePageModule = (function () {
     function ProfilePageModule() {
     }
     ProfilePageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [],
             imports: [],
         })
