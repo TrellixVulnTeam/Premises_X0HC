@@ -1,8 +1,12 @@
 {
-  "name": "Premises",
-  "app_id": "",
-  "type": "ionic-angular",
-  "integrations": {
-    "cordova": {}
-  }
+    "name": "Premises",
+    "app_id": "",
+    "proxies": [{
+        "path": "/uploadFile",
+        "proxyUrl": "https://us-central1-premises-1bc9e.cloudfunctions.net"
+    }],
+    "type": "ionic-angular",
+    "integrations": {
+        "cordova": {}
+    }
 }
