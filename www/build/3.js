@@ -1,14 +1,14 @@
 webpackJsonp([3],{
 
-/***/ 646:
+/***/ 649:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PropertySubmissionPageModule", function() { return PropertySubmissionPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReviewSubmissionsPageModule", function() { return ReviewSubmissionsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__property_submission__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__review_submissions__ = __webpack_require__(188);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var PropertySubmissionPageModule = (function () {
-    function PropertySubmissionPageModule() {
+var ReviewSubmissionsPageModule = (function () {
+    function ReviewSubmissionsPageModule() {
     }
-    PropertySubmissionPageModule = __decorate([
+    ReviewSubmissionsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__property_submission__["a" /* PropertySubmissionPage */],
+                __WEBPACK_IMPORTED_MODULE_2__review_submissions__["a" /* ReviewSubmissionsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__property_submission__["a" /* PropertySubmissionPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__review_submissions__["a" /* ReviewSubmissionsPage */]),
             ],
         })
-    ], PropertySubmissionPageModule);
-    return PropertySubmissionPageModule;
+    ], ReviewSubmissionsPageModule);
+    return ReviewSubmissionsPageModule;
 }());
 
-//# sourceMappingURL=property-submission.module.js.map
+//# sourceMappingURL=review-submissions.module.js.map
 
 /***/ })
 

@@ -26,6 +26,7 @@ import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 
 import { ProfilePage } from '../pages/profile/profile'
+import { ReviewSubmissionsPage } from '../pages/review-submissions/review-submissions'
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -77,6 +78,7 @@ class CameraMock extends Camera {
     MetroListPage,
     SuburbListPage,
     SuburbDetailPage,
+    ReviewSubmissionsPage,
     // FileSelectDirective,
 
   ],
@@ -107,7 +109,8 @@ class CameraMock extends Camera {
     ProfilePage,
     MetroListPage,
     SuburbListPage,
-    SuburbDetailPage
+    SuburbDetailPage,
+    ReviewSubmissionsPage,
   ],
   providers: [
     StatusBar,

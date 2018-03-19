@@ -21,19 +21,20 @@
             <button ion-item detail-push (click)="goToSubmitProperty(suburb)">
             <h2> {{ suburb.suburb }} </h2>
             <p>{{ suburb.metro }}</p>
+            <!-- {{ suburb.key }} -->
             </button>
             <hr>
         </ion-item>
 
     </ion-list>
-
+    <!-- 
     <form [formGroup]="suburbSubmissionForm" (submit)="suburbSubmit()">
         <ion-label><b><u>Suburb Name:</u></b></ion-label>
         <ion-item no-lines>
             <ion-label floating>Suburb Name:</ion-label>
-            <!-- <ion-input formControlName="suburb" type="text"></ion-input> -->
+             <ion-input formControlName="suburb" type="text"></ion-input>
             <ion-input formControlName="suburb" type="text"></ion-input>
         </ion-item>
         <button ion-button block type="submit">Submit Property For Review</button>
-    </form>
+    </form> -->
 </ion-content>

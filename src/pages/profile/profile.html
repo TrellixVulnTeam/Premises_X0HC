@@ -12,9 +12,11 @@
 
 </ion-header>
 
-
 <ion-content padding>
 
+    <p>User Email Address: {{(profile | async)?.email}}</p>
+
     <button ion-button full (click)="logout()">Logout</button>
+    <button *ngIf="(profile | async)?.admin" ion-button full (click)="reviewSubmissions()">Review Submissions</button>
 
 </ion-content>
