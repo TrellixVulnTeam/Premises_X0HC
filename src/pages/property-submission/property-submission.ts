@@ -30,6 +30,7 @@ import * as moment from 'moment'
 export class PropertySubmissionPage {
 
   // public uploader: FileUploader;
+  public property: FirebaseListObservable<any[]>;
   files: Observable<any[]>;
   public authUser: any;
   propertySubmissionForm: FormGroup;
@@ -85,6 +86,7 @@ export class PropertySubmissionPage {
         authObserver.unsubscribe();
       }
       this.suburb = this.navParams.data;
+      this.property = this.navParams.data;
     });
    
   

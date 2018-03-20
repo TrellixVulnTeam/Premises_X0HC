@@ -39,10 +39,6 @@
             <ion-input formControlName="userEmail" type="text" value="{{(profile | async)?.email}}">{{(profile | async)?.email}}</ion-input>
         </ion-item>
         <ion-item hidden no-lines>
-            <ion-label floating>Contact Number:</ion-label>
-            <ion-input formControlName="contactNumber" type="text" value="{{(profile | async)?.email}}">{{(profile | async)?.email}}</ion-input>
-        </ion-item>
-        <ion-item hidden no-lines>
             <ion-label floating>Area Key For Submission Purposes:</ion-label>
             <ion-input formControlName="suburbKey" type="text" value="{{ suburb.key }}">{{ suburb.key }}</ion-input>
         </ion-item>
@@ -51,6 +47,10 @@
         <ion-item no-lines>
             <ion-label floating>Full Name:</ion-label>
             <ion-input formControlName="fullName" type="text"></ion-input>
+        </ion-item>
+        <ion-item no-lines>
+            <ion-label floating>Contact Number:</ion-label>
+            <ion-input formControlName="contactNumber" type="number" value="{{ contactNumber }}"></ion-input>
         </ion-item>
         <ion-item no-lines>
             <ion-label floating>Agency Name:</ion-label>
@@ -104,7 +104,7 @@
             </ion-item>
             <ion-item no-lines>
                 <ion-label>Other</ion-label>
-                <ion-radio item-left type="radio" value="Sectional Title"></ion-radio>
+                <ion-radio item-left type="radio" value="Other"></ion-radio>
             </ion-item>
             <ion-input formControlName="otherHolding" type="text" placeholder="Description of holding if other."></ion-input>
         </ion-list>
@@ -129,9 +129,9 @@
             <ion-label floating>Street Name:</ion-label>
             <ion-input formControlName="streetName" type="text"></ion-input>
         </ion-item>
-        <ion-item hidden no-lines>
+        <ion-item no-lines>
             <ion-label floating>Suburb/Town:</ion-label>
-            <ion-input formControlName="suburb1" type="text" value=" {{ suburb.suburb }}">{{ suburb.suburb }}</ion-input>
+            <ion-input hidden formControlName="suburb1" type="text" value=" {{suburb.suburb}}">{{ suburb.suburb }}</ion-input>
         </ion-item>
         <ion-item hidden no-lines>
             <ion-label floating>City:</ion-label>

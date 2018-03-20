@@ -13,12 +13,15 @@ import { ReviewPropertyDetailsPage } from '../review-property-details/review-pro
 })
 export class ReviewSubmissionsPage {
 
-
   public submittedList: Array<any>;
   public loadedSubmittedList: Array<any>;
   public submittedRef: firebase.database.Query;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public AFdb: AngularFireDatabase,
+  ) {
 
 
     this.submittedRef = firebase.database().ref('/Admin/SubmittedProperties');
