@@ -12,7 +12,19 @@
 
 </ion-header>
 
-
 <ion-content padding>
-    List of submitted properties here, with the ability to go into the detail of each one, and then edit it, and then submit it to the correct area. Which will move it from the submittee DB to the correct DB.
+    <u><h2>Properties For Sale</h2></u>
+    <ion-list *ngFor="let property of submittedList">
+        <ion-item *ngIf="property.rental == 'false'" tappable (click)="toReviewDetails(property)">
+            <b>Listing: </b>{{property.premisesType}}. {{property.otherProperty}}<br> <b>Location: </b>{{property.suburb1}}, {{property.city}}
+            <hr>
+        </ion-item>
+    </ion-list>
+    <u><h2>Properties To Rent</h2></u>
+    <ion-list *ngFor="let property of submittedList">
+        <ion-item *ngIf="property.rental == 'true'" tappable (click)="toReviewDetails(property)">
+            <b>Listing: </b>{{property.premisesType}}<br> <b>Location: </b>{{property.suburb1}}, {{property.city}}
+            <hr>
+        </ion-item>
+    </ion-list>
 </ion-content>

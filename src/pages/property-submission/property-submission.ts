@@ -15,10 +15,12 @@ import { AlertController } from 'ionic-angular'
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpEventType, HttpRequest, HttpParams } from '@angular/common/http';
 import * as firebase from 'firebase'
+import * as moment from 'moment'
 // import { FileSelectDirective, FileDropDirective, FileUploader } from '../../../node_modules/ng2-fileupload';
 // import { FileSelectDirective } from '../../../node_modules/ng2-fileupload';
-import { FileUploader } from '../../../node_modules/ng2-file-upload';
+// import { FileUploader } from '../../../node_modules/ng2-file-upload';
 
+//This page is for the submission of properties that are being sold, not rented.
 
 @IonicPage()
 @Component({
@@ -27,7 +29,7 @@ import { FileUploader } from '../../../node_modules/ng2-file-upload';
 })
 export class PropertySubmissionPage {
 
-  public uploader: FileUploader;
+  // public uploader: FileUploader;
   files: Observable<any[]>;
   public authUser: any;
   propertySubmissionForm: FormGroup;
@@ -41,9 +43,12 @@ export class PropertySubmissionPage {
   profileArray: any = [];
   profile: any;
   uid: any;
-
+  dateTime = moment().format();
   selectedFile = File = null;
-
+  public vatOptioned: boolean = true;
+  public tenantOption: boolean = true;
+  public rentPurchaseOption: boolean = true;
+  public rentVatOptioned: boolean = false;  
 
   constructor(public navCtrl: NavController,
     // public fileSelect: FileSelectDirective,
@@ -87,50 +92,61 @@ export class PropertySubmissionPage {
    //From there you need to push it into it's correct place, and be able to edit/approve/reject it from the admin dashboard.
 
     this.propertySubmissionForm = formBuilder.group({
-      fullName: [''],
-      userEmail: [''],
-      agencyName: [''], //If applicable.
-      premisesType: [''], //Radio Group Selector
-      otherProperty: [''], //If not listed
+      fullName: [],
+      userEmail: [],
+      contactNumber: [],
+      agencyName: [], //If applicable.
+      premisesType: [], //Radio Group Selector
+      otherProperty: [], //If not listed
       //Address Fields
-      unitNumber: [''],
-      complexName: [''],
-      streetNumber: [''],
-      streetName: [''],
-      suburb1: [''],
-      city: [''],
+      unitNumber: [],
+      complexName: [],
+      streetNumber: [],
+      streetName: [],
+      suburb1: [],
+      city: [],
       // province: [''],
-      postalCode: [''],
-      erf: [''],
+      postalCode: [],
+      erf: [],
       //Property Size Fields
-      factorySize: [''],
-      officeSize: [''],
-      totalSize: [''],
-      shopSize: [''],
-      underCoverParking: [''],
-      openParking: [''],
-      usableYard: [''],
-      sizeOfERF: [''],
+      factorySize: [],
+      officeSize: [],
+      totalSize: [],
+      shopSize: [],
+      underCoverParking: [],
+      openParking: [],
+      usableYard: [],
+      sizeOfERF: [],
       //Heights Field
-      floorToCeilingHeights: [''], 
-      accessDoorHeights: [''], 
+      floorToCeilingHeights: [], 
+      accessDoorHeights: [], 
       //AccessFields
-      truckAccess: [''],
-      power: [''],
-      amperage: [''],
+      truckAccess: [],
+      power: [],
+      amperage: [],
       // overheads: [''],
-      rates: [''],
-      levy: [''],
-      serviceCosts: [''],
-      otherOverheads: [''],
-      sellingPrice: [''],
-      VAT: [''],
-      description: [''],
-      imageUplaod: [''],
-      suburbKey: [''],
+      rates: [],
+      levy: [],
+      serviceCosts: [],
+      otherOverheads: [],
+      sellingPrice: [],
+      VAT: [],
+      thirdParty: [],
+      description: [],
+      imageUplaod: [],
+      holding: [],
+      otherHolding: [],
+      suburbKey: [],
+      dateTime: [this.dateTime],
+      rental: [],
+      rentalPrice: [],
+      pricePerBay: [],
+      ownerVatNumber: [],
+      escalation: [],
+      minLeaseTerm: [],
+      maxLeaseTerm: [],
     });
   
-
   }
 
   onFileSelected(event) {
@@ -163,5 +179,43 @@ export class PropertySubmissionPage {
   submitProperty() {
     this.adminDB.push(this.propertySubmissionForm.value)
   };
+
   
+  vatOption(vatOption) {
+    console.log("vatOption = ", vatOption);
+  }
+
+  vatToggle1() {
+    this.vatOptioned = true;
+  }
+
+  vatToggle2() {
+    this.vatOptioned = false;
+  }
+
+  rentVatToggle1() {
+    this.rentVatOptioned = true;
+  }
+
+  rentVatToggle2() {
+    this.rentVatOptioned = false;
+  }
+
+
+  tenantToggle1() {
+    this.tenantOption = true;
+  }
+
+  tenantToggle2() {
+    this.tenantOption = false;
+  }
+
+  rentPurchaseToggle1() {
+    this.rentPurchaseOption = true;
+  } //This is to assign all the rental fields
+
+  rentPurchaseToggle2() {
+    this.rentPurchaseOption = false;
+  } //This is to assign all the purchase fields
+
 }
