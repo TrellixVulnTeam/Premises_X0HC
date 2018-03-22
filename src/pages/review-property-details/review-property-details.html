@@ -205,185 +205,252 @@
             <ion-label floating>Usable Yard (sqm):</ion-label>
             <ion-input formControlName="usableYard" type="number" value="{{ property.usableYard }}">{{property.usableYard }}</ion-input>
         </ion-item>
-        <!-- <ion-item no-lines *ngIf="property.rental == 'false'">
+        <ion-item no-lines *ngIf="property.rental == 'false'">
             <ion-label floating>Size of ERF (sqm) (If Freehold):</ion-label>
-            <ion-input formControlName="sizeOfERF " type="number" value="{{ property.sizeOfERF }}">{{ property.sizeOfERF }}</ion-input>
-        </ion-item> -->
+            <ion-input formControlName="sizeOfERF" type="text" value="{{ property.sizeOfERF }}">{{ property.sizeOfERF }}</ion-input>
+        </ion-item>
+        <hr>
         <!-- End of property sizes -->
 
-        <!--End of form-->
-    </form>
-
-    <!--
-        
-        <hr>
-
-
-       
-        <hr>
+        <!--Property Heights-->
         <ion-item no-lines>
             <ion-label><u>Heights:</u></ion-label>
         </ion-item>
         <ion-item no-lines>
             <ion-label floating>Floor to Roof in Factory/Warehouse (m):</ion-label>
-            <ion-input formControlName="floorToCeilingHeights " type="number "></ion-input>
+            <ion-input formControlName="floorToCeilingHeights" type="number" value="{{ property.floorToCeilingHeights }}">{{ property.floorToCeilingHeights }}</ion-input>
         </ion-item>
         <ion-item no-lines>
             <ion-label floating>Height of Acccess Door (Roller Shutter) (m):</ion-label>
-            <ion-input formControlName="accessDoorHeights " type="number "></ion-input>
+            <ion-input formControlName="accessDoorHeights" type="number" value="{{ property.accessDoorHeights }}">{{ property.accessDoorHeights }}</ion-input>
         </ion-item>
         <hr>
+        <!--End of Property Heights-->
+
+        <!--Start of Truck Access-->
+
         <ion-item no-lines>
             <ion-label><u>Truck Access:</u></ion-label>
         </ion-item>
-        <ion-list radio-group formControlName="truckAccess ">
+        <ion-list radio-group formControlName="truckAccess" ngDefaultControl [(ngModel)]="property.truckAccess">
             <ion-item no-lines>
                 <ion-label>Rigid Trucks Can Be Offloaded at the premises</ion-label>
-                <ion-radio item-left type="radio " value="Rigid Trucks Only "></ion-radio>
+                <ion-radio item-left type="radio" value="Rigid Trucks Only"></ion-radio>
             </ion-item>
             <ion-item no-lines>
                 <ion-label>Semi Trailers Can Be Offloaded at the premises</ion-label>
-                <ion-radio item-left type="radio " value="Up To Semi Trucks "></ion-radio>
+                <ion-radio item-left type="radio" value="Up To Semi Trucks"></ion-radio>
             </ion-item>
             <ion-item no-lines>
                 <ion-label>Interlinks Can Be Offloaded at the premises</ion-label>
-                <ion-radio item-left type="radio " value="Up To Interlinks "></ion-radio>
+                <ion-radio item-left type="radio" value="Up To Interlinks"></ion-radio>
             </ion-item>
             <ion-item no-lines>
                 <ion-label>None of the above applies.</ion-label>
-                <ion-radio item-left type="radio " value="No Truck Can Be Offloaded "></ion-radio>
+                <ion-radio item-left type="radio" value="No Truck Can Be Offloaded"></ion-radio>
             </ion-item>
         </ion-list>
         <hr>
+        <!--End of Truck Access-->
+
+        <!-- Start Of Property Power Situation -->
+
         <ion-item no-lines>
             <ion-label><u>Power:</u></ion-label>
         </ion-item>
-        <ion-list radio-group formControlName="power ">
+        <ion-list radio-group formControlName="power" ngDefaultControl [(ngModel)]="property.power">
             <ion-item no-lines>
                 <ion-label>Single Phase</ion-label>
-                <ion-radio item-left type="radio " value="Single Phase "></ion-radio>
+                <ion-radio item-left type="radio" value="Single Phase"></ion-radio>
             </ion-item>
             <ion-item no-lines>
                 <ion-label>Three Phase</ion-label>
-                <ion-radio item-left type="radio " value="Three Phase "></ion-radio>
+                <ion-radio item-left type="radio" value="Three Phase"></ion-radio>
             </ion-item>
         </ion-list>
         <ion-item no-lines>
             <ion-label floating>Amperage:</ion-label>
-            <ion-input formControlName="amperage " type="number "></ion-input>
+            <ion-input formControlName="amperage" type="text" value="{{ property.amperage }}">{{ property.amperage }}</ion-input>
         </ion-item>
         <p>Please check your circuit breaker for the amperage.</p>
         <hr>
+        <!-- End Of Property Power Situation -->
+
+        <!-- Start of selling/rental price -->
         <ion-item no-lines>
             <ion-label><u>Cost:</u></ion-label>
         </ion-item>
-        <ion-item no-lines *ngIf="rentPurchaseOption==f alse ">
+        <ion-item no-lines *ngIf="property.rental == 'false'">
             <ion-label floating>Selling Price (ZAR):</ion-label>
-            <ion-input formControlName="sellingPrice " type="number "></ion-input>
+            <ion-input formControlName="sellingPrice" type="number" value="{{ property.sellingPrice }}">{{ property.sellingPrice }}</ion-input>
         </ion-item>
-        <ion-item no-lines *ngIf="rentPurchaseOption==t rue ">
+        <ion-item no-lines *ngIf="property.rental == 'true'">
             <ion-label floating>Rental Price (ZAR):</ion-label>
-            <ion-input formControlName="rentalPrice " type="number "></ion-input>
+            <ion-input formControlName="rentalPrice" type="number" value="{{ property.rentalPrice }}">{{ property.rentalPrice }}</ion-input>
         </ion-item>
-        <ion-item no-lines *ngIf="rentPurchaseOption==t rue ">
+        <ion-item no-lines *ngIf="property.rental == 'true'">
             <ion-label floating>Price Per Parking Bay (ZAR):</ion-label>
-            <ion-input formControlName="pricePerBay " type="number "></ion-input>
+            <ion-input formControlName="pricePerBay" type="number" value="{{ property.pricePerBay }}">{{ property.pricePerBay }}</ion-input>
         </ion-item>
         <hr>
-        <ion-item no-lines *ngIf="rentPurchaseOption==f alse ">
+        <!-- End of selling/rental price -->
+
+        <!-- Start of extra costs section -->
+        <ion-item no-lines *ngIf="property.rental == 'false'">
             <ion-label><u>Overheads:</u></ion-label>
         </ion-item>
-        <ion-item no-lines *ngIf="rentPurchaseOption==t rue ">
+        <ion-item no-lines *ngIf="property.rental == 'true'">
             <ion-label><u>Additional Costs:</u></ion-label>
         </ion-item>
         <ion-item no-lines>
             <ion-label floating>Rates (ZAR):</ion-label>
-            <ion-input formControlName="rates " type="number "></ion-input>
+            <ion-input formControlName="rates" type="number" value="{{ property.rates }}">{{ property.rates }}</ion-input>
         </ion-item>
         <ion-item no-lines>
             <ion-label floating>Levy (ZAR):</ion-label>
-            <ion-input formControlName="levy " type="number "></ion-input>
+            <ion-input formControlName="levy" type="number" value="{{ property.levy }}">{{ property.levy }}</ion-input>
         </ion-item>
         <ion-item no-lines>
             <ion-label floating>Contribution to Service Costs (ZAR):</ion-label>
-            <ion-input formControlName="serviceCosts " type="number "></ion-input>
+            <ion-input formControlName="serviceCosts" type="number" value="{{ property.serviceCosts }}">{{ property.serviceCosts }}</ion-input>
         </ion-item>
         <ion-item no-lines>
             <ion-label floating>Other Overheads:</ion-label>
-            <ion-input formControlName="otherOverheads " type="text "></ion-input>
+            <ion-input formControlName="otherOverheads" type="text" value="{{ property.otherOverheads }}">{{ property.otherOverheads }}</ion-input>
         </ion-item>
         <hr>
+        <!-- End of extra costs section -->
+
+        <!-- Start of VAT section -->
+
         <ion-item no-lines>
             <ion-label><u>Is The of Owner of the Property a VAT Vendor?</u></ion-label>
         </ion-item>
-        <ion-list radio-group formControlName="VAT ">
-            <ion-item no-lines *ngIf="rentPurchaseOption==f alse ">
+        <ion-list radio-group formControlName="VAT" ngDefaultControl [(ngModel)]="property.VAT">
+            <ion-item no-lines *ngIf="property.rental == 'false'">
                 <ion-label>Yes</ion-label>
-                <ion-radio item-left type="radio " value="Owner Is A VAT Vendor "></ion-radio>
+                <ion-radio item-left type="radio" value="Owner Is A VAT Vendor"></ion-radio>
             </ion-item>
-            <ion-item no-lines *ngIf="rentPurchaseOption==f alse ">
+            <ion-item no-lines *ngIf="property.rental == 'false'">
                 <ion-label>No</ion-label>
-                <ion-radio item-left type="radio " value="Owner Is Not A VAT Vendor "></ion-radio>
+                <ion-radio item-left type="radio" value="Owner Is Not A VAT Vendor"></ion-radio>
             </ion-item>
-            <ion-item no-lines *ngIf="vatOptioned==f alse ">
-                <p>Transfer Duty Applies</p>
+            <ion-item>
+                <p>If No, Transfer Duty Applies</p>
             </ion-item>
-            <ion-item no-lines *ngIf="rentPurchaseOption==t rue ">
+            <ion-item no-lines *ngIf="property.rental == 'true'">
                 <ion-label>Yes</ion-label>
-                <ion-radio item-left type="radio " value="Owner Is A VAT Vendor "></ion-radio>
+                <ion-radio item-left type="radio" value="Owner Is A VAT Vendor"></ion-radio>
             </ion-item>
-            <ion-item no-lines *ngIf="rentPurchaseOption==t rue ">
+            <ion-item no-lines *ngIf="property.rental == 'true'">
                 <ion-label>No</ion-label>
-                <ion-radio item-left type="radio " value="Owner Is A Not VAT Vendor "></ion-radio>
+                <ion-radio item-left type="radio" value="Owner Is A Not VAT Vendor"></ion-radio>
             </ion-item>
-            <ion-item no-lines *ngIf="rentVatOptioned==t rue ">
+            <ion-item no-lines>
                 <ion-label floating>Owner VAT Number:</ion-label>
-                <ion-input formControlName="ownerVatNumber " type="text "></ion-input>
+                <ion-input formControlName="ownerVatNumber" type="text" value="{{ property.ownerVatNumber }}">{{ property.ownerVatNumber }}</ion-input>
             </ion-item>
         </ion-list>
-        <ion-list radio-group formControlName="thirdParty " *ngIf="rentPurchaseOption==f alse ">
+        <ion-list radio-group formControlName="thirdParty" *ngIf="property.rental == 'false'" ngDefaultControl [(ngModel)]="property.thirdParty">
             <ion-item no-lines>
                 <ion-label><u>Are The Presmises Tenanted By A Third Party?</u></ion-label>
             </ion-item>
             <ion-item no-lines>
                 <ion-label>Yes</ion-label>
-                <ion-radio item-left type="radio " value="Third Party Tenant "></ion-radio>
+                <ion-radio item-left type="radio" value="Third Party Tenant"></ion-radio>
             </ion-item>
             <ion-item no-lines>
                 <ion-label>No</ion-label>
-                <ion-radio item-left type="radio " value="No Third Party Tenant "></ion-radio>
+                <ion-radio item-left type="radio" value="No Third Party Tenant"></ion-radio>
             </ion-item>
-            <ion-item no-lines *ngIf="tenantOption==f alse ">
-                <p>Transaction Cannot Be Zero Rated</p>
+            <ion-item no-lines>
+                <p> If no, Transaction Cannot Be Zero Rated</p>
             </ion-item>
         </ion-list>
-        <ion-item no-lines *ngIf="rentPurchaseOption==t rue ">
+        <hr>
+        <!-- End of VAT section -->
+
+        <!-- Start of Rental Options -->
+        <ion-item no-lines *ngIf="property.rental == 'true'">
             <ion-label><u>Lease Terms</u></ion-label>
         </ion-item>
-        <ion-item no-lines *ngIf="rentPurchaseOption==t rue ">
+        <ion-item no-lines *ngIf="property.rental == 'true'">
             <ion-label floating>% Annual Escalation in Rent:</ion-label>
-            <ion-input formControlName="escalation " type="text "></ion-input>
+            <ion-input formControlName="escalation" type="text" value="{{ property.escalation }}">{{ property.escalation }}</ion-input>
         </ion-item>
-        <ion-item no-lines *ngIf="rentPurchaseOption==t rue ">
+        <ion-item no-lines *ngIf="property.rental == 'true'">
             <ion-label floating>Minimum Term Of Lease:</ion-label>
-            <ion-input formControlName="minLeaseTerm " type="text "></ion-input>
+            <ion-input formControlName="minLeaseTerm" type="text" value="{{ property.minLeaseTerm }}">{{ property.minLeaseTerm }}</ion-input>
         </ion-item>
-        <ion-item no-lines *ngIf="rentPurchaseOption==t rue ">
+        <ion-item no-lines *ngIf="property.rental == 'true'">
             <ion-label floating>Maximum Term Of Lease:</ion-label>
-            <ion-input formControlName="maxLeaseTerm " type="text "></ion-input>
+            <ion-input formControlName="maxLeaseTerm" type="text" value="{{ property.maxLeaseTerm }}">{{ property.maxLeaseTerm }}</ion-input>
         </ion-item>
         <hr>
+        <!-- End of Rental Options -->
+
+        <!-- Start of Property Description -->
         <ion-item no-lines>
             <ion-label><u>Property Description:</u></ion-label>
         </ion-item>
-        <ion-textarea formControlName="description " placeholder="Describe the property here: "></ion-textarea>
+        <ion-textarea formControlName="description" placeholder="Describe the property here:" value="{{ property.description }}">
+            <p>{{ property.description }}</p>
+        </ion-textarea>
         <hr>
-        <h1>File Upload</h1>
 
-         <input type="file " (change)="onFileSelected($event) " /> 
-         <button ion-button block type="button " (click)="onUpload() ">Upload</button> 
+        <!-- Start of Uploaded Images -->
+        <ion-item no-lines>
+            <ion-label><u>Property Images:</u></ion-label>
+        </ion-item>
+        <ion-item no-lines>
+            <img src="{{ property.img1 }}">
+        </ion-item>
+        <ion-item no-lines>
+            <img src="{{ property.img2 }}">
+        </ion-item>
+        <ion-item no-lines>
+            <img src="{{ property.img3 }}">
+        </ion-item>
+        <ion-item no-lines>
+            <img src="{{ property.img4 }}">
+        </ion-item>
+        <ion-item no-lines>
+            <img src="{{ property.img5 }}">
+        </ion-item>
+        <ion-item no-lines>
+            <img src="{{ property.img6 }}">
+        </ion-item>
+        <ion-item no-lines>
+            <img src="{{ property.img7 }}">
+        </ion-item>
+        <ion-item no-lines>
+            <img src="{{ property.img8 }}">
+        </ion-item>
+        <ion-item no-lines>
+            <img src="{{ property.img9 }}">
+        </ion-item>
+        <ion-item no-lines>
+            <img src="{{ property.img10 }}">
+        </ion-item>
+        <!-- End of Uploaded Images -->
+
+        <!-- Start of Submission Button -->
+
+        <!-- Button to push the form to the right city, under the right category - sale or rental -->
+
+        <!-- End of Submission Button -->
+
+        <!--End of form-->
+    </form>
+
+
+    <!--
+
+
+         <input type="file" (change)="onFileSelected($event)" /> 
+         <button ion-button block type="button" (click)="onUpload()">Upload</button> 
          End of file upload 
-        <button ion-button block type="submit ">Submit Property For Review</button>
+        <button ion-button block type="submit">Submit Property For Review</button>
      -->
 
     <!--Don't forget to create inputs for the stuff you aren't allowing to be changed on this form.-->
