@@ -1,23 +1,19 @@
-webpackJsonp([11],{
+webpackJsonp([12],{
 
-/***/ 106:
+/***/ 103:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PropertySubmissionPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_database__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_storage__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_forms__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_in_app_browser__ = __webpack_require__(457);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_data__ = __webpack_require__(459);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_common_http__ = __webpack_require__(460);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_moment__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__main_buy_search_main_buy_search__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__main_rent_search_main_rent_search__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__property_submission_property_submission__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__metro_list_metro_list__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_auth__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angularfire2_auth__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__login_login__ = __webpack_require__(44);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -27,6 +23,86 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
+
+
+
+
+
+
+
+
+var HomePage = (function () {
+    function HomePage(navCtrl, authData, afAuth) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.authData = authData;
+        var authObserver = afAuth.authState.subscribe(function (user) {
+            if (user) {
+                console.log("auth");
+                // this.navCtrl.setRoot(TabsPage);
+                authObserver.unsubscribe();
+            }
+            else {
+                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__login_login__["a" /* LoginPage */]);
+                authObserver.unsubscribe();
+            }
+        });
+    }
+    HomePage.prototype.toMainBuySearch = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__main_buy_search_main_buy_search__["a" /* MainBuySearchPage */]);
+    };
+    HomePage.prototype.toMainRentSearch = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__main_rent_search_main_rent_search__["a" /* MainRentSearchPage */]);
+    };
+    HomePage.prototype.toPropertySubmission = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__property_submission_property_submission__["a" /* PropertySubmissionPage */]);
+    };
+    HomePage.prototype.toMetroList = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__metro_list_metro_list__["a" /* MetroListPage */]);
+    };
+    HomePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-home',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/home/home.html"*/'<ion-header>\n    <!-- <ion-navbar>\n    <ion-title>Home</ion-title>\n  </ion-navbar> -->\n</ion-header>\n\n<ion-content class="masters">\n    <div class="landing-container">\n        <img class="logo" src="./assets/imgs/logo.png" />\n        <h2>Welcome to Premises!</h2>\n        <p>\n            Click the option that best describes you below:\n        </p>\n        <ion-grid>\n            <ion-row>\n                <!--I need to rent out a property-->\n                <ion-col tappable col-6 col-sm>\n                    <ion-card (click)="toMainRentSearch()">\n                        <img src="./assets/imgs/logo.png" />\n                        <ion-card-header text-wrap>\n                            Need to Rent?\n                        </ion-card-header>\n                        <ion-card-content>\n                            Click Here\n                        </ion-card-content>\n                    </ion-card>\n                </ion-col>\n                <!--I need to buy a property-->\n                <ion-col tappable col-6 col-sm>\n                    <ion-card (click)="toMainBuySearch()">\n                        <img src="./assets/imgs/logo.png" />\n                        <ion-card-header text-wrap>\n                            Need to Buy?\n                        </ion-card-header>\n                        <ion-card-content>\n                            Click Here\n                        </ion-card-content>\n                    </ion-card>\n                </ion-col>\n                <!--I want to sell a property-->\n                <!-- <ion-col tappable col-6 col-sm>\n                    <ion-card (click)="toMetroList()">\n                        <img src=" ./assets/imgs/logo.png " />\n                        <ion-card-header text-wrap>\n                            Need to Sell or Let out a property?\n                        </ion-card-header>\n                        <ion-card-content>\n                            Click Here\n                        </ion-card-content>\n                    </ion-card>\n                </ion-col> -->\n            </ion-row>\n        </ion-grid>\n        <button ion-button type="button" mode="ios" block color="primary" outline margin-top (click)="toMetroList()">Submit A Proeprty For Listing</button>\n        <button ion-button type="button" mode="ios" block color="dark" outline margin-top>Get In Touch With Us</button>\n    </div>\n    <p align="center ">Copyright 2018: Premises (PTY) Ltd</p>\n</ion-content>'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/home/home.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_6__providers_auth_auth__["a" /* AuthProvider */], __WEBPACK_IMPORTED_MODULE_7_angularfire2_auth__["a" /* AngularFireAuth */]])
+    ], HomePage);
+    return HomePage;
+}());
+
+//# sourceMappingURL=home.js.map
+
+/***/ }),
+
+/***/ 108:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PropertySubmissionPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_database__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_storage__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_forms__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_in_app_browser__ = __webpack_require__(458);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_data__ = __webpack_require__(460);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_common_http__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_moment__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__home_home__ = __webpack_require__(103);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
 
 
 
@@ -100,7 +176,7 @@ var PropertySubmissionPage = (function () {
             userEmail: [],
             contactNumber: [],
             agencyName: [],
-            premisesType: [],
+            premisesType: ['', __WEBPACK_IMPORTED_MODULE_7__angular_forms__["f" /* Validators */].required],
             otherProperty: [],
             //Address Fields
             unitNumber: [],
@@ -125,8 +201,8 @@ var PropertySubmissionPage = (function () {
             floorToCeilingHeights: [],
             accessDoorHeights: [],
             //AccessFields
-            truckAccess: [],
-            power: [],
+            truckAccess: ['', __WEBPACK_IMPORTED_MODULE_7__angular_forms__["f" /* Validators */].required],
+            power: ['', __WEBPACK_IMPORTED_MODULE_7__angular_forms__["f" /* Validators */].required],
             amperage: [],
             // overheads: [''],
             rates: [],
@@ -134,21 +210,31 @@ var PropertySubmissionPage = (function () {
             serviceCosts: [],
             otherOverheads: [],
             sellingPrice: [],
-            VAT: [],
+            VAT: ['', __WEBPACK_IMPORTED_MODULE_7__angular_forms__["f" /* Validators */].required],
             thirdParty: [],
             description: [],
             imageUplaod: [],
-            holding: [],
+            holding: ['', __WEBPACK_IMPORTED_MODULE_7__angular_forms__["f" /* Validators */].required],
             otherHolding: [],
             suburbKey: [],
             dateTime: [this.dateTime],
-            rental: [],
+            rental: ['', __WEBPACK_IMPORTED_MODULE_7__angular_forms__["f" /* Validators */].required],
             rentalPrice: [],
             pricePerBay: [],
             ownerVatNumber: [],
             escalation: [],
             minLeaseTerm: [],
             maxLeaseTerm: [],
+            img1: [],
+            img2: [],
+            img3: [],
+            img4: [],
+            img5: [],
+            img6: [],
+            img7: [],
+            img8: [],
+            img9: [],
+            img10: [],
         });
     }
     PropertySubmissionPage.prototype.onFileSelected = function (event) {
@@ -176,8 +262,20 @@ var PropertySubmissionPage = (function () {
     //  https://firebasestorage.googleapis.com/v0/b/premises-1bc9e.appspot.com/o/resized-andrew-price-render12-final.jpg?alt=media&token=5f3a8c73-b32b-4016-8bef-16a07a4d234b
     PropertySubmissionPage.prototype.submitProperty = function () {
         this.adminDB.push(this.propertySubmissionForm.value);
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_12__home_home__["a" /* HomePage */]);
     };
     ;
+    PropertySubmissionPage.prototype.presentToast = function () {
+        var toast = this.toastCtrl.create({
+            message: 'Property Was Submitted Succesfully',
+            duration: 5000,
+            position: 'middle'
+        });
+        toast.onDidDismiss(function () {
+            console.log('Dismissed toast');
+        });
+        toast.present();
+    };
     PropertySubmissionPage.prototype.vatOption = function (vatOption) {
         console.log("vatOption = ", vatOption);
     };
@@ -207,7 +305,7 @@ var PropertySubmissionPage = (function () {
     }; //This is to assign all the purchase fields
     PropertySubmissionPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-property-submission',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/property-submission/property-submission.html"*/'<ion-header>\n\n    <ion-navbar>\n        <ion-title>Submit Your Property</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n    <p>Currently submitting a property in <b>{{ suburb.suburb }}, {{ suburb.metro }}.</b></p>\n    <hr>\n    <form [formGroup]="propertySubmissionForm" (submit)="submitProperty()">\n        <!-- <ion-item no-lines>\n            <ion-label floating>Full Name:</ion-label>\n            <ion-input formControlName="suburb" type="text"></ion-input>\n        </ion-item> -->\n        <!--pick if selling propety or seeking tennant-->\n        <ion-list radio-group formControlName="rental">\n            <ion-label><b><u>Listing Type:</u></b></ion-label>\n            <ion-item no-lines>\n                <ion-label>I need to find a tenant</ion-label>\n                <ion-radio item-left type="radio" value=true (click)="rentPurchaseToggle1()"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>I want to sell a property</ion-label>\n                <ion-radio item-left type="radio" value=false (click)="rentPurchaseToggle2()"></ion-radio>\n            </ion-item>\n        </ion-list>\n        <hr>\n        <!--Hidden HTML info to be submitted-->\n        <ion-item hidden no-lines>\n            <ion-label floating>Date of Submission:</ion-label>\n            <ion-input displayFormat="DD/MM/YYYY" value="{{ dateTime }}" formControlName="dateTime"></ion-input>\n        </ion-item>\n        <ion-item hidden no-lines>\n            <ion-label floating>Email Address:</ion-label>\n            <ion-input formControlName="userEmail" type="text" value="{{(profile | async)?.email}}">{{(profile | async)?.email}}</ion-input>\n        </ion-item>\n        <ion-item hidden no-lines>\n            <ion-label floating>Area Key For Submission Purposes:</ion-label>\n            <ion-input formControlName="suburbKey" type="text" value="{{ suburb.key }}">{{ suburb.key }}</ion-input>\n        </ion-item>\n        <!-- Personal details-->\n        <ion-label><b><u>Personal Details:</u></b></ion-label>\n        <ion-item no-lines>\n            <ion-label floating>Full Name:</ion-label>\n            <ion-input formControlName="fullName" type="text"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Contact Number:</ion-label>\n            <ion-input formControlName="contactNumber" type="number" value="{{ contactNumber }}"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Agency Name:</ion-label>\n            <ion-input formControlName="agencyName" type="text"></ion-input>\n        </ion-item>\n        <hr>\n        <!--Details of property-->\n        <ion-list radio-group formControlName="premisesType">\n            <ion-label><b><u>Premises Type:</u></b></ion-label>\n            <ion-item no-lines>\n                <ion-label>Mini factory up to 500sqm</ion-label>\n                <ion-radio item-left type="radio" value="Mini factory up to 500sqm"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>A Factory/Warehouse over 500sqm</ion-label>\n                <ion-radio item-left type="radio" value="A factory/warehouse over 500 sqm"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Offices</ion-label>\n                <ion-radio item-left type="radio" value="Offices"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Retail</ion-label>\n                <ion-radio item-left type="radio" value="Retail"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>A mixed use building</ion-label>\n                <ion-radio item-left type="radio" value="A mixed use building"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>A stand alone house to be used as offices</ion-label>\n                <ion-radio item-left type="radio" value="A stand alone house to be used as offices"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Other</ion-label>\n                <ion-radio item-left type="radio" value="Other"></ion-radio>\n            </ion-item>\n            <ion-input formControlName="otherProperty" type="text" placeholder="Description of property if other."></ion-input>\n        </ion-list>\n        <hr>\n        <!--Holding Type-->\n        <ion-list radio-group formControlName="holding">\n            <ion-label><b><u>Holding:</u></b></ion-label>\n            <ion-item no-lines>\n                <ion-label>Freehold</ion-label>\n                <ion-radio item-left type="radio" value="Freehold"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Sectional Title</ion-label>\n                <ion-radio item-left type="radio" value="Sectional Title"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Other</ion-label>\n                <ion-radio item-left type="radio" value="Other"></ion-radio>\n            </ion-item>\n            <ion-input formControlName="otherHolding" type="text" placeholder="Description of holding if other."></ion-input>\n        </ion-list>\n        <hr>\n        <!--Property Physical Address-->\n        <ion-item no-lines>\n            <ion-label><u>Property Address:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Unit Number:</ion-label>\n            <ion-input formControlName="unitNumber" type="text"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Complex Name:</ion-label>\n            <ion-input formControlName="complexName" type="text"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Street Number:</ion-label>\n            <ion-input formControlName="streetNumber" type="text"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Street Name:</ion-label>\n            <ion-input formControlName="streetName" type="text"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Suburb/Town:</ion-label>\n            <ion-input hidden formControlName="suburb1" type="text" value=" {{suburb.suburb}}">{{ suburb.suburb }}</ion-input>\n        </ion-item>\n        <ion-item hidden no-lines>\n            <ion-label floating>City:</ion-label>\n            <ion-input formControlName="city" type="text" value="{{ suburb.metro }}">{{ suburb.metro }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Postal Code:</ion-label>\n            <ion-input formControlName="postalCode" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>ERF Number:</ion-label>\n            <ion-input formControlName="erf" type="text"></ion-input>\n        </ion-item>\n        <hr>\n        <!--Property Sizes fields for Purchase-->\n        <ion-item no-lines *ngIf="rentPurchaseOption == false">\n            <ion-label><u>Property Sizes:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines *ngIf="rentPurchaseOption == true">\n            <ion-label><u>Lettable Space:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Factory/Warehouse Size (sqm):</ion-label>\n            <ion-input formControlName="factorySize" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Office Size (sqm):</ion-label>\n            <ion-input formControlName="officeSize" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Total Factory and Office Size (sqm):</ion-label>\n            <ion-input formControlName="totalSize" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Shop Size (sqm) (If Retail):</ion-label>\n            <ion-input formControlName="shopSize" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Undercover Parking (Bays):</ion-label>\n            <ion-input formControlName="underCoverParking" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Open Parking (Bays):</ion-label>\n            <ion-input formControlName="openParking" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Usable Yard (sqm):</ion-label>\n            <ion-input formControlName="usableYard" type="number"></ion-input>\n        </ion-item>\n        <!-- Below only present if sale selected-->\n        <ion-item no-lines *ngIf="rentPurchaseOption == false">\n            <ion-label floating>Size of ERF (sqm) (If Freehold):</ion-label>\n            <ion-input formControlName="sizeOfERF" type="number"></ion-input>\n        </ion-item>\n        <hr>\n        <ion-item no-lines>\n            <ion-label><u>Heights:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Floor to Roof in Factory/Warehouse (m):</ion-label>\n            <ion-input formControlName="floorToCeilingHeights" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Height of Acccess Door (Roller Shutter) (m):</ion-label>\n            <ion-input formControlName="accessDoorHeights" type="number"></ion-input>\n        </ion-item>\n        <hr>\n        <ion-item no-lines>\n            <ion-label><u>Truck Access:</u></ion-label>\n        </ion-item>\n        <ion-list radio-group formControlName="truckAccess">\n            <ion-item no-lines>\n                <ion-label>Rigid Trucks Can Be Offloaded at the premises</ion-label>\n                <ion-radio item-left type="radio" value="Rigid Trucks Only"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Semi Trailers Can Be Offloaded at the premises</ion-label>\n                <ion-radio item-left type="radio" value="Up To Semi Trucks"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Interlinks Can Be Offloaded at the premises</ion-label>\n                <ion-radio item-left type="radio" value="Up To Interlinks"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>None of the above applies.</ion-label>\n                <ion-radio item-left type="radio" value="No Truck Can Be Offloaded"></ion-radio>\n            </ion-item>\n        </ion-list>\n        <hr>\n        <ion-item no-lines>\n            <ion-label><u>Power:</u></ion-label>\n        </ion-item>\n        <ion-list radio-group formControlName="power">\n            <ion-item no-lines>\n                <ion-label>Single Phase</ion-label>\n                <ion-radio item-left type="radio" value="Single Phase"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Three Phase</ion-label>\n                <ion-radio item-left type="radio" value="Three Phase"></ion-radio>\n            </ion-item>\n        </ion-list>\n        <ion-item no-lines>\n            <ion-label floating>Amperage:</ion-label>\n            <ion-input formControlName="amperage" type="text"></ion-input>\n        </ion-item>\n        <p>Please check your circuit breaker for the amperage.</p>\n        <hr>\n        <ion-item no-lines>\n            <ion-label><u>Cost:</u></ion-label>\n        </ion-item>\n        <!-- Selling price if sale, rental fields if looking for tenant-->\n        <ion-item no-lines *ngIf="rentPurchaseOption == false">\n            <ion-label floating>Selling Price (ZAR):</ion-label>\n            <ion-input formControlName="sellingPrice" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines *ngIf="rentPurchaseOption == true">\n            <ion-label floating>Rental Price (ZAR):</ion-label>\n            <ion-input formControlName="rentalPrice" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines *ngIf="rentPurchaseOption == true">\n            <ion-label floating>Price Per Parking Bay (ZAR):</ion-label>\n            <ion-input formControlName="pricePerBay" type="number"></ion-input>\n        </ion-item>\n        <hr>\n        <!--If purchase option, Overheads label, if rental, Additonal costs label-->\n        <ion-item no-lines *ngIf="rentPurchaseOption == false">\n            <ion-label><u>Overheads:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines *ngIf="rentPurchaseOption == true">\n            <ion-label><u>Additional Costs:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Rates (ZAR):</ion-label>\n            <ion-input formControlName="rates" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Levy (ZAR):</ion-label>\n            <ion-input formControlName="levy" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Contribution to Service Costs (ZAR):</ion-label>\n            <ion-input formControlName="serviceCosts" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Other Overheads:</ion-label>\n            <ion-input formControlName="otherOverheads" type="text"></ion-input>\n        </ion-item>\n        <hr>\n        <ion-item no-lines>\n            <ion-label><u>Is The of Owner of the Property a VAT Vendor?</u></ion-label>\n        </ion-item>\n        <ion-list radio-group formControlName="VAT">\n            <!--VAT options for the sale situation-->\n            <ion-item no-lines *ngIf="rentPurchaseOption == false">\n                <ion-label>Yes</ion-label>\n                <ion-radio item-left type="radio" value="Owner Is A VAT Vendor" (click)="vatToggle1()"></ion-radio>\n            </ion-item>\n            <ion-item no-lines *ngIf="rentPurchaseOption == false">\n                <ion-label>No</ion-label>\n                <ion-radio item-left type="radio" value="Owner Is Not A VAT Vendor" (click)="vatToggle2()"></ion-radio>\n            </ion-item>\n            <ion-item no-lines *ngIf="vatOptioned == false">\n                <p>Transfer Duty Applies</p>\n            </ion-item>\n            <!--VAT options for the rental situation-->\n            <ion-item no-lines *ngIf="rentPurchaseOption == true">\n                <ion-label>Yes</ion-label>\n                <ion-radio item-left type="radio" value="Owner Is A VAT Vendor" (click)="rentVatToggle1()"></ion-radio>\n            </ion-item>\n            <ion-item no-lines *ngIf="rentPurchaseOption == true">\n                <ion-label>No</ion-label>\n                <ion-radio item-left type="radio" value="Owner Is A Not VAT Vendor" (click)="rentVatToggle2()"></ion-radio>\n            </ion-item>\n            <ion-item no-lines *ngIf="rentVatOptioned == true">\n                <ion-label floating>Owner VAT Number:</ion-label>\n                <ion-input formControlName="ownerVatNumber" type="text"></ion-input>\n            </ion-item>\n        </ion-list>\n        <!-- Third Party Tenant Options-->\n        <ion-list radio-group formControlName="thirdParty" *ngIf="rentPurchaseOption == false">\n            <ion-item no-lines>\n                <ion-label><u>Are The Presmises Tenanted By A Third Party?</u></ion-label>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Yes</ion-label>\n                <ion-radio item-left type="radio" value="Third Party Tenant" (click)="tenantToggle1()"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>No</ion-label>\n                <ion-radio item-left type="radio" value="No Third Party Tenant" (click)="tenantToggle2()"></ion-radio>\n            </ion-item>\n            <ion-item no-lines *ngIf="tenantOption == false">\n                <p>Transaction Cannot Be Zero Rated</p>\n            </ion-item>\n        </ion-list>\n        <!-- Lease Terms - Letting Only-->\n        <ion-item no-lines *ngIf="rentPurchaseOption == true">\n            <ion-label><u>Lease Terms</u></ion-label>\n        </ion-item>\n        <ion-item no-lines *ngIf="rentPurchaseOption == true">\n            <ion-label floating>% Annual Escalation in Rent:</ion-label>\n            <ion-input formControlName="escalation" type="text"></ion-input>\n        </ion-item>\n        <ion-item no-lines *ngIf="rentPurchaseOption == true">\n            <ion-label floating>Minimum Term Of Lease:</ion-label>\n            <ion-input formControlName="minLeaseTerm" type="text"></ion-input>\n        </ion-item>\n        <ion-item no-lines *ngIf="rentPurchaseOption == true">\n            <ion-label floating>Maximum Term Of Lease:</ion-label>\n            <ion-input formControlName="maxLeaseTerm" type="text"></ion-input>\n        </ion-item>\n        <!--Property Description-->\n        <hr>\n        <ion-item no-lines>\n            <ion-label><u>Property Description:</u></ion-label>\n        </ion-item>\n        <ion-textarea formControlName="description" placeholder="Describe the property here:"></ion-textarea>\n        <hr>\n        <!-- File Upload-->\n        <h1>File Upload</h1>\n\n        <input type="file" (change)="onFileSelected($event)" />\n        <button ion-button block type="button" (click)="onUpload()">Upload</button>\n        <!-- End of file upload -->\n        <button ion-button block type="submit">Submit Property For Review</button>\n    </form>\n</ion-content>'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/property-submission/property-submission.html"*/,
+            selector: 'page-property-submission',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/property-submission/property-submission.html"*/'<ion-header>\n\n    <ion-navbar>\n        <ion-title>Submit Your Property</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n    <p>Currently submitting a property in <b>{{ suburb.suburb }}, {{ suburb.metro }}.</b></p>\n    <hr>\n    <form [formGroup]="propertySubmissionForm" (submit)="submitProperty()">\n        <!-- <ion-item no-lines>\n            <ion-label floating>Full Name:</ion-label>\n            <ion-input formControlName="suburb" type="text"></ion-input>\n        </ion-item> -->\n        <!--pick if selling propety or seeking tennant-->\n        <ion-list radio-group formControlName="rental">\n            <ion-label><b><u>Listing Type:</u></b></ion-label>\n            <ion-item no-lines>\n                <ion-label>I need to find a tenant</ion-label>\n                <ion-radio item-left type="radio" value=true (click)="rentPurchaseToggle1()"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>I want to sell a property</ion-label>\n                <ion-radio item-left type="radio" value=false (click)="rentPurchaseToggle2()"></ion-radio>\n            </ion-item>\n        </ion-list>\n        <hr>\n        <!--Hidden HTML info to be submitted-->\n        <ion-item hidden no-lines>\n            <ion-label floating>Date of Submission:</ion-label>\n            <ion-input displayFormat="DD/MM/YYYY" value="{{ dateTime }}" formControlName="dateTime"></ion-input>\n        </ion-item>\n        <ion-item hidden no-lines>\n            <ion-label floating>Email Address:</ion-label>\n            <ion-input formControlName="userEmail" type="text" value="{{(profile | async)?.email}}">{{(profile | async)?.email}}</ion-input>\n        </ion-item>\n        <ion-item hidden no-lines>\n            <ion-label floating>Area Key For Submission Purposes:</ion-label>\n            <ion-input formControlName="suburbKey" type="text" value="{{ suburb.key }}">{{ suburb.key }}</ion-input>\n        </ion-item>\n        <!-- Personal details-->\n        <ion-label><b><u>Personal Details:</u></b></ion-label>\n        <ion-item no-lines>\n            <ion-label floating>Full Name:</ion-label>\n            <ion-input formControlName="fullName" type="text"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Contact Number:</ion-label>\n            <ion-input formControlName="contactNumber" type="number" value="{{ contactNumber }}"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Agency Name:</ion-label>\n            <ion-input formControlName="agencyName" type="text"></ion-input>\n        </ion-item>\n        <hr>\n        <!--Details of property-->\n        <ion-list radio-group formControlName="premisesType">\n            <ion-label><b><u>Premises Type:</u></b></ion-label>\n            <ion-item no-lines>\n                <ion-label>Mini factory up to 500sqm</ion-label>\n                <ion-radio item-left type="radio" value="Mini factory up to 500sqm"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>A Factory/Warehouse over 500sqm</ion-label>\n                <ion-radio item-left type="radio" value="A factory/warehouse over 500 sqm"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Offices</ion-label>\n                <ion-radio item-left type="radio" value="Offices"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Retail</ion-label>\n                <ion-radio item-left type="radio" value="Retail"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>A mixed use building</ion-label>\n                <ion-radio item-left type="radio" value="A mixed use building"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>A stand alone house to be used as offices</ion-label>\n                <ion-radio item-left type="radio" value="A stand alone house to be used as offices"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Other</ion-label>\n                <ion-radio item-left type="radio" value="Other"></ion-radio>\n            </ion-item>\n            <ion-input formControlName="otherProperty" type="text" placeholder="Description of property if other."></ion-input>\n        </ion-list>\n        <hr>\n        <!--Holding Type-->\n        <ion-list radio-group formControlName="holding">\n            <ion-label><b><u>Holding:</u></b></ion-label>\n            <ion-item no-lines>\n                <ion-label>Freehold</ion-label>\n                <ion-radio item-left type="radio" value="Freehold"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Sectional Title</ion-label>\n                <ion-radio item-left type="radio" value="Sectional Title"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Other</ion-label>\n                <ion-radio item-left type="radio" value="Other"></ion-radio>\n            </ion-item>\n            <ion-input formControlName="otherHolding" type="text" placeholder="Description of holding if other."></ion-input>\n        </ion-list>\n        <hr>\n        <!--Property Physical Address-->\n        <ion-item no-lines>\n            <ion-label><u>Property Address:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Unit Number:</ion-label>\n            <ion-input formControlName="unitNumber" type="text"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Complex Name:</ion-label>\n            <ion-input formControlName="complexName" type="text"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Street Number:</ion-label>\n            <ion-input formControlName="streetNumber" type="text"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Street Name:</ion-label>\n            <ion-input formControlName="streetName" type="text"></ion-input>\n        </ion-item>\n        <ion-item hidden no-lines>\n            <ion-label floating>Suburb/Town:</ion-label>\n            <ion-input hidden formControlName="suburb1" type="text" value=" {{suburb.suburb}}">{{ suburb.suburb }}</ion-input>\n        </ion-item>\n        <ion-item hidden no-lines>\n            <ion-label floating>City:</ion-label>\n            <ion-input formControlName="city" type="text" value="{{ suburb.metro }}">{{ suburb.metro }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Postal Code:</ion-label>\n            <ion-input formControlName="postalCode" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>ERF Number:</ion-label>\n            <ion-input formControlName="erf" type="text"></ion-input>\n        </ion-item>\n        <hr>\n        <!--Property Sizes fields for Purchase-->\n        <ion-item no-lines *ngIf="rentPurchaseOption == false">\n            <ion-label><u>Property Sizes:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines *ngIf="rentPurchaseOption == true">\n            <ion-label><u>Lettable Space:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Factory/Warehouse Size (sqm):</ion-label>\n            <ion-input formControlName="factorySize" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Office Size (sqm):</ion-label>\n            <ion-input formControlName="officeSize" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Total Factory and Office Size (sqm):</ion-label>\n            <ion-input formControlName="totalSize" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Shop Size (sqm) (If Retail):</ion-label>\n            <ion-input formControlName="shopSize" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Undercover Parking (Bays):</ion-label>\n            <ion-input formControlName="underCoverParking" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Open Parking (Bays):</ion-label>\n            <ion-input formControlName="openParking" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Usable Yard (sqm):</ion-label>\n            <ion-input formControlName="usableYard" type="number"></ion-input>\n        </ion-item>\n        <!-- Below only present if sale selected-->\n        <ion-item no-lines *ngIf="rentPurchaseOption == false">\n            <ion-label floating>Size of ERF (sqm) (If Freehold):</ion-label>\n            <ion-input formControlName="sizeOfERF" type="number"></ion-input>\n        </ion-item>\n        <hr>\n        <ion-item no-lines>\n            <ion-label><u>Heights:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Floor to Roof in Factory/Warehouse (m):</ion-label>\n            <ion-input formControlName="floorToCeilingHeights" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Height of Acccess Door (Roller Shutter) (m):</ion-label>\n            <ion-input formControlName="accessDoorHeights" type="number"></ion-input>\n        </ion-item>\n        <hr>\n        <ion-item no-lines>\n            <ion-label><u>Truck Access:</u></ion-label>\n        </ion-item>\n        <ion-list radio-group formControlName="truckAccess">\n            <ion-item no-lines>\n                <ion-label>Rigid Trucks Can Be Offloaded at the premises</ion-label>\n                <ion-radio item-left type="radio" value="Rigid Trucks Only"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Semi Trailers Can Be Offloaded at the premises</ion-label>\n                <ion-radio item-left type="radio" value="Up To Semi Trucks"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Interlinks Can Be Offloaded at the premises</ion-label>\n                <ion-radio item-left type="radio" value="Up To Interlinks"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>None of the above applies.</ion-label>\n                <ion-radio item-left type="radio" value="No Truck Can Be Offloaded"></ion-radio>\n            </ion-item>\n        </ion-list>\n        <hr>\n        <ion-item no-lines>\n            <ion-label><u>Power:</u></ion-label>\n        </ion-item>\n        <ion-list radio-group formControlName="power">\n            <ion-item no-lines>\n                <ion-label>Single Phase</ion-label>\n                <ion-radio item-left type="radio" value="Single Phase"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Three Phase</ion-label>\n                <ion-radio item-left type="radio" value="Three Phase"></ion-radio>\n            </ion-item>\n        </ion-list>\n        <ion-item no-lines>\n            <ion-label floating>Amperage:</ion-label>\n            <ion-input formControlName="amperage" type="text"></ion-input>\n        </ion-item>\n        <p>Please check your circuit breaker for the amperage.</p>\n        <hr>\n        <ion-item no-lines>\n            <ion-label><u>Cost:</u></ion-label>\n        </ion-item>\n        <!-- Selling price if sale, rental fields if looking for tenant-->\n        <ion-item no-lines *ngIf="rentPurchaseOption == false">\n            <ion-label floating>Selling Price (ZAR):</ion-label>\n            <ion-input formControlName="sellingPrice" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines *ngIf="rentPurchaseOption == true">\n            <ion-label floating>Rental Price (ZAR):</ion-label>\n            <ion-input formControlName="rentalPrice" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines *ngIf="rentPurchaseOption == true">\n            <ion-label floating>Price Per Parking Bay (ZAR):</ion-label>\n            <ion-input formControlName="pricePerBay" type="number"></ion-input>\n        </ion-item>\n        <hr>\n        <!--If purchase option, Overheads label, if rental, Additonal costs label-->\n        <ion-item no-lines *ngIf="rentPurchaseOption == false">\n            <ion-label><u>Overheads:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines *ngIf="rentPurchaseOption == true">\n            <ion-label><u>Additional Costs:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Rates (ZAR):</ion-label>\n            <ion-input formControlName="rates" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Levy (ZAR):</ion-label>\n            <ion-input formControlName="levy" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Contribution to Service Costs (ZAR):</ion-label>\n            <ion-input formControlName="serviceCosts" type="number"></ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Other Overheads:</ion-label>\n            <ion-input formControlName="otherOverheads" type="text"></ion-input>\n        </ion-item>\n        <hr>\n        <ion-item no-lines>\n            <ion-label><u>Is The of Owner of the Property a VAT Vendor?</u></ion-label>\n        </ion-item>\n        <ion-list radio-group formControlName="VAT">\n            <!--VAT options for the sale situation-->\n            <ion-item no-lines *ngIf="rentPurchaseOption == false">\n                <ion-label>Yes</ion-label>\n                <ion-radio item-left type="radio" value="Owner Is A VAT Vendor" (click)="vatToggle1()"></ion-radio>\n            </ion-item>\n            <ion-item no-lines *ngIf="rentPurchaseOption == false">\n                <ion-label>No</ion-label>\n                <ion-radio item-left type="radio" value="Owner Is Not A VAT Vendor" (click)="vatToggle2()"></ion-radio>\n            </ion-item>\n            <ion-item no-lines *ngIf="vatOptioned == false">\n                <p>Transfer Duty Applies</p>\n            </ion-item>\n            <!--VAT options for the rental situation-->\n            <ion-item no-lines *ngIf="rentPurchaseOption == true">\n                <ion-label>Yes</ion-label>\n                <ion-radio item-left type="radio" value="Owner Is A VAT Vendor" (click)="rentVatToggle1()"></ion-radio>\n            </ion-item>\n            <ion-item no-lines *ngIf="rentPurchaseOption == true">\n                <ion-label>No</ion-label>\n                <ion-radio item-left type="radio" value="Owner Is A Not VAT Vendor" (click)="rentVatToggle2()"></ion-radio>\n            </ion-item>\n            <ion-item no-lines *ngIf="rentVatOptioned == true">\n                <ion-label floating>Owner VAT Number:</ion-label>\n                <ion-input formControlName="ownerVatNumber" type="text"></ion-input>\n            </ion-item>\n        </ion-list>\n        <!-- Third Party Tenant Options-->\n        <ion-list radio-group formControlName="thirdParty" *ngIf="rentPurchaseOption == false">\n            <ion-item no-lines>\n                <ion-label><u>Are The Presmises Tenanted By A Third Party?</u></ion-label>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Yes</ion-label>\n                <ion-radio item-left type="radio" value="Third Party Tenant" (click)="tenantToggle1()"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>No</ion-label>\n                <ion-radio item-left type="radio" value="No Third Party Tenant" (click)="tenantToggle2()"></ion-radio>\n            </ion-item>\n            <ion-item no-lines *ngIf="tenantOption == false">\n                <p>Transaction Cannot Be Zero Rated</p>\n            </ion-item>\n        </ion-list>\n        <!-- Lease Terms - Letting Only-->\n        <ion-item no-lines *ngIf="rentPurchaseOption == true">\n            <ion-label><u>Lease Terms</u></ion-label>\n        </ion-item>\n        <ion-item no-lines *ngIf="rentPurchaseOption == true">\n            <ion-label floating>% Annual Escalation in Rent:</ion-label>\n            <ion-input formControlName="escalation" type="text"></ion-input>\n        </ion-item>\n        <ion-item no-lines *ngIf="rentPurchaseOption == true">\n            <ion-label floating>Minimum Term Of Lease:</ion-label>\n            <ion-input formControlName="minLeaseTerm" type="text"></ion-input>\n        </ion-item>\n        <ion-item no-lines *ngIf="rentPurchaseOption == true">\n            <ion-label floating>Maximum Term Of Lease:</ion-label>\n            <ion-input formControlName="maxLeaseTerm" type="text"></ion-input>\n        </ion-item>\n        <!--Property Description-->\n        <hr>\n        <ion-item no-lines>\n            <ion-label><u>Property Description:</u></ion-label>\n        </ion-item>\n        <ion-textarea formControlName="description" placeholder="Describe the property here:"></ion-textarea>\n        <hr>\n        <!-- File Upload-->\n        <h1>File Upload</h1>\n\n        <input type="file" (change)="onFileSelected($event)" />\n        <!-- <button ion-button block type="button" (click)="onUpload()">Upload</button> -->\n        <!-- End of file upload -->\n        <button ion-button block type="submit" [disabled]="!propertySubmissionForm.valid" (click)="presentToast()">Submit Property For Review</button>\n    </form>\n</ion-content>'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/property-submission/property-submission.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
@@ -230,15 +328,15 @@ var PropertySubmissionPage = (function () {
 
 /***/ }),
 
-/***/ 142:
+/***/ 156:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__profile_profile__ = __webpack_require__(265);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__about_about__ = __webpack_require__(456);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__profile_profile__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__about_about__ = __webpack_require__(457);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(103);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -270,20 +368,15 @@ var TabsPage = (function () {
 
 /***/ }),
 
-/***/ 164:
+/***/ 189:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListingsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__main_buy_search_main_buy_search__ = __webpack_require__(189);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__main_rent_search_main_rent_search__ = __webpack_require__(192);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__property_submission_property_submission__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__metro_list_metro_list__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_auth__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angularfire2_auth__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__login_login__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -296,64 +389,62 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
-
-
-
-var HomePage = (function () {
-    function HomePage(navCtrl, authData, afAuth) {
+/**
+ * Generated class for the ListingsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var ListingsPage = (function () {
+    function ListingsPage(navCtrl, navParams) {
         var _this = this;
         this.navCtrl = navCtrl;
-        this.authData = authData;
-        var authObserver = afAuth.authState.subscribe(function (user) {
-            if (user) {
-                console.log("auth");
-                // this.navCtrl.setRoot(TabsPage);
-                authObserver.unsubscribe();
-            }
-            else {
-                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__login_login__["a" /* LoginPage */]);
-                authObserver.unsubscribe();
-            }
+        this.navParams = navParams;
+        this.parameter1 = navParams.get('param1');
+        console.log(this.parameter1);
+        this.listedPropertyRef = __WEBPACK_IMPORTED_MODULE_2_firebase___default.a.database().ref('/ListedProperties/Sales/' + this.parameter1 + '/');
+        this.listedPropertyRef.on('value', function (listedPropertyList) {
+            var properties = [];
+            listedPropertyList.forEach(function (property) {
+                var item = property.val();
+                item.key = property.key;
+                properties.push(item);
+                return false;
+            });
+            _this.listedPropertyList = properties;
+            _this.loadedListedPropertyList = properties;
+            console.log("done loading");
         });
     }
-    HomePage.prototype.toMainBuySearch = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__main_buy_search_main_buy_search__["a" /* MainBuySearchPage */]);
+    ListingsPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ListingsPage');
     };
-    HomePage.prototype.toMainRentSearch = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__main_rent_search_main_rent_search__["a" /* MainRentSearchPage */]);
-    };
-    HomePage.prototype.toPropertySubmission = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__property_submission_property_submission__["a" /* PropertySubmissionPage */]);
-    };
-    HomePage.prototype.toMetroList = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__metro_list_metro_list__["a" /* MetroListPage */]);
-    };
-    HomePage = __decorate([
+    ListingsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/home/home.html"*/'<ion-header>\n    <!-- <ion-navbar>\n    <ion-title>Home</ion-title>\n  </ion-navbar> -->\n</ion-header>\n\n<ion-content class="masters">\n    <div class="landing-container">\n        <img class="logo" src="./assets/imgs/logo.png" />\n        <h2>Welcome to Premises!</h2>\n        <p>\n            Click the option that best describes you below:\n        </p>\n        <ion-grid>\n            <ion-row>\n                <!--I need to rent out a property-->\n                <ion-col tappable col-6 col-sm>\n                    <ion-card (click)="toMainRentSearch()">\n                        <img src="./assets/imgs/logo.png" />\n                        <ion-card-header text-wrap>\n                            Need to Rent?\n                        </ion-card-header>\n                        <ion-card-content>\n                            Click Here\n                        </ion-card-content>\n                    </ion-card>\n                </ion-col>\n                <!--I need to buy a property-->\n                <ion-col tappable col-6 col-sm>\n                    <ion-card (click)="toMainBuySearch()">\n                        <img src="./assets/imgs/logo.png" />\n                        <ion-card-header text-wrap>\n                            Need to Buy?\n                        </ion-card-header>\n                        <ion-card-content>\n                            Click Here\n                        </ion-card-content>\n                    </ion-card>\n                </ion-col>\n                <!--I want to sell a property-->\n                <ion-col tappable col-6 col-sm>\n                    <ion-card (click)="toMetroList()">\n                        <img src=" ./assets/imgs/logo.png " />\n                        <ion-card-header text-wrap>\n                            Need to Sell or Let out a property?\n                        </ion-card-header>\n                        <ion-card-content>\n                            Click Here\n                        </ion-card-content>\n                    </ion-card>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n        <button ion-button type="button" mode="ios" block color="dark" outline margin-top>Get In Touch With Us</button>\n    </div>\n    <p align="center ">Copyright 2018: Premises (PTY) Ltd</p>\n</ion-content>'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/home/home.html"*/
+            selector: 'page-listings',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/listings/listings.html"*/'<!-- Page for the properties for sale -->\n\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>Properties For Sale: {{ parameter1 }} </ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-grid>\n        <ion-row>\n            <ion-col tappable col-6 col-sm *ngFor="let property of listedPropertyList">\n                <ion-card class="cardList">\n                    <img align="middle" src=\'{{ property.img1}}\' />\n                    <ion-card-header text-wrap>\n                        <b>For Sale</b><br><br>\n                        <b>Type: </b>{{ property.premisesType}}<br><br>\n                        <b>Suburb: </b>{{ property.suburb1 }}, {{ property.city }}<br><br>\n                        <b>Selling price: R {{ property.sellingPrice }}</b><br>\n                        <hr>\n                    </ion-card-header>\n                    <ion-card-content>\n                    </ion-card-content>\n                    <button ion-button color="dark">See More</button>\n                </ion-card>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-content>'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/listings/listings.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_6__providers_auth_auth__["a" /* AuthProvider */], __WEBPACK_IMPORTED_MODULE_7_angularfire2_auth__["a" /* AngularFireAuth */]])
-    ], HomePage);
-    return HomePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+    ], ListingsPage);
+    return ListingsPage;
 }());
 
-//# sourceMappingURL=home.js.map
+//# sourceMappingURL=listings.js.map
 
 /***/ }),
 
-/***/ 189:
+/***/ 190:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MainBuySearchPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__listings_listings__ = __webpack_require__(189);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -368,12 +459,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/**
- * Generated class for the MainBuySearchPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
+
 var MainBuySearchPage = (function () {
     function MainBuySearchPage(navCtrl, navParams, authData, afAuth) {
         var _this = this;
@@ -391,13 +478,79 @@ var MainBuySearchPage = (function () {
                 authObserver.unsubscribe();
             }
         });
+        this.submittedPropertyRef = __WEBPACK_IMPORTED_MODULE_5_firebase___default.a.database().ref('/ListedProperties/Sales');
+        this.submittedPropertyRef.on('value', function (submittedPropertyList) {
+            var properties = [];
+            submittedPropertyList.forEach(function (property) {
+                var item = property.val();
+                item.key = property.key;
+                properties.push(item);
+                return false;
+            });
+            _this.submittedPropertyList = properties;
+            _this.loadedSubmittedPropertyList = properties;
+            console.log("done loading");
+        });
     }
+    //   toListingsPage(item) {
+    // this.navCtrl.push(ListingsPage, item);
+    //   };
     MainBuySearchPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad MainBuySearchPage');
     };
+    MainBuySearchPage.prototype.toJoburg = function (listing) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
+            param1: "Johannesburg"
+        });
+    };
+    MainBuySearchPage.prototype.toCapeTown = function (listing) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
+            param1: "CapeTown"
+        });
+    };
+    MainBuySearchPage.prototype.toDurban = function (listing) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
+            param1: "Durban"
+        });
+    };
+    MainBuySearchPage.prototype.toPietermaritzburg = function (listing) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
+            param1: "Pietermaritzburg"
+        });
+    };
+    MainBuySearchPage.prototype.toPretoria = function (listing) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
+            param1: "Pretoria"
+        });
+    };
+    MainBuySearchPage.prototype.toPortElizabeth = function (listing) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
+            param1: "PortElizabeth"
+        });
+    };
+    MainBuySearchPage.prototype.toBloemfontein = function (listing) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
+            param1: "Bloemfontein"
+        });
+    };
+    MainBuySearchPage.prototype.toNelspruit = function (listing) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
+            param1: "Nelspruit"
+        });
+    };
+    MainBuySearchPage.prototype.toKimberley = function (listing) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
+            param1: "Kimberley"
+        });
+    };
+    MainBuySearchPage.prototype.toPolokwane = function (listing) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
+            param1: "Polokwane"
+        });
+    };
     MainBuySearchPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-main-buy-search',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/main-buy-search/main-buy-search.html"*/'<!--\n  Generated template for the MainBuySearchPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>main-buy-search</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/main-buy-search/main-buy-search.html"*/,
+            selector: 'page-main-buy-search',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/main-buy-search/main-buy-search.html"*/'<!--\n  Generated template for the MainBuySearchPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>Buy A Property</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n    <h3>Pick Your City</h3>\n    <ion-list>\n        <ion-item (click)="toJoburg(listing)">\n            <b>Johannesburg</b>\n        </ion-item>\n        <ion-item (click)="toCapeTown(listing)">\n            <b>Cape Town</b>\n        </ion-item>\n        <ion-item (click)="toDurban(listing)">\n            <b>Durban</b>\n        </ion-item>\n        <ion-item (click)="toPietermaritzburg(listing)">\n            <b>Pietermaritzburg</b>\n        </ion-item>\n        <ion-item (click)="toPretoria(listing)">\n            <b>Pretoria</b>\n        </ion-item>\n        <ion-item (click)="toPortElizabeth(listing)">\n            <b>Port-Elizabeth</b>\n        </ion-item>\n        <ion-item (click)="toBloemfontein(listing)">\n            <b>Bloemfontein</b>\n        </ion-item>\n        <ion-item (click)="toNelspruit(listing)">\n            <b>Nelspruit</b>\n        </ion-item>\n        <ion-item (click)="toKimberley(listing)">\n            <b>Kimberley</b>\n        </ion-item>\n        <ion-item (click)="toPolokwane(listing)">\n            <b>Polokwane</b>\n        </ion-item>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/main-buy-search/main-buy-search.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */]])
     ], MainBuySearchPage);
@@ -408,17 +561,17 @@ var MainBuySearchPage = (function () {
 
 /***/ }),
 
-/***/ 190:
+/***/ 191:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReviewSubmissionsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__review_property_details_review_property_details__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__review_property_details_review_property_details__ = __webpack_require__(192);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -474,21 +627,21 @@ var ReviewSubmissionsPage = (function () {
 
 /***/ }),
 
-/***/ 191:
+/***/ 192:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReviewPropertyDetailsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_storage__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_storage__ = __webpack_require__(100);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_auth_auth__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_auth__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__login_login__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__login_login__ = __webpack_require__(44);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -507,8 +660,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ReviewPropertyDetailsPage = (function () {
-    function ReviewPropertyDetailsPage(navCtrl, navParams, authData, afAuth, afStorage, AFdb, formBuilder) {
+    function ReviewPropertyDetailsPage(navCtrl, navParams, authData, afAuth, afStorage, AFdb, formBuilder, alertCtrl) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
@@ -517,6 +671,7 @@ var ReviewPropertyDetailsPage = (function () {
         this.afStorage = afStorage;
         this.AFdb = AFdb;
         this.formBuilder = formBuilder;
+        this.alertCtrl = alertCtrl;
         this.profileArray = [];
         this.dateTime = __WEBPACK_IMPORTED_MODULE_7_moment__().format();
         this.selectedFile = File = null;
@@ -544,7 +699,10 @@ var ReviewPropertyDetailsPage = (function () {
                 authObserver.unsubscribe();
             }
             _this.property = _this.navParams.data;
-            _this.adminDB = _this.AFdb.list('/Admin/SubmittedProperties/'); //This needs to be to the right place for the listing.
+            // this.adminRentalDB = this.AFdb.list('/ListedProperties/Rentals/' + this.property + '/city'); //This needs to be to the right place for the listing. The city needs to be included here.
+            _this.adminRentalDB = _this.AFdb.list('/ListedProperties/Rentals/'); //This needs to be to the right place for the listing. The city needs to be included here.
+            _this.adminSaleDB = _this.AFdb.list('/ListedProperties/Sales/'); //This needs to be to the right place for the listing. The city needs to be included here.
+            _this.adminProfile = _this.AFdb.object('/Admin/SubmittedProperties/');
         });
         this.propertySubmissionForm = formBuilder.group({
             fullName: [],
@@ -600,18 +758,66 @@ var ReviewPropertyDetailsPage = (function () {
             escalation: [],
             minLeaseTerm: [],
             maxLeaseTerm: [],
+            img1: [],
+            img2: [],
+            img3: [],
+            img4: [],
+            img5: [],
+            img6: [],
+            img7: [],
+            img8: [],
+            img9: [],
+            img10: [],
         });
+        this.property = this.navParams.data;
     }
-    ReviewPropertyDetailsPage.prototype.submitProperty = function () {
-        this.adminDB.push(this.propertySubmissionForm.value);
+    //submitPropertyToListingRental() {
+    //this.adminRentalDB.set(this.propertySubmissionForm.value)
+    //}; //It's an entirely new submission, to elsewhere on the DB.
+    ReviewPropertyDetailsPage.prototype.submitPropertyToListingRental = function (property) {
+        var toSend = this.AFdb.list("/ListedProperties/Rentals/" + property.city + "/");
+        toSend.push(this.property);
+        //console.log(property.city)
+    };
+    ReviewPropertyDetailsPage.prototype.submitPropertyToListingSale = function (property) {
+        var toSend = this.AFdb.list("/ListedProperties/Sales/" + property.city + "/");
+        toSend.push(this.property);
     };
     ; //It's an entirely new submission, to elsewhere on the DB.
+    ReviewPropertyDetailsPage.prototype.deleteListing = function (property) {
+        console.log("Item =>", this.property);
+        //this.AFdb.list('/Admin/SubmittedProperties/').remove(property);
+    }; //Delete single listing here.
+    ReviewPropertyDetailsPage.prototype.deleteConfirm = function () {
+        var _this = this;
+        var confirm = this.alertCtrl.create({
+            title: 'Really Delete?',
+            message: 'You cannot recover this file after deleting.',
+            buttons: [
+                {
+                    text: 'Cancel',
+                    handler: function () {
+                        console.log('Disagree clicked');
+                    }
+                },
+                {
+                    text: 'Delete',
+                    handler: function () {
+                        console.log("Item =>", _this.property);
+                        //Delete file.
+                        //Push back to list.
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    };
     ReviewPropertyDetailsPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad ReviewPropertyDetailsPage');
     };
     ReviewPropertyDetailsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-review-property-details',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/review-property-details/review-property-details.html"*/'<!--\n  Generated template for the ReviewPropertyDetailsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>Review Property Details</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <h2>Edit the lsiting before it gets published.</h2>\n    <p>Currently reviewing a property in <b>{{ property.suburb1 }}, {{ property.city }}</b>, submitted by <b>{{ property.fullName }}</b>, from <b>{{ property.agencyName }}</b></p>\n    <p> You can contact them on <b>{{ property.contactNumber }}</b> or <b>{{ property.userEmail }}</b></p>\n    <hr>\n    <ion-item no-padding no-lines *ngIf="property.rental == \'true\'">Property submitted as a Rental</ion-item>\n    <ion-item no-padding no-lines *ngIf="property.rental == \'false\'">Property submitted as a Sale</ion-item>\n\n    <hr>\n    <form [formGroup]="propertySubmissionForm" (submit)="submitProperty()">\n\n        <!--Admin Submission Fields To All Be Hidden-->\n\n        <!--Property Specific Details-->\n        <ion-item hidden no-lines>\n            <ion-label>City:</ion-label>\n            <ion-input formControlName="city" value="{{property.city}}">{{property.city}}</ion-input>\n        </ion-item>\n        <ion-item hidden no-lines>\n            <ion-label>Suburb:</ion-label>\n            <ion-input formControlName="suburb1" value="{{property.suburb1}}">{{property.suburb1}}</ion-input>\n        </ion-item>\n\n        <!--User details-->\n        <ion-item hidden no-lines>\n            <ion-label>User Name:</ion-label>\n            <ion-input formControlName="fullName" value="{{property.fullName}}">{{property.fullName}}</ion-input>\n        </ion-item>\n        <ion-item hidden no-lines>\n            <ion-label>User Email:</ion-label>\n            <ion-input formControlName="userEmail" value="{{property.userEmail}}">{{property.userEmail}}</ion-input>\n        </ion-item>\n        <ion-item hidden no-lines>\n            <ion-label>User Contact Number:</ion-label>\n            <ion-input formControlName="contactNumber" value="{{property.contactNumber}}">{{property.contactNumber}}</ion-input>\n        </ion-item>\n        <ion-item hidden no-lines>\n            <ion-label floating>Agency Name:</ion-label>\n            <ion-input formControlName="agencyName" type="text" value="{{property.agencyName}}">{{property.agencyName}}</ion-input>\n        </ion-item>\n\n        <!--Date and time of submission-->\n        <ion-item hidden no-lines>\n            <ion-label floating>Date of Submission:</ion-label>\n            <ion-input formControlName="dateTime" displayFormat="DD:MM:YYYY" value="{{property.dateTime}}">{{property.dateTime}}</ion-input>\n        </ion-item>\n\n        <!--Key of property from list, probably not relevant here.-->\n        <ion-item hidden no-lines>\n            <ion-label floating>Area Key For Submission Purposes:</ion-label>\n            <ion-input formControlName="suburbKey" type="text" value="{{ property.key }}">{{ property.key }}</ion-input>\n        </ion-item>\n\n        <!-- End of admin fields -->\n\n        <!--Type of premises selected by user-->\n        <ion-list radio-group formControlName="premisesType" ngDefaultControl [(ngModel)]="property.premisesType">\n            <ion-label><b><u>Premises Type:</u></b></ion-label>\n            <ion-item no-lines>\n                <ion-label>Mini factory up to 500sqm</ion-label>\n                <ion-radio item-left type="radio" value="Mini factory up to 500sqm"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>A Factory/Warehouse over 500sqm</ion-label>\n                <ion-radio item-left type="radio" value="A factory/warehouse over 500 sqm"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Offices</ion-label>\n                <ion-radio item-left type="radio" value="Offices"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Retail</ion-label>\n                <ion-radio item-left type="radio" value="Retail"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>A mixed use building</ion-label>\n                <ion-radio item-left type="radio" value="A mixed use building"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>A stand alone house to be used as offices</ion-label>\n                <ion-radio item-left type="radio" value="A stand alone house to be used as offices"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Other</ion-label>\n                <ion-radio item-left type="radio" value="Other"></ion-radio>\n            </ion-item>\n            <ion-item>\n                <ion-label floating>Other Property Description:</ion-label>\n                <ion-input formControlName="otherProperty" type="text" value="{{property.otherProperty}}">{{ property.otherProperty }}</ion-input>\n            </ion-item>\n        </ion-list>\n        <!--End of premises Type-->\n\n        <!--Premises Allocation-->\n        <ion-list radio-group formControlName="holding" ngDefaultControl [(ngModel)]="property.holding">\n            <ion-label><b><u>Holding:</u></b></ion-label>\n            <ion-item no-lines>\n                <ion-label>Freehold</ion-label>\n                <ion-radio item-left type="radio" value="Freehold"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Sectional Title</ion-label>\n                <ion-radio item-left type="radio" value="Sectional Title"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Other</ion-label>\n                <ion-radio item-left type="radio" value="Other"></ion-radio>\n            </ion-item>\n            <ion-item>\n                <ion-label floating>Other Holding Description:</ion-label>\n                <ion-input formControlName="otherHolding" type="text" value="{{property.otherHolding}}">{{ property.otherHolding }}</ion-input>\n            </ion-item>\n        </ion-list>\n        <!--End of Premises Allocation-->\n\n        <!-- Start of property Address -->\n        <hr>\n        <ion-item no-lines>\n            <ion-label><u>Property Address:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Unit Number:</ion-label>\n            <ion-input formControlName="unitNumber" type="text" value="{{ property.unitNumber }}">{{property.unitNumber }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Complex Name:</ion-label>\n            <ion-input formControlName="complexName" type="text" value="{{ property.complexName }}">{{property.complexName }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Street Number:</ion-label>\n            <ion-input formControlName="streetNumber" type="text" value="{{ property.streetNumber }}">{{property.streetNumber }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Street Name:</ion-label>\n            <ion-input formControlName="streetName" type="text" value="{{ property.streetName }}">{{property.streetName }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Suburb/Town:</ion-label>\n            <ion-input formControlName="suburb1" type="text" value="{{ property.suburb1 }}">{{ property.suburb1 }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>City:</ion-label>\n            <ion-input formControlName="city" type="text" value="{{ property.city }}">{{ property.city }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Postal Code:</ion-label>\n            <ion-input formControlName="postalCode" type="number" value="{{ property.postalCode }}">{{property.postalCode }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>ERF Number:</ion-label>\n            <ion-input formControlName="erf" type="text" value="{{ property.erf }}">{{property.erf }}</ion-input>\n        </ion-item>\n        <!-- End of property Address -->\n\n        <!--Property Sizes -->\n        <hr>\n        <!--Labels-->\n        <ion-item no-lines *ngIf="property.rental == \'false\'">\n            <ion-label><u>Property Sizes:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines *ngIf="property.rental == \'true\'">\n            <ion-label><u>Lettable Space:</u></ion-label>\n        </ion-item>\n        <!-- Inputs-->\n        <ion-item no-lines>\n            <ion-label floating>Factory/Warehouse Size (sqm):</ion-label>\n            <ion-input formControlName="factorySize" type="number" value="{{ property.factorySize }}">{{property.factorySize }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Office Size (sqm):</ion-label>\n            <ion-input formControlName="officeSize" type="number" value="{{ property.officeSize }}">{{property.officeSize }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Total Factory and Office Size (sqm):</ion-label>\n            <ion-input formControlName="totalSize" type="number" value="{{ property.totalSize }}">{{property.totalSize }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Shop Size (sqm) (If Retail):</ion-label>\n            <ion-input formControlName="shopSize" type="number" value="{{ property.shopSize }}">{{property.shopSize }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Undercover Parking (Bays):</ion-label>\n            <ion-input formControlName="underCoverParking" type="number" value="{{ property.underCoverParking }}">{{property.underCoverParking }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Open Parking (Bays):</ion-label>\n            <ion-input formControlName="openParking" type="number" value="{{ property.openParking }}">{{property.openParking }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Usable Yard (sqm):</ion-label>\n            <ion-input formControlName="usableYard" type="number" value="{{ property.usableYard }}">{{property.usableYard }}</ion-input>\n        </ion-item>\n        <ion-item no-lines *ngIf="property.rental == \'false\'">\n            <ion-label floating>Size of ERF (sqm) (If Freehold):</ion-label>\n            <ion-input formControlName="sizeOfERF" type="text" value="{{ property.sizeOfERF }}">{{ property.sizeOfERF }}</ion-input>\n        </ion-item>\n        <hr>\n        <!-- End of property sizes -->\n\n        <!--Property Heights-->\n        <ion-item no-lines>\n            <ion-label><u>Heights:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Floor to Roof in Factory/Warehouse (m):</ion-label>\n            <ion-input formControlName="floorToCeilingHeights" type="number" value="{{ property.floorToCeilingHeights }}">{{ property.floorToCeilingHeights }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Height of Acccess Door (Roller Shutter) (m):</ion-label>\n            <ion-input formControlName="accessDoorHeights" type="number" value="{{ property.accessDoorHeights }}">{{ property.accessDoorHeights }}</ion-input>\n        </ion-item>\n        <hr>\n        <!--End of Property Heights-->\n\n        <!--Start of Truck Access-->\n\n        <ion-item no-lines>\n            <ion-label><u>Truck Access:</u></ion-label>\n        </ion-item>\n        <ion-list radio-group formControlName="truckAccess" ngDefaultControl [(ngModel)]="property.truckAccess">\n            <ion-item no-lines>\n                <ion-label>Rigid Trucks Can Be Offloaded at the premises</ion-label>\n                <ion-radio item-left type="radio" value="Rigid Trucks Only"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Semi Trailers Can Be Offloaded at the premises</ion-label>\n                <ion-radio item-left type="radio" value="Up To Semi Trucks"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Interlinks Can Be Offloaded at the premises</ion-label>\n                <ion-radio item-left type="radio" value="Up To Interlinks"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>None of the above applies.</ion-label>\n                <ion-radio item-left type="radio" value="No Truck Can Be Offloaded"></ion-radio>\n            </ion-item>\n        </ion-list>\n        <hr>\n        <!--End of Truck Access-->\n\n        <!-- Start Of Property Power Situation -->\n\n        <ion-item no-lines>\n            <ion-label><u>Power:</u></ion-label>\n        </ion-item>\n        <ion-list radio-group formControlName="power" ngDefaultControl [(ngModel)]="property.power">\n            <ion-item no-lines>\n                <ion-label>Single Phase</ion-label>\n                <ion-radio item-left type="radio" value="Single Phase"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Three Phase</ion-label>\n                <ion-radio item-left type="radio" value="Three Phase"></ion-radio>\n            </ion-item>\n        </ion-list>\n        <ion-item no-lines>\n            <ion-label floating>Amperage:</ion-label>\n            <ion-input formControlName="amperage" type="text" value="{{ property.amperage }}">{{ property.amperage }}</ion-input>\n        </ion-item>\n        <p>Please check your circuit breaker for the amperage.</p>\n        <hr>\n        <!-- End Of Property Power Situation -->\n\n        <!-- Start of selling/rental price -->\n        <ion-item no-lines>\n            <ion-label><u>Cost:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines *ngIf="property.rental == \'false\'">\n            <ion-label floating>Selling Price (ZAR):</ion-label>\n            <ion-input formControlName="sellingPrice" type="number" value="{{ property.sellingPrice }}">{{ property.sellingPrice }}</ion-input>\n        </ion-item>\n        <ion-item no-lines *ngIf="property.rental == \'true\'">\n            <ion-label floating>Rental Price (ZAR):</ion-label>\n            <ion-input formControlName="rentalPrice" type="number" value="{{ property.rentalPrice }}">{{ property.rentalPrice }}</ion-input>\n        </ion-item>\n        <ion-item no-lines *ngIf="property.rental == \'true\'">\n            <ion-label floating>Price Per Parking Bay (ZAR):</ion-label>\n            <ion-input formControlName="pricePerBay" type="number" value="{{ property.pricePerBay }}">{{ property.pricePerBay }}</ion-input>\n        </ion-item>\n        <hr>\n        <!-- End of selling/rental price -->\n\n        <!-- Start of extra costs section -->\n        <ion-item no-lines *ngIf="property.rental == \'false\'">\n            <ion-label><u>Overheads:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines *ngIf="property.rental == \'true\'">\n            <ion-label><u>Additional Costs:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Rates (ZAR):</ion-label>\n            <ion-input formControlName="rates" type="number" value="{{ property.rates }}">{{ property.rates }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Levy (ZAR):</ion-label>\n            <ion-input formControlName="levy" type="number" value="{{ property.levy }}">{{ property.levy }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Contribution to Service Costs (ZAR):</ion-label>\n            <ion-input formControlName="serviceCosts" type="number" value="{{ property.serviceCosts }}">{{ property.serviceCosts }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Other Overheads:</ion-label>\n            <ion-input formControlName="otherOverheads" type="text" value="{{ property.otherOverheads }}">{{ property.otherOverheads }}</ion-input>\n        </ion-item>\n        <hr>\n        <!-- End of extra costs section -->\n\n        <!-- Start of VAT section -->\n\n        <ion-item no-lines>\n            <ion-label><u>Is The of Owner of the Property a VAT Vendor?</u></ion-label>\n        </ion-item>\n        <ion-list radio-group formControlName="VAT" ngDefaultControl [(ngModel)]="property.VAT">\n            <ion-item no-lines *ngIf="property.rental == \'false\'">\n                <ion-label>Yes</ion-label>\n                <ion-radio item-left type="radio" value="Owner Is A VAT Vendor"></ion-radio>\n            </ion-item>\n            <ion-item no-lines *ngIf="property.rental == \'false\'">\n                <ion-label>No</ion-label>\n                <ion-radio item-left type="radio" value="Owner Is Not A VAT Vendor"></ion-radio>\n            </ion-item>\n            <ion-item>\n                <p>If No, Transfer Duty Applies</p>\n            </ion-item>\n            <ion-item no-lines *ngIf="property.rental == \'true\'">\n                <ion-label>Yes</ion-label>\n                <ion-radio item-left type="radio" value="Owner Is A VAT Vendor"></ion-radio>\n            </ion-item>\n            <ion-item no-lines *ngIf="property.rental == \'true\'">\n                <ion-label>No</ion-label>\n                <ion-radio item-left type="radio" value="Owner Is A Not VAT Vendor"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label floating>Owner VAT Number:</ion-label>\n                <ion-input formControlName="ownerVatNumber" type="text" value="{{ property.ownerVatNumber }}">{{ property.ownerVatNumber }}</ion-input>\n            </ion-item>\n        </ion-list>\n        <ion-list radio-group formControlName="thirdParty" *ngIf="property.rental == \'false\'" ngDefaultControl [(ngModel)]="property.thirdParty">\n            <ion-item no-lines>\n                <ion-label><u>Are The Presmises Tenanted By A Third Party?</u></ion-label>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Yes</ion-label>\n                <ion-radio item-left type="radio" value="Third Party Tenant"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>No</ion-label>\n                <ion-radio item-left type="radio" value="No Third Party Tenant"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <p> If no, Transaction Cannot Be Zero Rated</p>\n            </ion-item>\n        </ion-list>\n        <hr>\n        <!-- End of VAT section -->\n\n        <!-- Start of Rental Options -->\n        <ion-item no-lines *ngIf="property.rental == \'true\'">\n            <ion-label><u>Lease Terms</u></ion-label>\n        </ion-item>\n        <ion-item no-lines *ngIf="property.rental == \'true\'">\n            <ion-label floating>% Annual Escalation in Rent:</ion-label>\n            <ion-input formControlName="escalation" type="text" value="{{ property.escalation }}">{{ property.escalation }}</ion-input>\n        </ion-item>\n        <ion-item no-lines *ngIf="property.rental == \'true\'">\n            <ion-label floating>Minimum Term Of Lease:</ion-label>\n            <ion-input formControlName="minLeaseTerm" type="text" value="{{ property.minLeaseTerm }}">{{ property.minLeaseTerm }}</ion-input>\n        </ion-item>\n        <ion-item no-lines *ngIf="property.rental == \'true\'">\n            <ion-label floating>Maximum Term Of Lease:</ion-label>\n            <ion-input formControlName="maxLeaseTerm" type="text" value="{{ property.maxLeaseTerm }}">{{ property.maxLeaseTerm }}</ion-input>\n        </ion-item>\n        <hr>\n        <!-- End of Rental Options -->\n\n        <!-- Start of Property Description -->\n        <ion-item no-lines>\n            <ion-label><u>Property Description:</u></ion-label>\n        </ion-item>\n        <ion-textarea formControlName="description" placeholder="Describe the property here:" value="{{ property.description }}">\n            <p>{{ property.description }}</p>\n        </ion-textarea>\n        <hr>\n\n        <!-- Start of Uploaded Images -->\n        <ion-item no-lines>\n            <ion-label><u>Property Images:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines>\n            <img src="{{ property.img1 }}">\n        </ion-item>\n        <ion-item no-lines>\n            <img src="{{ property.img2 }}">\n        </ion-item>\n        <ion-item no-lines>\n            <img src="{{ property.img3 }}">\n        </ion-item>\n        <ion-item no-lines>\n            <img src="{{ property.img4 }}">\n        </ion-item>\n        <ion-item no-lines>\n            <img src="{{ property.img5 }}">\n        </ion-item>\n        <ion-item no-lines>\n            <img src="{{ property.img6 }}">\n        </ion-item>\n        <ion-item no-lines>\n            <img src="{{ property.img7 }}">\n        </ion-item>\n        <ion-item no-lines>\n            <img src="{{ property.img8 }}">\n        </ion-item>\n        <ion-item no-lines>\n            <img src="{{ property.img9 }}">\n        </ion-item>\n        <ion-item no-lines>\n            <img src="{{ property.img10 }}">\n        </ion-item>\n        <!-- End of Uploaded Images -->\n\n        <!-- Start of Submission Button -->\n\n        <!-- Button to push the form to the right city, under the right category - sale or rental -->\n\n        <!-- End of Submission Button -->\n\n        <!--End of form-->\n    </form>\n\n\n    <!--\n\n\n         <input type="file" (change)="onFileSelected($event)" /> \n         <button ion-button block type="button" (click)="onUpload()">Upload</button> \n         End of file upload \n        <button ion-button block type="submit">Submit Property For Review</button>\n     -->\n\n    <!--Don\'t forget to create inputs for the stuff you aren\'t allowing to be changed on this form.-->\n</ion-content>'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/review-property-details/review-property-details.html"*/,
+            selector: 'page-review-property-details',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/review-property-details/review-property-details.html"*/'<!--\n  Generated template for the ReviewPropertyDetailsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>Review Property Details</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <h2>Edit the lsiting before it gets published.</h2>\n    <p>Currently reviewing a property in <b>{{ property.suburb1 }}, {{ property.city }}</b>, submitted by <b>{{ property.fullName }}</b>, from <b>{{ property.agencyName }}</b></p>\n    <p> You can contact them on <b>{{ property.contactNumber }}</b> or <b>{{ property.userEmail }}</b></p>\n    <hr>\n    <ion-item no-padding no-lines *ngIf="property.rental == \'true\'">Property submitted as a Rental</ion-item>\n    <ion-item no-padding no-lines *ngIf="property.rental == \'false\'">Property submitted as a Sale</ion-item>\n\n    <hr>\n    <form [formGroup]="propertySubmissionForm">\n\n        <!--Admin Submission Fields To All Be Hidden-->\n\n        <!--Property Specific Details-->\n        <ion-item hidden no-lines>\n            <ion-label>City:</ion-label>\n            <ion-input formControlName="city" value="{{property.city}}">{{property.city}}</ion-input>\n        </ion-item>\n        <ion-item hidden no-lines>\n            <ion-label>Suburb:</ion-label>\n            <ion-input formControlName="suburb1" value="{{property.suburb1}}">{{property.suburb1}}</ion-input>\n        </ion-item>\n\n        <!--User details-->\n        <ion-item hidden no-lines>\n            <ion-label>User Name:</ion-label>\n            <ion-input formControlName="fullName" value="{{property.fullName}}">{{property.fullName}}</ion-input>\n        </ion-item>\n        <ion-item hidden no-lines>\n            <ion-label>User Email:</ion-label>\n            <ion-input formControlName="userEmail" value="{{property.userEmail}}">{{property.userEmail}}</ion-input>\n        </ion-item>\n        <ion-item hidden no-lines>\n            <ion-label>User Contact Number:</ion-label>\n            <ion-input formControlName="contactNumber" value="{{property.contactNumber}}">{{property.contactNumber}}</ion-input>\n        </ion-item>\n        <ion-item hidden no-lines>\n            <ion-label floating>Agency Name:</ion-label>\n            <ion-input formControlName="agencyName" type="text" value="{{property.agencyName}}">{{property.agencyName}}</ion-input>\n        </ion-item>\n\n        <!--Date and time of submission-->\n        <ion-item hidden no-lines>\n            <ion-label floating>Date of Submission:</ion-label>\n            <ion-input formControlName="dateTime" displayFormat="DD:MM:YYYY" value="{{property.dateTime}}">{{property.dateTime}}</ion-input>\n        </ion-item>\n\n        <!--Key of property from list, probably not relevant here.-->\n        <ion-item hidden no-lines>\n            <ion-label floating>Area Key For Submission Purposes:</ion-label>\n            <ion-input formControlName="suburbKey" type="text" value="{{ property.key }}">{{ property.key }}</ion-input>\n        </ion-item>\n\n        <!-- End of admin fields -->\n\n        <!--Type of premises selected by user-->\n        <ion-list radio-group formControlName="premisesType" ngDefaultControl [(ngModel)]="property.premisesType">\n            <ion-label><b><u>Premises Type:</u></b></ion-label>\n            <ion-item no-lines>\n                <ion-label>Mini factory up to 500sqm</ion-label>\n                <ion-radio item-left type="radio" value="Mini factory up to 500sqm"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>A Factory/Warehouse over 500sqm</ion-label>\n                <ion-radio item-left type="radio" value="A factory/warehouse over 500 sqm"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Offices</ion-label>\n                <ion-radio item-left type="radio" value="Offices"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Retail</ion-label>\n                <ion-radio item-left type="radio" value="Retail"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>A mixed use building</ion-label>\n                <ion-radio item-left type="radio" value="A mixed use building"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>A stand alone house to be used as offices</ion-label>\n                <ion-radio item-left type="radio" value="A stand alone house to be used as offices"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Other</ion-label>\n                <ion-radio item-left type="radio" value="Other"></ion-radio>\n            </ion-item>\n            <ion-item>\n                <ion-label floating>Other Property Description:</ion-label>\n                <ion-input formControlName="otherProperty" type="text" value="{{property.otherProperty}}">{{ property.otherProperty }}</ion-input>\n            </ion-item>\n        </ion-list>\n        <!--End of premises Type-->\n\n        <!--Premises Allocation-->\n        <ion-list radio-group formControlName="holding" ngDefaultControl [(ngModel)]="property.holding">\n            <ion-label><b><u>Holding:</u></b></ion-label>\n            <ion-item no-lines>\n                <ion-label>Freehold</ion-label>\n                <ion-radio item-left type="radio" value="Freehold"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Sectional Title</ion-label>\n                <ion-radio item-left type="radio" value="Sectional Title"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Other</ion-label>\n                <ion-radio item-left type="radio" value="Other"></ion-radio>\n            </ion-item>\n            <ion-item>\n                <ion-label floating>Other Holding Description:</ion-label>\n                <ion-input formControlName="otherHolding" type="text" value="{{property.otherHolding}}">{{ property.otherHolding }}</ion-input>\n            </ion-item>\n        </ion-list>\n        <!--End of Premises Allocation-->\n\n        <!-- Start of property Address -->\n        <hr>\n        <ion-item no-lines>\n            <ion-label><u>Property Address:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Unit Number:</ion-label>\n            <ion-input formControlName="unitNumber" type="text" value="{{ property.unitNumber }}">{{property.unitNumber }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Complex Name:</ion-label>\n            <ion-input formControlName="complexName" type="text" value="{{ property.complexName }}">{{property.complexName }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Street Number:</ion-label>\n            <ion-input formControlName="streetNumber" type="text" value="{{ property.streetNumber }}">{{property.streetNumber }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Street Name:</ion-label>\n            <ion-input formControlName="streetName" type="text" value="{{ property.streetName }}">{{property.streetName }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Suburb/Town:</ion-label>\n            <ion-input formControlName="suburb1" type="text" value="{{ property.suburb1 }}">{{ property.suburb1 }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>City:</ion-label>\n            <ion-input formControlName="city" type="text" value="{{ property.city }}">{{ property.city }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Postal Code:</ion-label>\n            <ion-input formControlName="postalCode" type="number" value="{{ property.postalCode }}">{{property.postalCode }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>ERF Number:</ion-label>\n            <ion-input formControlName="erf" type="text" value="{{ property.erf }}">{{property.erf }}</ion-input>\n        </ion-item>\n        <!-- End of property Address -->\n\n        <!--Property Sizes -->\n        <hr>\n        <!--Labels-->\n        <ion-item no-lines *ngIf="property.rental == \'false\'">\n            <ion-label><u>Property Sizes:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines *ngIf="property.rental == \'true\'">\n            <ion-label><u>Lettable Space:</u></ion-label>\n        </ion-item>\n        <!-- Inputs-->\n        <ion-item no-lines>\n            <ion-label floating>Factory/Warehouse Size (sqm):</ion-label>\n            <ion-input formControlName="factorySize" type="number" value="{{ property.factorySize }}">{{property.factorySize }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Office Size (sqm):</ion-label>\n            <ion-input formControlName="officeSize" type="number" value="{{ property.officeSize }}">{{property.officeSize }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Total Factory and Office Size (sqm):</ion-label>\n            <ion-input formControlName="totalSize" type="number" value="{{ property.totalSize }}">{{property.totalSize }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Shop Size (sqm) (If Retail):</ion-label>\n            <ion-input formControlName="shopSize" type="number" value="{{ property.shopSize }}">{{property.shopSize }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Undercover Parking (Bays):</ion-label>\n            <ion-input formControlName="underCoverParking" type="number" value="{{ property.underCoverParking }}">{{property.underCoverParking }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Open Parking (Bays):</ion-label>\n            <ion-input formControlName="openParking" type="number" value="{{ property.openParking }}">{{property.openParking }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Usable Yard (sqm):</ion-label>\n            <ion-input formControlName="usableYard" type="number" value="{{ property.usableYard }}">{{property.usableYard }}</ion-input>\n        </ion-item>\n        <ion-item no-lines *ngIf="property.rental == \'false\'">\n            <ion-label floating>Size of ERF (sqm) (If Freehold):</ion-label>\n            <ion-input formControlName="sizeOfERF" type="text" value="{{ property.sizeOfERF }}">{{ property.sizeOfERF }}</ion-input>\n        </ion-item>\n        <hr>\n        <!-- End of property sizes -->\n\n        <!--Property Heights-->\n        <ion-item no-lines>\n            <ion-label><u>Heights:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Floor to Roof in Factory/Warehouse (m):</ion-label>\n            <ion-input formControlName="floorToCeilingHeights" type="number" value="{{ property.floorToCeilingHeights }}">{{ property.floorToCeilingHeights }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Height of Acccess Door (Roller Shutter) (m):</ion-label>\n            <ion-input formControlName="accessDoorHeights" type="number" value="{{ property.accessDoorHeights }}">{{ property.accessDoorHeights }}</ion-input>\n        </ion-item>\n        <hr>\n        <!--End of Property Heights-->\n\n        <!--Start of Truck Access-->\n\n        <ion-item no-lines>\n            <ion-label><u>Truck Access:</u></ion-label>\n        </ion-item>\n        <ion-list radio-group formControlName="truckAccess" ngDefaultControl [(ngModel)]="property.truckAccess">\n            <ion-item no-lines>\n                <ion-label>Rigid Trucks Can Be Offloaded at the premises</ion-label>\n                <ion-radio item-left type="radio" value="Rigid Trucks Only"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Semi Trailers Can Be Offloaded at the premises</ion-label>\n                <ion-radio item-left type="radio" value="Up To Semi Trucks"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Interlinks Can Be Offloaded at the premises</ion-label>\n                <ion-radio item-left type="radio" value="Up To Interlinks"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>None of the above applies.</ion-label>\n                <ion-radio item-left type="radio" value="No Truck Can Be Offloaded"></ion-radio>\n            </ion-item>\n        </ion-list>\n        <hr>\n        <!--End of Truck Access-->\n\n        <!-- Start Of Property Power Situation -->\n\n        <ion-item no-lines>\n            <ion-label><u>Power:</u></ion-label>\n        </ion-item>\n        <ion-list radio-group formControlName="power" ngDefaultControl [(ngModel)]="property.power">\n            <ion-item no-lines>\n                <ion-label>Single Phase</ion-label>\n                <ion-radio item-left type="radio" value="Single Phase"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Three Phase</ion-label>\n                <ion-radio item-left type="radio" value="Three Phase"></ion-radio>\n            </ion-item>\n        </ion-list>\n        <ion-item no-lines>\n            <ion-label floating>Amperage:</ion-label>\n            <ion-input formControlName="amperage" type="text" value="{{ property.amperage }}">{{ property.amperage }}</ion-input>\n        </ion-item>\n        <p>Please check your circuit breaker for the amperage.</p>\n        <hr>\n        <!-- End Of Property Power Situation -->\n\n        <!-- Start of selling/rental price -->\n        <ion-item no-lines>\n            <ion-label><u>Cost:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines *ngIf="property.rental == \'false\'">\n            <ion-label floating>Selling Price (ZAR):</ion-label>\n            <ion-input formControlName="sellingPrice" type="number" value="{{ property.sellingPrice }}">{{ property.sellingPrice }}</ion-input>\n        </ion-item>\n        <ion-item no-lines *ngIf="property.rental == \'true\'">\n            <ion-label floating>Rental Price (ZAR):</ion-label>\n            <ion-input formControlName="rentalPrice" type="number" value="{{ property.rentalPrice }}">{{ property.rentalPrice }}</ion-input>\n        </ion-item>\n        <ion-item no-lines *ngIf="property.rental == \'true\'">\n            <ion-label floating>Price Per Parking Bay (ZAR):</ion-label>\n            <ion-input formControlName="pricePerBay" type="number" value="{{ property.pricePerBay }}">{{ property.pricePerBay }}</ion-input>\n        </ion-item>\n        <hr>\n        <!-- End of selling/rental price -->\n\n        <!-- Start of extra costs section -->\n        <ion-item no-lines *ngIf="property.rental == \'false\'">\n            <ion-label><u>Overheads:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines *ngIf="property.rental == \'true\'">\n            <ion-label><u>Additional Costs:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Rates (ZAR):</ion-label>\n            <ion-input formControlName="rates" type="number" value="{{ property.rates }}">{{ property.rates }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Levy (ZAR):</ion-label>\n            <ion-input formControlName="levy" type="number" value="{{ property.levy }}">{{ property.levy }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Contribution to Service Costs (ZAR):</ion-label>\n            <ion-input formControlName="serviceCosts" type="number" value="{{ property.serviceCosts }}">{{ property.serviceCosts }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <ion-label floating>Other Overheads:</ion-label>\n            <ion-input formControlName="otherOverheads" type="text" value="{{ property.otherOverheads }}">{{ property.otherOverheads }}</ion-input>\n        </ion-item>\n        <hr>\n        <!-- End of extra costs section -->\n\n        <!-- Start of VAT section -->\n\n        <ion-item no-lines>\n            <ion-label><u>Is The of Owner of the Property a VAT Vendor?</u></ion-label>\n        </ion-item>\n        <ion-list radio-group formControlName="VAT" ngDefaultControl [(ngModel)]="property.VAT">\n            <ion-item no-lines *ngIf="property.rental == \'false\'">\n                <ion-label>Yes</ion-label>\n                <ion-radio item-left type="radio" value="Owner Is A VAT Vendor"></ion-radio>\n            </ion-item>\n            <ion-item no-lines *ngIf="property.rental == \'false\'">\n                <ion-label>No</ion-label>\n                <ion-radio item-left type="radio" value="Owner Is Not A VAT Vendor"></ion-radio>\n            </ion-item>\n            <ion-item>\n                <p>If No, Transfer Duty Applies</p>\n            </ion-item>\n            <ion-item no-lines *ngIf="property.rental == \'true\'">\n                <ion-label>Yes</ion-label>\n                <ion-radio item-left type="radio" value="Owner Is A VAT Vendor"></ion-radio>\n            </ion-item>\n            <ion-item no-lines *ngIf="property.rental == \'true\'">\n                <ion-label>No</ion-label>\n                <ion-radio item-left type="radio" value="Owner Is A Not VAT Vendor"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label floating>Owner VAT Number:</ion-label>\n                <ion-input formControlName="ownerVatNumber" type="text" value="{{ property.ownerVatNumber }}">{{ property.ownerVatNumber }}</ion-input>\n            </ion-item>\n        </ion-list>\n        <ion-list radio-group formControlName="thirdParty" *ngIf="property.rental == \'false\'" ngDefaultControl [(ngModel)]="property.thirdParty">\n            <ion-item no-lines>\n                <ion-label><u>Are The Presmises Tenanted By A Third Party?</u></ion-label>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>Yes</ion-label>\n                <ion-radio item-left type="radio" value="Third Party Tenant"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <ion-label>No</ion-label>\n                <ion-radio item-left type="radio" value="No Third Party Tenant"></ion-radio>\n            </ion-item>\n            <ion-item no-lines>\n                <p> If no, Transaction Cannot Be Zero Rated</p>\n            </ion-item>\n        </ion-list>\n        <hr>\n        <!-- End of VAT section -->\n\n        <!-- Start of Rental Options -->\n        <ion-item no-lines *ngIf="property.rental == \'true\'">\n            <ion-label><u>Lease Terms</u></ion-label>\n        </ion-item>\n        <ion-item no-lines *ngIf="property.rental == \'true\'">\n            <ion-label floating>% Annual Escalation in Rent:</ion-label>\n            <ion-input formControlName="escalation" type="text" value="{{ property.escalation }}">{{ property.escalation }}</ion-input>\n        </ion-item>\n        <ion-item no-lines *ngIf="property.rental == \'true\'">\n            <ion-label floating>Minimum Term Of Lease:</ion-label>\n            <ion-input formControlName="minLeaseTerm" type="text" value="{{ property.minLeaseTerm }}">{{ property.minLeaseTerm }}</ion-input>\n        </ion-item>\n        <ion-item no-lines *ngIf="property.rental == \'true\'">\n            <ion-label floating>Maximum Term Of Lease:</ion-label>\n            <ion-input formControlName="maxLeaseTerm" type="text" value="{{ property.maxLeaseTerm }}">{{ property.maxLeaseTerm }}</ion-input>\n        </ion-item>\n        <hr>\n        <!-- End of Rental Options -->\n\n        <!-- Start of Property Description -->\n        <ion-item no-lines>\n            <ion-label><u>Property Description:</u></ion-label>\n        </ion-item>\n        <ion-textarea formControlName="description" placeholder="Describe the property here:" value="{{ property.description }}">\n            <p>{{ property.description }}</p>\n        </ion-textarea>\n        <hr>\n\n        <!-- Start of Uploaded Images -->\n        <ion-item no-lines>\n            <ion-label><u>Property Images:</u></ion-label>\n        </ion-item>\n        <ion-item no-lines>\n            <img src="{{ property.img1 }}">\n            <ion-input hidden formControlName="img1" type="text" value="{{ property.img1 }}">{{ property.img1 }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <img src="{{ property.img2 }}">\n            <ion-input hidden formControlName="img2" type="text" value="{{ property.img2 }}">{{ property.img2 }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <img src="{{ property.img3 }}">\n            <ion-input hidden formControlName="img3" type="text" value="{{ property.img3 }}">{{ property.img3 }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <img src="{{ property.img4 }}">\n            <ion-input hidden formControlName="img4" type="text" value="{{ property.img4 }}">{{ property.img4 }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <img src="{{ property.img5 }}">\n            <ion-input hidden formControlName="img5" type="text" value="{{ property.img5 }}">{{ property.img5 }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <img src="{{ property.img6 }}">\n            <ion-input hidden formControlName="img6" type="text" value="{{ property.img6 }}">{{ property.img6 }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <img src="{{ property.img7 }}">\n            <ion-input hidden formControlName="img7" type="text" value="{{ property.img7 }}">{{ property.img7 }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <img src="{{ property.img8 }}">\n            <ion-input hidden formControlName="img8" type="text" value="{{ property.img8 }}">{{ property.img8 }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <img src="{{ property.img9 }}">\n            <ion-input hidden formControlName="img9" type="text" value="{{ property.img9 }}">{{ property.img9 }}</ion-input>\n        </ion-item>\n        <ion-item no-lines>\n            <img src="{{ property.img10 }}">\n            <ion-input hidden formControlName="img10" type="text" value="{{ property.img10 }}">{{ property.img10 }}</ion-input>\n        </ion-item>\n        <!-- End of Uploaded Images -->\n\n        <!-- Start of Submission Button -->\n\n        <button *ngIf="property.rental == \'false\'" ion-button (click)="submitPropertyToListingSale(property)">Submit to Sale Directory</button>\n        <button *ngIf="property.rental == \'true\'" ion-button (click)="submitPropertyToListingRental(property)">Submit to Rental Directory</button>\n\n        <!-- End of Submission Button -->\n        <!--End of form-->\n        <button ion-button (click)="deleteConfirm()">Delete Listing</button>\n    </form>\n\n    <!--\n         <input type="file" (change)="onFileSelected($event)" /> \n         <button ion-button block type="button" (click)="onUpload()">Upload</button> End of file upload\n        <button ion-button block type="submit">Submit Property For Review</button> -->\n\n    <!--Don\'t forget to create inputs for the stuff you aren\'t allowing to be changed on this form.-->\n</ion-content>'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/review-property-details/review-property-details.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
@@ -619,7 +825,8 @@ var ReviewPropertyDetailsPage = (function () {
             __WEBPACK_IMPORTED_MODULE_6_angularfire2_auth__["a" /* AngularFireAuth */],
             __WEBPACK_IMPORTED_MODULE_3_angularfire2_storage__["a" /* AngularFireStorage */],
             __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */]])
+            __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], ReviewPropertyDetailsPage);
     return ReviewPropertyDetailsPage;
 }());
@@ -628,16 +835,16 @@ var ReviewPropertyDetailsPage = (function () {
 
 /***/ }),
 
-/***/ 192:
+/***/ 193:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MainRentSearchPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(44);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -681,7 +888,7 @@ var MainRentSearchPage = (function () {
     };
     MainRentSearchPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-main-rent-search',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/main-rent-search/main-rent-search.html"*/'<!--\n  Generated template for the MainRentSearchPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>main-rent-search</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/main-rent-search/main-rent-search.html"*/,
+            selector: 'page-main-rent-search',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/main-rent-search/main-rent-search.html"*/'<!--\n  Generated template for the MainRentSearchPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>Rent A Property</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <h3>Pick Your City</h3>\n    Here you need a list of the cities under the metros.\n</ion-content>'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/main-rent-search/main-rent-search.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */]])
     ], MainRentSearchPage);
@@ -692,16 +899,16 @@ var MainRentSearchPage = (function () {
 
 /***/ }),
 
-/***/ 193:
+/***/ 194:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MetroListPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__suburb_list_suburb_list__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__suburb_list_suburb_list__ = __webpack_require__(195);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -805,18 +1012,18 @@ var MetroListPage = (function () {
 
 /***/ }),
 
-/***/ 194:
+/***/ 195:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SuburbListPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__property_submission_property_submission__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__property_submission_property_submission__ = __webpack_require__(108);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -898,7 +1105,7 @@ var SuburbListPage = (function () {
     ;
     SuburbListPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-suburb-list',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/suburb-list/suburb-list.html"*/'<!--\n  Generated template for the SuburbListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>Pick Suburb In {{parameter1}}</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n    <ion-searchbar (ionInput)="getSuburbs($event)"></ion-searchbar>\n    <ion-list>\n        <ion-item tappable no-lines *ngFor="let suburb of suburbList" detail-push>\n            <button ion-item detail-push (click)="goToSubmitProperty(suburb)">\n            <h2> {{ suburb.suburb }} </h2>\n            <p>{{ suburb.metro }}</p>\n            <!-- {{ suburb.key }} -->\n            </button>\n            <hr>\n        </ion-item>\n\n    </ion-list>\n    <!-- \n    <form [formGroup]="suburbSubmissionForm" (submit)="suburbSubmit()">\n        <ion-label><b><u>Suburb Name:</u></b></ion-label>\n        <ion-item no-lines>\n            <ion-label floating>Suburb Name:</ion-label>\n             <ion-input formControlName="suburb" type="text"></ion-input>\n            <ion-input formControlName="suburb" type="text"></ion-input>\n        </ion-item>\n        <button ion-button block type="submit">Submit Property For Review</button>\n    </form> -->\n</ion-content>'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/suburb-list/suburb-list.html"*/,
+            selector: 'page-suburb-list',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/suburb-list/suburb-list.html"*/'<!--\n  Generated template for the SuburbListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>Pick Suburb In {{parameter1}}</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n    <ion-searchbar (ionInput)="getSuburbs($event)"></ion-searchbar>\n    <ion-list>\n        <ion-item tappable no-lines *ngFor="let suburb of suburbList">\n            <button ion-item detail-push (click)="goToSubmitProperty(suburb)">\n            <h2> {{ suburb.suburb }} </h2>\n            <p>{{ suburb.metro }}</p>\n            <!-- {{ suburb.key }} -->\n            </button>\n            <hr>\n        </ion-item>\n\n    </ion-list>\n    <!-- \n    <form [formGroup]="suburbSubmissionForm" (submit)="suburbSubmit()">\n        <ion-label><b><u>Suburb Name:</u></b></ion-label>\n        <ion-item no-lines>\n            <ion-label floating>Suburb Name:</ion-label>\n             <ion-input formControlName="suburb" type="text"></ion-input>\n            <ion-input formControlName="suburb" type="text"></ion-input>\n        </ion-item>\n        <button ion-button block type="submit">Submit Property For Review</button>\n    </form> -->\n</ion-content>'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/suburb-list/suburb-list.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */]])
     ], SuburbListPage);
@@ -910,7 +1117,7 @@ var SuburbListPage = (function () {
 
 /***/ }),
 
-/***/ 195:
+/***/ 196:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -934,7 +1141,7 @@ var EmailValidator = (function () {
 
 /***/ }),
 
-/***/ 207:
+/***/ 208:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -947,56 +1154,60 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 207;
+webpackEmptyAsyncContext.id = 208;
 
 /***/ }),
 
-/***/ 251:
+/***/ 252:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"../pages/listings/listings.module": [
+		769,
+		11
+	],
 	"../pages/login/login.module": [
-		768,
+		770,
 		10
 	],
 	"../pages/main-buy-search/main-buy-search.module": [
-		769,
+		771,
 		9
 	],
 	"../pages/main-rent-search/main-rent-search.module": [
-		770,
+		772,
 		8
 	],
 	"../pages/metro-list/metro-list.module": [
-		771,
+		773,
 		7
 	],
 	"../pages/profile/profile.module": [
-		772,
+		774,
 		6
 	],
 	"../pages/property-submission/property-submission.module": [
-		773,
+		775,
 		5
 	],
 	"../pages/reset-password/reset-password.module": [
-		774,
+		776,
 		0
 	],
 	"../pages/review-property-details/review-property-details.module": [
-		775,
+		777,
 		4
 	],
 	"../pages/review-submissions/review-submissions.module": [
-		776,
+		778,
 		3
 	],
 	"../pages/suburb-detail/suburb-detail.module": [
-		777,
+		779,
 		2
 	],
 	"../pages/suburb-list/suburb-list.module": [
-		778,
+		780,
 		1
 	]
 };
@@ -1011,22 +1222,22 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 251;
+webpackAsyncContext.id = 252;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 265:
+/***/ 305:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfilePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__review_submissions_review_submissions__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__review_submissions_review_submissions__ = __webpack_require__(191);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_database__ = __webpack_require__(50);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1155,19 +1366,19 @@ var AuthProvider = (function () {
 
 /***/ }),
 
-/***/ 43:
+/***/ 44:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs_tabs__ = __webpack_require__(142);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__validators_email__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__signup_signup__ = __webpack_require__(461);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__contact_contact__ = __webpack_require__(462);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs_tabs__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__validators_email__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__signup_signup__ = __webpack_require__(462);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__contact_contact__ = __webpack_require__(463);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1265,16 +1476,16 @@ var LoginPage = (function () {
 
 /***/ }),
 
-/***/ 456:
+/***/ 457:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(44);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1318,14 +1529,14 @@ var AboutPage = (function () {
 
 /***/ }),
 
-/***/ 459:
+/***/ 460:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_storage__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_storage__ = __webpack_require__(100);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];
@@ -1410,19 +1621,19 @@ The Data URI is what you need to get from the device.
 
 /***/ }),
 
-/***/ 461:
+/***/ 462:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__validators_email__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_firebase_app__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__validators_email__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_firebase_app__ = __webpack_require__(253);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_firebase_app__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1484,7 +1695,7 @@ var SignupPage = (function () {
     };
     SignupPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-signup',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/signup/signup.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <ion-title>\n            Create an Account\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n    <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>\n\n        <ion-item>\n            <ion-label stacked>Email</ion-label>\n            <ion-input formControlName="email" [(ngModel)]="user.email" type="email" placeholder="Your email address" [class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.dirty"></ion-input>\n        </ion-item>\n        <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid  && signupForm.controls.email.dirty">\n            <p>Please enter a valid email.</p>\n        </ion-item>\n\n        <ion-item>\n            <ion-label stacked>Password</ion-label>\n            <ion-input formControlName="password" [(ngModel)]="user.password" type=" password " placeholder="Your password " [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty "></ion-input>\n        </ion-item>\n        <ion-item class="error-message " *ngIf="!signupForm.controls.password.valid && signupForm.controls.password.dirty ">\n            <p>Your password needs more than 6 characters.</p>\n        </ion-item>\n\n        <button ion-button block type="submit ">\n      Create an Account\n    </button>\n\n    </form>\n\n</ion-content>\n\n<!-- <ion-item>\n    <ion-input type="text " placeholder="Email Address " [(ngModel)]="user.email "></ion-input>\n</ion-item>\n\n<ion-item>\n    <ion-input type="password " placeholder="Password (Min 6 Characters) " [(ngModel)]="user.password "></ion-input>\n</ion-item>\n<br><br>\n<button ion-button (click)="register(user) ">Complete Registration</button>\n<ion-item>Having trouble?<br>Your Password must be<br>more than 6 characters</ion-item> -->'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/signup/signup.html"*/,
+            selector: 'page-signup',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/signup/signup.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <ion-title>\n            Create an Account\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n    <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>\n\n        <ion-item>\n            <ion-label stacked>Email</ion-label>\n            <ion-input formControlName="email" [(ngModel)]="user.email" type="email" placeholder="Your email address" [class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.dirty"></ion-input>\n        </ion-item>\n        <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid  && signupForm.controls.email.dirty">\n            <p>Please enter a valid email.</p>\n        </ion-item>\n\n        <ion-item>\n            <ion-label stacked>Password</ion-label>\n            <ion-input formControlName="password" [(ngModel)]="user.password" type=" password" placeholder="Your password" [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty"></ion-input>\n        </ion-item>\n        <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid && signupForm.controls.password.dirty">\n            <p>Your password needs more than 6 characters.</p>\n        </ion-item>\n\n        <button ion-button block type="submit">\n      Create an Account\n    </button>\n\n    </form>\n\n</ion-content>\n\n<!-- <ion-item>\n    <ion-input type="text" placeholder="Email Address" [(ngModel)]="user.email"></ion-input>\n</ion-item>\n\n<ion-item>\n    <ion-input type="password" placeholder="Password (Min 6 Characters)" [(ngModel)]="user.password"></ion-input>\n</ion-item>\n<br><br>\n<button ion-button (click)="register(user)">Complete Registration</button>\n<ion-item>Having trouble?<br>Your Password must be<br>more than 6 characters</ion-item> -->'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/signup/signup.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
@@ -1531,13 +1742,13 @@ var SignupPage = (function () {
 
 /***/ }),
 
-/***/ 462:
+/***/ 463:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1566,13 +1777,13 @@ var ContactPage = (function () {
 
 /***/ }),
 
-/***/ 507:
+/***/ 508:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SuburbDetailPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1611,13 +1822,13 @@ var SuburbDetailPage = (function () {
 
 /***/ }),
 
-/***/ 508:
+/***/ 509:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(509);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(516);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(510);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(517);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -1625,46 +1836,47 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 516:
+/***/ 517:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(760);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(761);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_storage__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_data__ = __webpack_require__(459);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_about_about__ = __webpack_require__(456);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_contact_contact__ = __webpack_require__(462);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_home_home__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_tabs_tabs__ = __webpack_require__(142);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_main_buy_search_main_buy_search__ = __webpack_require__(189);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_main_rent_search_main_rent_search__ = __webpack_require__(192);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_property_submission_property_submission__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_metro_list_metro_list__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_suburb_list_suburb_list__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_suburb_detail_suburb_detail__ = __webpack_require__(507);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_file_chooser__ = __webpack_require__(761);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__angular_common_http__ = __webpack_require__(460);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_login_login__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_signup_signup__ = __webpack_require__(461);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_profile_profile__ = __webpack_require__(265);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_review_submissions_review_submissions__ = __webpack_require__(190);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_review_property_details_review_property_details__ = __webpack_require__(191);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_angularfire2__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_angularfire2_auth__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__ionic_native_status_bar__ = __webpack_require__(502);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_splash_screen__ = __webpack_require__(503);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__providers_auth_auth__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__ionic_native_file_transfer__ = __webpack_require__(762);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__ionic_native_file__ = __webpack_require__(763);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__ionic_native_camera__ = __webpack_require__(764);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__ionic_native_in_app_browser__ = __webpack_require__(457);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__node_modules_ng2_file_upload__ = __webpack_require__(765);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__node_modules_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_33__node_modules_ng2_file_upload__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_storage__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_data__ = __webpack_require__(460);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_about_about__ = __webpack_require__(457);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_contact_contact__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_home_home__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_tabs_tabs__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_main_buy_search_main_buy_search__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_main_rent_search_main_rent_search__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_property_submission_property_submission__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_metro_list_metro_list__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_suburb_list_suburb_list__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_suburb_detail_suburb_detail__ = __webpack_require__(508);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_file_chooser__ = __webpack_require__(762);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__angular_common_http__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_login_login__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_signup_signup__ = __webpack_require__(462);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_profile_profile__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_review_submissions_review_submissions__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_review_property_details_review_property_details__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_listings_listings__ = __webpack_require__(189);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_angularfire2__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_angularfire2_auth__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_status_bar__ = __webpack_require__(503);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ionic_native_splash_screen__ = __webpack_require__(504);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__providers_auth_auth__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__ionic_native_file_transfer__ = __webpack_require__(763);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__ionic_native_file__ = __webpack_require__(764);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__ionic_native_camera__ = __webpack_require__(765);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__ionic_native_in_app_browser__ = __webpack_require__(458);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__node_modules_ng2_file_upload__ = __webpack_require__(766);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__node_modules_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_34__node_modules_ng2_file_upload__);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1681,6 +1893,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1735,7 +1948,7 @@ var CameraMock = (function (_super) {
         });
     };
     return CameraMock;
-}(__WEBPACK_IMPORTED_MODULE_31__ionic_native_camera__["a" /* Camera */]));
+}(__WEBPACK_IMPORTED_MODULE_32__ionic_native_camera__["a" /* Camera */]));
 var AppModule = (function () {
     function AppModule() {
     }
@@ -1758,11 +1971,13 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_16__pages_suburb_detail_suburb_detail__["a" /* SuburbDetailPage */],
                 __WEBPACK_IMPORTED_MODULE_22__pages_review_submissions_review_submissions__["a" /* ReviewSubmissionsPage */],
                 __WEBPACK_IMPORTED_MODULE_23__pages_review_property_details_review_property_details__["a" /* ReviewPropertyDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_listings_listings__["a" /* ListingsPage */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                     links: [
+                        { loadChildren: '../pages/listings/listings.module#ListingsPageModule', name: 'ListingsPage', segment: 'listings', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/main-buy-search/main-buy-search.module#MainBuySearchPageModule', name: 'MainBuySearchPage', segment: 'main-buy-search', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/main-rent-search/main-rent-search.module#MainRentSearchPageModule', name: 'MainRentSearchPage', segment: 'main-rent-search', priority: 'low', defaultHistory: [] },
@@ -1776,11 +1991,11 @@ var AppModule = (function () {
                         { loadChildren: '../pages/suburb-list/suburb-list.module#SuburbListPageModule', name: 'SuburbListPage', segment: 'suburb-list', priority: 'low', defaultHistory: [] }
                     ]
                 }),
-                __WEBPACK_IMPORTED_MODULE_24_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
+                __WEBPACK_IMPORTED_MODULE_25_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
                 __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__["b" /* AngularFireDatabaseModule */],
-                __WEBPACK_IMPORTED_MODULE_25_angularfire2_auth__["b" /* AngularFireAuthModule */],
+                __WEBPACK_IMPORTED_MODULE_26_angularfire2_auth__["b" /* AngularFireAuthModule */],
                 __WEBPACK_IMPORTED_MODULE_5_angularfire2_storage__["b" /* AngularFireStorageModule */],
-                __WEBPACK_IMPORTED_MODULE_33__node_modules_ng2_file_upload__["FileUploadModule"],
+                __WEBPACK_IMPORTED_MODULE_34__node_modules_ng2_file_upload__["FileUploadModule"],
                 __WEBPACK_IMPORTED_MODULE_18__angular_common_http__["b" /* HttpClientModule */],
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
@@ -1801,17 +2016,18 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_16__pages_suburb_detail_suburb_detail__["a" /* SuburbDetailPage */],
                 __WEBPACK_IMPORTED_MODULE_22__pages_review_submissions_review_submissions__["a" /* ReviewSubmissionsPage */],
                 __WEBPACK_IMPORTED_MODULE_23__pages_review_property_details_review_property_details__["a" /* ReviewPropertyDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_listings_listings__["a" /* ListingsPage */],
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_26__ionic_native_status_bar__["a" /* StatusBar */],
-                __WEBPACK_IMPORTED_MODULE_27__ionic_native_splash_screen__["a" /* SplashScreen */],
+                __WEBPACK_IMPORTED_MODULE_27__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_28__ionic_native_splash_screen__["a" /* SplashScreen */],
                 { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ErrorHandler"], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_28__providers_auth_auth__["a" /* AuthProvider */],
-                __WEBPACK_IMPORTED_MODULE_29__ionic_native_file_transfer__["a" /* FileTransfer */],
-                __WEBPACK_IMPORTED_MODULE_29__ionic_native_file_transfer__["b" /* FileTransferObject */],
+                __WEBPACK_IMPORTED_MODULE_29__providers_auth_auth__["a" /* AuthProvider */],
+                __WEBPACK_IMPORTED_MODULE_30__ionic_native_file_transfer__["a" /* FileTransfer */],
+                __WEBPACK_IMPORTED_MODULE_30__ionic_native_file_transfer__["b" /* FileTransferObject */],
                 __WEBPACK_IMPORTED_MODULE_17__ionic_native_file_chooser__["a" /* FileChooser */],
-                __WEBPACK_IMPORTED_MODULE_30__ionic_native_file__["a" /* File */],
-                __WEBPACK_IMPORTED_MODULE_32__ionic_native_in_app_browser__["a" /* InAppBrowser */],
+                __WEBPACK_IMPORTED_MODULE_31__ionic_native_file__["a" /* File */],
+                __WEBPACK_IMPORTED_MODULE_33__ionic_native_in_app_browser__["a" /* InAppBrowser */],
                 __WEBPACK_IMPORTED_MODULE_6__providers_data__["a" /* DataProvider */],
             ]
         })
@@ -1823,254 +2039,254 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 733:
+/***/ 734:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 334,
-	"./af.js": 334,
-	"./ar": 335,
-	"./ar-dz": 336,
-	"./ar-dz.js": 336,
-	"./ar-kw": 337,
-	"./ar-kw.js": 337,
-	"./ar-ly": 338,
-	"./ar-ly.js": 338,
-	"./ar-ma": 339,
-	"./ar-ma.js": 339,
-	"./ar-sa": 340,
-	"./ar-sa.js": 340,
-	"./ar-tn": 341,
-	"./ar-tn.js": 341,
-	"./ar.js": 335,
-	"./az": 342,
-	"./az.js": 342,
-	"./be": 343,
-	"./be.js": 343,
-	"./bg": 344,
-	"./bg.js": 344,
-	"./bm": 345,
-	"./bm.js": 345,
-	"./bn": 346,
-	"./bn.js": 346,
-	"./bo": 347,
-	"./bo.js": 347,
-	"./br": 348,
-	"./br.js": 348,
-	"./bs": 349,
-	"./bs.js": 349,
-	"./ca": 350,
-	"./ca.js": 350,
-	"./cs": 351,
-	"./cs.js": 351,
-	"./cv": 352,
-	"./cv.js": 352,
-	"./cy": 353,
-	"./cy.js": 353,
-	"./da": 354,
-	"./da.js": 354,
-	"./de": 355,
-	"./de-at": 356,
-	"./de-at.js": 356,
-	"./de-ch": 357,
-	"./de-ch.js": 357,
-	"./de.js": 355,
-	"./dv": 358,
-	"./dv.js": 358,
-	"./el": 359,
-	"./el.js": 359,
-	"./en-au": 360,
-	"./en-au.js": 360,
-	"./en-ca": 361,
-	"./en-ca.js": 361,
-	"./en-gb": 362,
-	"./en-gb.js": 362,
-	"./en-ie": 363,
-	"./en-ie.js": 363,
-	"./en-il": 364,
-	"./en-il.js": 364,
-	"./en-nz": 365,
-	"./en-nz.js": 365,
-	"./eo": 366,
-	"./eo.js": 366,
-	"./es": 367,
-	"./es-do": 368,
-	"./es-do.js": 368,
-	"./es-us": 369,
-	"./es-us.js": 369,
-	"./es.js": 367,
-	"./et": 370,
-	"./et.js": 370,
-	"./eu": 371,
-	"./eu.js": 371,
-	"./fa": 372,
-	"./fa.js": 372,
-	"./fi": 373,
-	"./fi.js": 373,
-	"./fo": 374,
-	"./fo.js": 374,
-	"./fr": 375,
-	"./fr-ca": 376,
-	"./fr-ca.js": 376,
-	"./fr-ch": 377,
-	"./fr-ch.js": 377,
-	"./fr.js": 375,
-	"./fy": 378,
-	"./fy.js": 378,
-	"./gd": 379,
-	"./gd.js": 379,
-	"./gl": 380,
-	"./gl.js": 380,
-	"./gom-latn": 381,
-	"./gom-latn.js": 381,
-	"./gu": 382,
-	"./gu.js": 382,
-	"./he": 383,
-	"./he.js": 383,
-	"./hi": 384,
-	"./hi.js": 384,
-	"./hr": 385,
-	"./hr.js": 385,
-	"./hu": 386,
-	"./hu.js": 386,
-	"./hy-am": 387,
-	"./hy-am.js": 387,
-	"./id": 388,
-	"./id.js": 388,
-	"./is": 389,
-	"./is.js": 389,
-	"./it": 390,
-	"./it.js": 390,
-	"./ja": 391,
-	"./ja.js": 391,
-	"./jv": 392,
-	"./jv.js": 392,
-	"./ka": 393,
-	"./ka.js": 393,
-	"./kk": 394,
-	"./kk.js": 394,
-	"./km": 395,
-	"./km.js": 395,
-	"./kn": 396,
-	"./kn.js": 396,
-	"./ko": 397,
-	"./ko.js": 397,
-	"./ky": 398,
-	"./ky.js": 398,
-	"./lb": 399,
-	"./lb.js": 399,
-	"./lo": 400,
-	"./lo.js": 400,
-	"./lt": 401,
-	"./lt.js": 401,
-	"./lv": 402,
-	"./lv.js": 402,
-	"./me": 403,
-	"./me.js": 403,
-	"./mi": 404,
-	"./mi.js": 404,
-	"./mk": 405,
-	"./mk.js": 405,
-	"./ml": 406,
-	"./ml.js": 406,
-	"./mr": 407,
-	"./mr.js": 407,
-	"./ms": 408,
-	"./ms-my": 409,
-	"./ms-my.js": 409,
-	"./ms.js": 408,
-	"./mt": 410,
-	"./mt.js": 410,
-	"./my": 411,
-	"./my.js": 411,
-	"./nb": 412,
-	"./nb.js": 412,
-	"./ne": 413,
-	"./ne.js": 413,
-	"./nl": 414,
-	"./nl-be": 415,
-	"./nl-be.js": 415,
-	"./nl.js": 414,
-	"./nn": 416,
-	"./nn.js": 416,
-	"./pa-in": 417,
-	"./pa-in.js": 417,
-	"./pl": 418,
-	"./pl.js": 418,
-	"./pt": 419,
-	"./pt-br": 420,
-	"./pt-br.js": 420,
-	"./pt.js": 419,
-	"./ro": 421,
-	"./ro.js": 421,
-	"./ru": 422,
-	"./ru.js": 422,
-	"./sd": 423,
-	"./sd.js": 423,
-	"./se": 424,
-	"./se.js": 424,
-	"./si": 425,
-	"./si.js": 425,
-	"./sk": 426,
-	"./sk.js": 426,
-	"./sl": 427,
-	"./sl.js": 427,
-	"./sq": 428,
-	"./sq.js": 428,
-	"./sr": 429,
-	"./sr-cyrl": 430,
-	"./sr-cyrl.js": 430,
-	"./sr.js": 429,
-	"./ss": 431,
-	"./ss.js": 431,
-	"./sv": 432,
-	"./sv.js": 432,
-	"./sw": 433,
-	"./sw.js": 433,
-	"./ta": 434,
-	"./ta.js": 434,
-	"./te": 435,
-	"./te.js": 435,
-	"./tet": 436,
-	"./tet.js": 436,
-	"./tg": 437,
-	"./tg.js": 437,
-	"./th": 438,
-	"./th.js": 438,
-	"./tl-ph": 439,
-	"./tl-ph.js": 439,
-	"./tlh": 440,
-	"./tlh.js": 440,
-	"./tr": 441,
-	"./tr.js": 441,
-	"./tzl": 442,
-	"./tzl.js": 442,
-	"./tzm": 443,
-	"./tzm-latn": 444,
-	"./tzm-latn.js": 444,
-	"./tzm.js": 443,
-	"./ug-cn": 445,
-	"./ug-cn.js": 445,
-	"./uk": 446,
-	"./uk.js": 446,
-	"./ur": 447,
-	"./ur.js": 447,
-	"./uz": 448,
-	"./uz-latn": 449,
-	"./uz-latn.js": 449,
-	"./uz.js": 448,
-	"./vi": 450,
-	"./vi.js": 450,
-	"./x-pseudo": 451,
-	"./x-pseudo.js": 451,
-	"./yo": 452,
-	"./yo.js": 452,
-	"./zh-cn": 453,
-	"./zh-cn.js": 453,
-	"./zh-hk": 454,
-	"./zh-hk.js": 454,
-	"./zh-tw": 455,
-	"./zh-tw.js": 455
+	"./af": 335,
+	"./af.js": 335,
+	"./ar": 336,
+	"./ar-dz": 337,
+	"./ar-dz.js": 337,
+	"./ar-kw": 338,
+	"./ar-kw.js": 338,
+	"./ar-ly": 339,
+	"./ar-ly.js": 339,
+	"./ar-ma": 340,
+	"./ar-ma.js": 340,
+	"./ar-sa": 341,
+	"./ar-sa.js": 341,
+	"./ar-tn": 342,
+	"./ar-tn.js": 342,
+	"./ar.js": 336,
+	"./az": 343,
+	"./az.js": 343,
+	"./be": 344,
+	"./be.js": 344,
+	"./bg": 345,
+	"./bg.js": 345,
+	"./bm": 346,
+	"./bm.js": 346,
+	"./bn": 347,
+	"./bn.js": 347,
+	"./bo": 348,
+	"./bo.js": 348,
+	"./br": 349,
+	"./br.js": 349,
+	"./bs": 350,
+	"./bs.js": 350,
+	"./ca": 351,
+	"./ca.js": 351,
+	"./cs": 352,
+	"./cs.js": 352,
+	"./cv": 353,
+	"./cv.js": 353,
+	"./cy": 354,
+	"./cy.js": 354,
+	"./da": 355,
+	"./da.js": 355,
+	"./de": 356,
+	"./de-at": 357,
+	"./de-at.js": 357,
+	"./de-ch": 358,
+	"./de-ch.js": 358,
+	"./de.js": 356,
+	"./dv": 359,
+	"./dv.js": 359,
+	"./el": 360,
+	"./el.js": 360,
+	"./en-au": 361,
+	"./en-au.js": 361,
+	"./en-ca": 362,
+	"./en-ca.js": 362,
+	"./en-gb": 363,
+	"./en-gb.js": 363,
+	"./en-ie": 364,
+	"./en-ie.js": 364,
+	"./en-il": 365,
+	"./en-il.js": 365,
+	"./en-nz": 366,
+	"./en-nz.js": 366,
+	"./eo": 367,
+	"./eo.js": 367,
+	"./es": 368,
+	"./es-do": 369,
+	"./es-do.js": 369,
+	"./es-us": 370,
+	"./es-us.js": 370,
+	"./es.js": 368,
+	"./et": 371,
+	"./et.js": 371,
+	"./eu": 372,
+	"./eu.js": 372,
+	"./fa": 373,
+	"./fa.js": 373,
+	"./fi": 374,
+	"./fi.js": 374,
+	"./fo": 375,
+	"./fo.js": 375,
+	"./fr": 376,
+	"./fr-ca": 377,
+	"./fr-ca.js": 377,
+	"./fr-ch": 378,
+	"./fr-ch.js": 378,
+	"./fr.js": 376,
+	"./fy": 379,
+	"./fy.js": 379,
+	"./gd": 380,
+	"./gd.js": 380,
+	"./gl": 381,
+	"./gl.js": 381,
+	"./gom-latn": 382,
+	"./gom-latn.js": 382,
+	"./gu": 383,
+	"./gu.js": 383,
+	"./he": 384,
+	"./he.js": 384,
+	"./hi": 385,
+	"./hi.js": 385,
+	"./hr": 386,
+	"./hr.js": 386,
+	"./hu": 387,
+	"./hu.js": 387,
+	"./hy-am": 388,
+	"./hy-am.js": 388,
+	"./id": 389,
+	"./id.js": 389,
+	"./is": 390,
+	"./is.js": 390,
+	"./it": 391,
+	"./it.js": 391,
+	"./ja": 392,
+	"./ja.js": 392,
+	"./jv": 393,
+	"./jv.js": 393,
+	"./ka": 394,
+	"./ka.js": 394,
+	"./kk": 395,
+	"./kk.js": 395,
+	"./km": 396,
+	"./km.js": 396,
+	"./kn": 397,
+	"./kn.js": 397,
+	"./ko": 398,
+	"./ko.js": 398,
+	"./ky": 399,
+	"./ky.js": 399,
+	"./lb": 400,
+	"./lb.js": 400,
+	"./lo": 401,
+	"./lo.js": 401,
+	"./lt": 402,
+	"./lt.js": 402,
+	"./lv": 403,
+	"./lv.js": 403,
+	"./me": 404,
+	"./me.js": 404,
+	"./mi": 405,
+	"./mi.js": 405,
+	"./mk": 406,
+	"./mk.js": 406,
+	"./ml": 407,
+	"./ml.js": 407,
+	"./mr": 408,
+	"./mr.js": 408,
+	"./ms": 409,
+	"./ms-my": 410,
+	"./ms-my.js": 410,
+	"./ms.js": 409,
+	"./mt": 411,
+	"./mt.js": 411,
+	"./my": 412,
+	"./my.js": 412,
+	"./nb": 413,
+	"./nb.js": 413,
+	"./ne": 414,
+	"./ne.js": 414,
+	"./nl": 415,
+	"./nl-be": 416,
+	"./nl-be.js": 416,
+	"./nl.js": 415,
+	"./nn": 417,
+	"./nn.js": 417,
+	"./pa-in": 418,
+	"./pa-in.js": 418,
+	"./pl": 419,
+	"./pl.js": 419,
+	"./pt": 420,
+	"./pt-br": 421,
+	"./pt-br.js": 421,
+	"./pt.js": 420,
+	"./ro": 422,
+	"./ro.js": 422,
+	"./ru": 423,
+	"./ru.js": 423,
+	"./sd": 424,
+	"./sd.js": 424,
+	"./se": 425,
+	"./se.js": 425,
+	"./si": 426,
+	"./si.js": 426,
+	"./sk": 427,
+	"./sk.js": 427,
+	"./sl": 428,
+	"./sl.js": 428,
+	"./sq": 429,
+	"./sq.js": 429,
+	"./sr": 430,
+	"./sr-cyrl": 431,
+	"./sr-cyrl.js": 431,
+	"./sr.js": 430,
+	"./ss": 432,
+	"./ss.js": 432,
+	"./sv": 433,
+	"./sv.js": 433,
+	"./sw": 434,
+	"./sw.js": 434,
+	"./ta": 435,
+	"./ta.js": 435,
+	"./te": 436,
+	"./te.js": 436,
+	"./tet": 437,
+	"./tet.js": 437,
+	"./tg": 438,
+	"./tg.js": 438,
+	"./th": 439,
+	"./th.js": 439,
+	"./tl-ph": 440,
+	"./tl-ph.js": 440,
+	"./tlh": 441,
+	"./tlh.js": 441,
+	"./tr": 442,
+	"./tr.js": 442,
+	"./tzl": 443,
+	"./tzl.js": 443,
+	"./tzm": 444,
+	"./tzm-latn": 445,
+	"./tzm-latn.js": 445,
+	"./tzm.js": 444,
+	"./ug-cn": 446,
+	"./ug-cn.js": 446,
+	"./uk": 447,
+	"./uk.js": 447,
+	"./ur": 448,
+	"./ur.js": 448,
+	"./uz": 449,
+	"./uz-latn": 450,
+	"./uz-latn.js": 450,
+	"./uz.js": 449,
+	"./vi": 451,
+	"./vi.js": 451,
+	"./x-pseudo": 452,
+	"./x-pseudo.js": 452,
+	"./yo": 453,
+	"./yo.js": 453,
+	"./zh-cn": 454,
+	"./zh-cn.js": 454,
+	"./zh-hk": 455,
+	"./zh-hk.js": 455,
+	"./zh-tw": 456,
+	"./zh-tw.js": 456
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -2086,22 +2302,22 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 733;
+webpackContext.id = 734;
 
 /***/ }),
 
-/***/ 760:
+/***/ 761:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(502);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(503);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(503);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(504);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(156);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(44);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2150,5 +2366,5 @@ var MyApp = (function () {
 
 /***/ })
 
-},[508]);
+},[509]);
 //# sourceMappingURL=main.js.map

@@ -20,13 +20,13 @@
 
         <ion-item>
             <ion-label stacked>Password</ion-label>
-            <ion-input formControlName="password" [(ngModel)]="user.password" type=" password " placeholder="Your password " [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty "></ion-input>
+            <ion-input formControlName="password" [(ngModel)]="user.password" type=" password" placeholder="Your password" [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty"></ion-input>
         </ion-item>
-        <ion-item class="error-message " *ngIf="!signupForm.controls.password.valid && signupForm.controls.password.dirty ">
+        <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid && signupForm.controls.password.dirty">
             <p>Your password needs more than 6 characters.</p>
         </ion-item>
 
-        <button ion-button block type="submit ">
+        <button ion-button block type="submit">
       Create an Account
     </button>
 
@@ -35,12 +35,12 @@
 </ion-content>
 
 <!-- <ion-item>
-    <ion-input type="text " placeholder="Email Address " [(ngModel)]="user.email "></ion-input>
+    <ion-input type="text" placeholder="Email Address" [(ngModel)]="user.email"></ion-input>
 </ion-item>
 
 <ion-item>
-    <ion-input type="password " placeholder="Password (Min 6 Characters) " [(ngModel)]="user.password "></ion-input>
+    <ion-input type="password" placeholder="Password (Min 6 Characters)" [(ngModel)]="user.password"></ion-input>
 </ion-item>
 <br><br>
-<button ion-button (click)="register(user) ">Complete Registration</button>
+<button ion-button (click)="register(user)">Complete Registration</button>
 <ion-item>Having trouble?<br>Your Password must be<br>more than 6 characters</ion-item> -->

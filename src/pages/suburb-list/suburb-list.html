@@ -17,7 +17,7 @@
 
     <ion-searchbar (ionInput)="getSuburbs($event)"></ion-searchbar>
     <ion-list>
-        <ion-item tappable no-lines *ngFor="let suburb of suburbList" detail-push>
+        <ion-item tappable no-lines *ngFor="let suburb of suburbList">
             <button ion-item detail-push (click)="goToSubmitProperty(suburb)">
             <h2> {{ suburb.suburb }} </h2>
             <p>{{ suburb.metro }}</p>

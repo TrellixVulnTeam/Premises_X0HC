@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { AngularFireDatabaseModule, AngularFireList } from 'angularfire2/database';
 import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage';
@@ -22,7 +23,9 @@ export class ReviewPropertyDetailsPage {
   public property: FirebaseListObservable<any[]>;
   public authUser: any;
   propertySubmissionForm: FormGroup;
-  public adminDB: AngularFireList<any>;
+  public adminRentalDB: AngularFireList<any>;
+  public adminSaleDB: AngularFireList<any>; 
+  public adminProfile: AngularFireObject<any>; 
   public propertyList: AngularFireList<any>;
   imageURI: any;
   imageFileName: any;
@@ -32,6 +35,7 @@ export class ReviewPropertyDetailsPage {
   profileArray: any = [];
   profile: any;
   uid: any;
+  city: any;
   dateTime = moment().format();
   selectedFile = File = null;
   public vatOptioned: boolean = true;
@@ -47,6 +51,7 @@ export class ReviewPropertyDetailsPage {
     public afStorage: AngularFireStorage,
     public AFdb: AngularFireDatabase,
     public formBuilder: FormBuilder,
+    public alertCtrl: AlertController
   ) {
     const authObserver = afAuth.authState.subscribe(user => {
       if (user) {
@@ -67,7 +72,12 @@ export class ReviewPropertyDetailsPage {
         authObserver.unsubscribe();
       }
       this.property = this.navParams.data;
-      this.adminDB = this.AFdb.list('/Admin/SubmittedProperties/'); //This needs to be to the right place for the listing.
+      // this.adminRentalDB = this.AFdb.list('/ListedProperties/Rentals/' + this.property + '/city'); //This needs to be to the right place for the listing. The city needs to be included here.
+      this.adminRentalDB = this.AFdb.list('/ListedProperties/Rentals/'); //This needs to be to the right place for the listing. The city needs to be included here.
+      this.adminSaleDB = this.AFdb.list('/ListedProperties/Sales/'); //This needs to be to the right place for the listing. The city needs to be included here.
+      this.adminProfile = this.AFdb.object('/Admin/SubmittedProperties/');
+
+
     });
 
     this.propertySubmissionForm = formBuilder.group({
@@ -124,13 +134,65 @@ export class ReviewPropertyDetailsPage {
       escalation: [],
       minLeaseTerm: [],
       maxLeaseTerm: [],
+      img1: [],
+      img2: [],
+      img3: [],
+      img4: [],
+      img5: [],
+      img6: [],
+      img7: [],
+      img8: [],
+      img9: [],
+      img10: [],
     });
 
+    this.property = this.navParams.data;
   }
 
-  submitProperty() {
-    this.adminDB.push(this.propertySubmissionForm.value)
+  //submitPropertyToListingRental() {
+    //this.adminRentalDB.set(this.propertySubmissionForm.value)
+  //}; //It's an entirely new submission, to elsewhere on the DB.
+
+
+  submitPropertyToListingRental(property) {
+    const toSend = this.AFdb.list(`/ListedProperties/Rentals/${property.city}/`);
+    toSend.push(this.property);
+    //console.log(property.city)
+  }
+
+  submitPropertyToListingSale(property) {
+    const toSend = this.AFdb.list(`/ListedProperties/Sales/${property.city}/`);
+    toSend.push(this.property);
   }; //It's an entirely new submission, to elsewhere on the DB.
+
+  deleteListing(property) {
+    console.log("Item =>", this.property);
+    //this.AFdb.list('/Admin/SubmittedProperties/').remove(property);
+  } //Delete single listing here.
+
+  deleteConfirm() {
+    let confirm = this.alertCtrl.create({
+      title: 'Really Delete?',
+      message: 'You cannot recover this file after deleting.',
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Delete',
+          handler: () => {
+            console.log("Item =>", this.property);
+            //Delete file.
+            //Push back to list.
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ReviewPropertyDetailsPage');

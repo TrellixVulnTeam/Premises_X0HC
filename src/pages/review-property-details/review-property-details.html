@@ -22,7 +22,7 @@
     <ion-item no-padding no-lines *ngIf="property.rental == 'false'">Property submitted as a Sale</ion-item>
 
     <hr>
-    <form [formGroup]="propertySubmissionForm" (submit)="submitProperty()">
+    <form [formGroup]="propertySubmissionForm">
 
         <!--Admin Submission Fields To All Be Hidden-->
 
@@ -404,54 +404,60 @@
         </ion-item>
         <ion-item no-lines>
             <img src="{{ property.img1 }}">
+            <ion-input hidden formControlName="img1" type="text" value="{{ property.img1 }}">{{ property.img1 }}</ion-input>
         </ion-item>
         <ion-item no-lines>
             <img src="{{ property.img2 }}">
+            <ion-input hidden formControlName="img2" type="text" value="{{ property.img2 }}">{{ property.img2 }}</ion-input>
         </ion-item>
         <ion-item no-lines>
             <img src="{{ property.img3 }}">
+            <ion-input hidden formControlName="img3" type="text" value="{{ property.img3 }}">{{ property.img3 }}</ion-input>
         </ion-item>
         <ion-item no-lines>
             <img src="{{ property.img4 }}">
+            <ion-input hidden formControlName="img4" type="text" value="{{ property.img4 }}">{{ property.img4 }}</ion-input>
         </ion-item>
         <ion-item no-lines>
             <img src="{{ property.img5 }}">
+            <ion-input hidden formControlName="img5" type="text" value="{{ property.img5 }}">{{ property.img5 }}</ion-input>
         </ion-item>
         <ion-item no-lines>
             <img src="{{ property.img6 }}">
+            <ion-input hidden formControlName="img6" type="text" value="{{ property.img6 }}">{{ property.img6 }}</ion-input>
         </ion-item>
         <ion-item no-lines>
             <img src="{{ property.img7 }}">
+            <ion-input hidden formControlName="img7" type="text" value="{{ property.img7 }}">{{ property.img7 }}</ion-input>
         </ion-item>
         <ion-item no-lines>
             <img src="{{ property.img8 }}">
+            <ion-input hidden formControlName="img8" type="text" value="{{ property.img8 }}">{{ property.img8 }}</ion-input>
         </ion-item>
         <ion-item no-lines>
             <img src="{{ property.img9 }}">
+            <ion-input hidden formControlName="img9" type="text" value="{{ property.img9 }}">{{ property.img9 }}</ion-input>
         </ion-item>
         <ion-item no-lines>
             <img src="{{ property.img10 }}">
+            <ion-input hidden formControlName="img10" type="text" value="{{ property.img10 }}">{{ property.img10 }}</ion-input>
         </ion-item>
         <!-- End of Uploaded Images -->
 
         <!-- Start of Submission Button -->
 
-        <!-- Button to push the form to the right city, under the right category - sale or rental -->
+        <button *ngIf="property.rental == 'false'" ion-button (click)="submitPropertyToListingSale(property)">Submit to Sale Directory</button>
+        <button *ngIf="property.rental == 'true'" ion-button (click)="submitPropertyToListingRental(property)">Submit to Rental Directory</button>
 
         <!-- End of Submission Button -->
-
         <!--End of form-->
+        <button ion-button (click)="deleteConfirm()">Delete Listing</button>
     </form>
 
-
     <!--
-
-
          <input type="file" (change)="onFileSelected($event)" /> 
-         <button ion-button block type="button" (click)="onUpload()">Upload</button> 
-         End of file upload 
-        <button ion-button block type="submit">Submit Property For Review</button>
-     -->
+         <button ion-button block type="button" (click)="onUpload()">Upload</button> End of file upload
+        <button ion-button block type="submit">Submit Property For Review</button> -->
 
     <!--Don't forget to create inputs for the stuff you aren't allowing to be changed on this form.-->
 </ion-content>

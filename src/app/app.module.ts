@@ -28,6 +28,7 @@ import { SignupPage } from '../pages/signup/signup';
 import { ProfilePage } from '../pages/profile/profile'
 import { ReviewSubmissionsPage } from '../pages/review-submissions/review-submissions'
 import { ReviewPropertyDetailsPage } from '../pages/review-property-details/review-property-details';
+import { ListingsPage } from '../pages/listings/listings'
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -81,6 +82,7 @@ class CameraMock extends Camera {
     SuburbDetailPage,
     ReviewSubmissionsPage,
     ReviewPropertyDetailsPage,
+    ListingsPage,
     // FileSelectDirective,
 
   ],
@@ -114,6 +116,7 @@ class CameraMock extends Camera {
     SuburbDetailPage,
     ReviewSubmissionsPage,
     ReviewPropertyDetailsPage,
+    ListingsPage,
   ],
   providers: [
     StatusBar,

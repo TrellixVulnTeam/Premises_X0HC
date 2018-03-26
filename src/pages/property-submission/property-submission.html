@@ -129,7 +129,7 @@
             <ion-label floating>Street Name:</ion-label>
             <ion-input formControlName="streetName" type="text"></ion-input>
         </ion-item>
-        <ion-item no-lines>
+        <ion-item hidden no-lines>
             <ion-label floating>Suburb/Town:</ion-label>
             <ion-input hidden formControlName="suburb1" type="text" value=" {{suburb.suburb}}">{{ suburb.suburb }}</ion-input>
         </ion-item>
@@ -355,8 +355,8 @@
         <h1>File Upload</h1>
 
         <input type="file" (change)="onFileSelected($event)" />
-        <button ion-button block type="button" (click)="onUpload()">Upload</button>
+        <!-- <button ion-button block type="button" (click)="onUpload()">Upload</button> -->
         <!-- End of file upload -->
-        <button ion-button block type="submit">Submit Property For Review</button>
+        <button ion-button block type="submit" [disabled]="!propertySubmissionForm.valid" (click)="presentToast()">Submit Property For Review</button>
     </form>
 </ion-content>

@@ -1,0 +1,32 @@
+<!-- Page for the properties for sale -->
+
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Properties For Sale: {{ parameter1 }} </ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col tappable col-6 col-sm *ngFor="let property of listedPropertyList">
+                <ion-card class="cardList">
+                    <img align="middle" src='{{ property.img1}}' />
+                    <ion-card-header text-wrap>
+                        <b>For Sale</b><br><br>
+                        <b>Type: </b>{{ property.premisesType}}<br><br>
+                        <b>Suburb: </b>{{ property.suburb1 }}, {{ property.city }}<br><br>
+                        <b>Selling price: R {{ property.sellingPrice }}</b><br>
+                        <hr>
+                    </ion-card-header>
+                    <ion-card-content>
+                    </ion-card-content>
+                    <button ion-button color="dark">See More</button>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

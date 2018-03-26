@@ -16,6 +16,7 @@ import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpEventType, HttpRequest, HttpParams } from '@angular/common/http';
 import * as firebase from 'firebase'
 import * as moment from 'moment'
+import { HomePage } from '../home/home';
 // import { FileSelectDirective, FileDropDirective, FileUploader } from '../../../node_modules/ng2-fileupload';
 // import { FileSelectDirective } from '../../../node_modules/ng2-fileupload';
 // import { FileUploader } from '../../../node_modules/ng2-file-upload';
@@ -98,7 +99,7 @@ export class PropertySubmissionPage {
       userEmail: [],
       contactNumber: [],
       agencyName: [], //If applicable.
-      premisesType: [], //Radio Group Selector
+      premisesType: ['', Validators.required], //Radio Group Selector
       otherProperty: [], //If not listed
       //Address Fields
       unitNumber: [],
@@ -123,8 +124,8 @@ export class PropertySubmissionPage {
       floorToCeilingHeights: [], 
       accessDoorHeights: [], 
       //AccessFields
-      truckAccess: [],
-      power: [],
+      truckAccess: ['', Validators.required],
+      power: ['', Validators.required],
       amperage: [],
       // overheads: [''],
       rates: [],
@@ -132,21 +133,31 @@ export class PropertySubmissionPage {
       serviceCosts: [],
       otherOverheads: [],
       sellingPrice: [],
-      VAT: [],
+      VAT: ['', Validators.required],
       thirdParty: [],
       description: [],
       imageUplaod: [],
-      holding: [],
+      holding: ['', Validators.required],
       otherHolding: [],
       suburbKey: [],
       dateTime: [this.dateTime],
-      rental: [],
+      rental: ['', Validators.required],
       rentalPrice: [],
       pricePerBay: [],
       ownerVatNumber: [],
       escalation: [],
       minLeaseTerm: [],
       maxLeaseTerm: [],
+      img1: [],
+      img2: [],
+      img3: [],
+      img4: [],
+      img5: [],
+      img6: [],
+      img7: [],
+      img8: [],
+      img9: [],
+      img10: [],
     });
   
   }
@@ -174,14 +185,26 @@ export class PropertySubmissionPage {
     });
     }
 
-
 //  https://firebasestorage.googleapis.com/v0/b/premises-1bc9e.appspot.com/o/resized-andrew-price-render12-final.jpg?alt=media&token=5f3a8c73-b32b-4016-8bef-16a07a4d234b
 
 
   submitProperty() {
     this.adminDB.push(this.propertySubmissionForm.value)
+    this.navCtrl.setRoot(HomePage)
   };
 
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'Property Was Submitted Succesfully',
+      duration: 5000,
+      position: 'middle'
+    });
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
+  }
   
   vatOption(vatOption) {
     console.log("vatOption = ", vatOption);
