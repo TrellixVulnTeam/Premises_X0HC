@@ -243,4 +243,6 @@ export class PropertySubmissionPage {
     this.rentPurchaseOption = false;
   } //This is to assign all the purchase fields
 
+
+  
 }

@@ -4,6 +4,7 @@ import firebase from 'firebase';
 import { AngularFireDatabaseModule, AngularFireList } from 'angularfire2/database';
 import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated'
 import { AngularFireDatabase } from 'angularfire2/database';
+import { SaleListingDetailPage } from '../sale-listing-detail/sale-listing-detail'
 
 /**
  * Generated class for the ListingsPage page.
@@ -54,4 +55,11 @@ export class ListingsPage {
   }
 
   
+showDetail(property) {
+  this.navCtrl.push(SaleListingDetailPage, {
+param1: property
+  });
+}
+
+
 }

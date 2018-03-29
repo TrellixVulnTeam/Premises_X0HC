@@ -21,6 +21,8 @@ import { SuburbListPage } from '../pages/suburb-list/suburb-list'
 import { SuburbDetailPage } from '../pages/suburb-detail/suburb-detail'
 import { FileChooser } from '@ionic-native/file-chooser';
 import { HttpClientModule } from '@angular/common/http';
+import * as ionicGalleryModal from 'ionic-gallery-modal';
+
 
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
@@ -29,6 +31,7 @@ import { ProfilePage } from '../pages/profile/profile'
 import { ReviewSubmissionsPage } from '../pages/review-submissions/review-submissions'
 import { ReviewPropertyDetailsPage } from '../pages/review-property-details/review-property-details';
 import { ListingsPage } from '../pages/listings/listings'
+import { SaleListingDetailPage } from '../pages/sale-listing-detail/sale-listing-detail'
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -83,6 +86,7 @@ class CameraMock extends Camera {
     ReviewSubmissionsPage,
     ReviewPropertyDetailsPage,
     ListingsPage,
+    SaleListingDetailPage,
     // FileSelectDirective,
 
   ],
@@ -95,6 +99,7 @@ class CameraMock extends Camera {
     AngularFireStorageModule,
     FileUploadModule,
     HttpClientModule,
+    ionicGalleryModal.GalleryModalModule,
     // FileSelectDirective,
 
   ],
@@ -117,6 +122,7 @@ class CameraMock extends Camera {
     ReviewSubmissionsPage,
     ReviewPropertyDetailsPage,
     ListingsPage,
+    SaleListingDetailPage,
   ],
   providers: [
     StatusBar,

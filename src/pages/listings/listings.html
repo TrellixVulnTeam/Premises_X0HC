@@ -9,7 +9,7 @@
 </ion-header>
 
 <ion-content>
-
+    <h3>Here is where you'll do the main searching.</h3>
     <ion-grid>
         <ion-row>
             <ion-col tappable col-6 col-sm *ngFor="let property of listedPropertyList">
@@ -17,14 +17,16 @@
                     <img align="middle" src='{{ property.img1}}' />
                     <ion-card-header text-wrap>
                         <b>For Sale</b><br><br>
-                        <b>Type: </b>{{ property.premisesType}}<br><br>
+                        <b>Type: </b>
+                        <p align="center" *ngIf="property.premisesType != 'Other'">{{ property.premisesType}}<br><br></p>
+                        <p align="center" *ngIf="property.premisesType == 'Other'">{{ property.otherProperty}}<br><br></p>
                         <b>Suburb: </b>{{ property.suburb1 }}, {{ property.city }}<br><br>
                         <b>Selling price: R {{ property.sellingPrice }}</b><br>
                         <hr>
                     </ion-card-header>
                     <ion-card-content>
                     </ion-card-content>
-                    <button ion-button color="dark">See More</button>
+                    <button ion-button color="dark" (click)="showDetail(property)">See More</button>
                 </ion-card>
             </ion-col>
         </ion-row>
