@@ -36,7 +36,9 @@ export class PropertySubmissionPage {
   files: Observable<any[]>;
   public authUser: any;
   propertySubmissionForm: FormGroup;
+  suburbSubmissionForm: FormGroup;
   public adminDB: AngularFireList<any>;
+  public adminDB2: AngularFireList<any>;
   public propertyList: AngularFireList<any>;
   imageURI: any;
   imageFileName: any;
@@ -106,6 +108,13 @@ export class PropertySubmissionPage {
 
     this.adminDB = this.AFdb.list('/Admin/SubmittedProperties/'); //This needs to be the Admin Dashboard!
    //From there you need to push it into it's correct place, and be able to edit/approve/reject it from the admin dashboard.
+    this.adminDB2 = this.AFdb.list('/Metros/CapeTown/'); //This needs to be the Admin Dashboard!
+
+
+    this.suburbSubmissionForm = formBuilder.group({
+      suburb: [],
+      metro: ['CapeTown'],
+    });
 
     this.propertySubmissionForm = formBuilder.group({
       fullName: [],
@@ -305,6 +314,10 @@ export class PropertySubmissionPage {
     this.propertySubmissionForm.markAsDirty();
     this.adminDB.push(this.propertySubmissionForm.value)
     this.navCtrl.setRoot(ConfirmationPage)
+  };
+
+  submitSuburb() {
+    this.adminDB2.push(this.suburbSubmissionForm.value)
   };
 
   presentToast() {
