@@ -9,8 +9,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as moment from 'moment'
-import * as firebase from 'firebase'
+// import * as firebase from 'firebase'
+import firebase from 'firebase'
 import { LoginPage } from '../login/login'
+import { Observable } from 'rxjs/Observable';
+import { FirebaseStorage } from '@firebase/storage-types';
+import { ReviewSubmissionsPage } from '../review-submissions/review-submissions';
 
 
 @IonicPage()
@@ -20,7 +24,8 @@ import { LoginPage } from '../login/login'
 })
 export class ReviewPropertyDetailsPage {
 
-  public property: FirebaseListObservable<any[]>;
+  // public property: FirebaseListObservable<any[]>;
+  public property: any = [];
   public authUser: any;
   propertySubmissionForm: FormGroup;
   public adminRentalDB: AngularFireList<any>;
@@ -33,6 +38,8 @@ export class ReviewPropertyDetailsPage {
   //User Data Below
   email: any;
   profileArray: any = [];
+  images: any = [];
+  imageCollection: any = [];
   profile: any;
   uid: any;
   city: any;
@@ -42,6 +49,14 @@ export class ReviewPropertyDetailsPage {
   public tenantOption: boolean = true;
   public rentPurchaseOption: boolean = true;
   public rentVatOptioned: boolean = false;  
+  img1Url: Observable<string | null>;
+  img2Url: Observable<string | null>;
+  img3Url: Observable<string | null>;
+  img4Url: Observable<string | null>;
+  img5Url: Observable<string | null>;
+  img6Url: Observable<string | null>;
+  public propertyRef: AngularFireObject<any>;
+
 
   constructor(
     public navCtrl: NavController,
@@ -51,7 +66,7 @@ export class ReviewPropertyDetailsPage {
     public afStorage: AngularFireStorage,
     public AFdb: AngularFireDatabase,
     public formBuilder: FormBuilder,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
   ) {
     const authObserver = afAuth.authState.subscribe(user => {
       if (user) {
@@ -147,6 +162,38 @@ export class ReviewPropertyDetailsPage {
     });
 
     this.property = this.navParams.data;
+
+//Below somewhat works!
+
+    console.log("Image NAME::::::::::", this.property.img1)
+
+    const ref1 = this.afStorage.ref("/resized-" + this.property.img1); //This gets the download URL. You need to dynamically pass in the file name here.
+    this.img1Url = ref1.getDownloadURL()
+    console.log(this.img1Url)
+
+    const ref2 = this.afStorage.ref("/resized-" + this.property.img2); //This gets the download URL. You need to dynamically pass in the file name here.
+    this.img2Url = ref2.getDownloadURL()
+    console.log(this.img2Url)
+
+    const ref3 = this.afStorage.ref("/resized-" + this.property.img3); //This gets the download URL. You need to dynamically pass in the file name here.
+    this.img3Url = ref3.getDownloadURL()
+    console.log(this.img3Url)
+
+    const ref4 = this.afStorage.ref("/resized-" + this.property.img4); //This gets the download URL. You need to dynamically pass in the file name here.
+    this.img4Url = ref4.getDownloadURL()
+    console.log(this.img4Url)
+
+    const ref5 = this.afStorage.ref("/resized-" + this.property.img5); //This gets the download URL. You need to dynamically pass in the file name here.
+    this.img5Url = ref5.getDownloadURL()
+    console.log(this.img5Url)
+
+    const ref6 = this.afStorage.ref("/resized-" + this.property.img6); //This gets the download URL. You need to dynamically pass in the file name here.
+    this.img6Url = ref6.getDownloadURL()
+    console.log(this.img6Url)
+    //push the image url to under the property!
+    // this.propertyRef = this.AFdb.object('/Admin/SubmittedProperties/');
+    // this.propertyRef.update(this.property)
+    console.log("Image URL::::::::::", ref1.getDownloadURL())
   }
 
   //submitPropertyToListingRental() {
@@ -160,20 +207,39 @@ export class ReviewPropertyDetailsPage {
     //console.log(property.city)
   }
 
+  
+
   submitPropertyToListingSale(property) {
     const toSend = this.AFdb.list(`/ListedProperties/Sales/${property.city}/`);
     toSend.push(this.property);
   }; //It's an entirely new submission, to elsewhere on the DB.
 
-  deleteListing(property) {
-    console.log("Item =>", this.property);
-    //this.AFdb.list('/Admin/SubmittedProperties/').remove(property);
+  deleteOnSubmit(property) {
+    this.AFdb.list('/Admin/SubmittedProperties/' + this.property.key).remove();
+    this.navCtrl.push(ReviewSubmissionsPage)
   } //Delete single listing here.
+
+  submitAlert() {
+    let confirm = this.alertCtrl.create({
+      title: 'Property Submitted',
+      message: 'Your users can now view and enquire.',
+      buttons: [
+        {
+          text: 'Ok',
+          handler: () => {
+            console.log('Ok clicked');
+          }
+        },
+      ]
+    });
+    confirm.present();
+  }
+
 
   deleteConfirm() {
     let confirm = this.alertCtrl.create({
       title: 'Really Delete?',
-      message: 'You cannot recover this file after deleting.',
+      message: 'You cannot recover this listing after deleting.',
       buttons: [
         {
           text: 'Cancel',
@@ -185,8 +251,8 @@ export class ReviewPropertyDetailsPage {
           text: 'Delete',
           handler: () => {
             console.log("Item =>", this.property);
-            //Delete file.
-            //Push back to list.
+            this.AFdb.list('/Admin/SubmittedProperties/' + this.property.key).remove();
+            this.navCtrl.setRoot(ReviewSubmissionsPage)
           }
         }
       ]

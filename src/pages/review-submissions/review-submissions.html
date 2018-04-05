@@ -23,7 +23,7 @@
     <u><h2>Properties To Rent</h2></u>
     <ion-list *ngFor="let property of submittedList">
         <ion-item *ngIf="property.rental == 'true'" tappable (click)="toReviewDetails(property)">
-            <b>Listing: </b>{{property.premisesType}}<br> <b>Location: </b>{{property.suburb1}}, {{property.city}}
+            <b>Listing: </b>{{property.premisesType}}. {{property.otherProperty}}<br> <b>Location: </b>{{property.suburb1}}, {{property.city}}
             <hr>
         </ion-item>
     </ion-list>

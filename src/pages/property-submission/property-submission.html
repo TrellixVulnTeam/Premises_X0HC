@@ -352,11 +352,65 @@
         <ion-textarea formControlName="description" placeholder="Describe the property here:"></ion-textarea>
         <hr>
         <!-- File Upload-->
-        <h1>File Upload</h1>
+        <h1>Image Upload</h1>
+        <ion-label color="danger">You need to upload exactly 6 images.</ion-label>
+        <ion-item>
+            <label>Image 1 (This will be your cover image)</label><br><br>
+            <input type="file" (change)="onFileSelected($event)" />
+        </ion-item>
 
-        <input type="file" (change)="onFileSelected($event)" />
-        <!-- <button ion-button block type="button" (click)="onUpload()">Upload</button> -->
+        <ion-item hidden>
+            <ion-input type="text" formControlName="img1" value="{{ this.selectedFile.name }}"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <label>Image 2</label><br><br>
+            <input type="file" (change)="onFileSelected2($event)" />
+        </ion-item>
+
+        <ion-item hidden>
+            <ion-input type="text" formControlName="img2" value="{{ this.selectedFile2.name }}"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <label>Image 3</label><br><br>
+            <input type="file" (change)="onFileSelected3($event)" />
+        </ion-item>
+
+        <ion-item hidden>
+            <ion-input type="text" formControlName="img3" value="{{ this.selectedFile3.name }}"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <label>Image 4</label><br><br>
+            <input type="file" (change)="onFileSelected4($event)" />
+        </ion-item>
+
+        <ion-item hidden>
+            <ion-input type="text" formControlName="img4" value="{{ this.selectedFile4.name }}"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <label>Image 5</label><br><br>
+            <input type="file" (change)="onFileSelected5($event)" />
+        </ion-item>
+
+        <ion-item hidden>
+            <ion-input type="text" formControlName="img5" value="{{ this.selectedFile5.name }}"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <label>Image 6</label><br><br>
+            <input type="file" (change)="onFileSelected6($event)" />
+        </ion-item>
+
+        <ion-item hidden>
+            <ion-input type="text" formControlName="img6" value="{{ this.selectedFile6.name }}"></ion-input>
+        </ion-item>
+
+        <!-- <button ion-button block type="button" (click)="onUpload()" (click)="onUpload2()">Upload</button> -->
         <!-- End of file upload -->
-        <button ion-button block type="submit" [disabled]="!propertySubmissionForm.valid" (click)="presentToast()">Submit Property For Review</button>
+        <ion-label *ngIf="!propertySubmissionForm.valid" color="danger">Please complete all the fields before submitting the form.</ion-label>
+        <button ion-button block type="submit" [disabled]="!propertySubmissionForm.valid" (click)="presentToast()" (click)="onUpload()" (click)="onUpload2()" (click)="onUpload3()" (click)="onUpload4()" (click)="onUpload5()" (click)="onUpload6()">Submit Property For Review</button>
     </form>
 </ion-content>

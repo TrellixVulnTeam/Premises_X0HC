@@ -1,6 +1,14 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { GalleryModal } from 'ionic-gallery-modal';
+import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabaseModule, AngularFireList } from 'angularfire2/database';
+import { AlertController } from 'ionic-angular';
+import { ListingsPage } from '../listings/listings';
+import { HomePage } from '../home/home';
+import { EnquirePage } from '../enquire/enquire'
+import { ReviewSubmissionsPage } from '../review-submissions/review-submissions';
 
 /**
  * Generated class for the SaleListingDetailPage page.
@@ -18,19 +26,80 @@ export class SaleListingDetailPage {
 
   parameter1: string;
   image: string;
+  public soldDB: AngularFireList<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController,) {
+
+  public authUser: any;
+  uid: any;
+  email: any;
+  profile: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public AFdb: AngularFireDatabase, afAuth: AngularFireAuth, public alertCtrl: AlertController,
+) {
     this.parameter1 = navParams.get('param1');
-    console.log(this.parameter1)
+   // console.log(this.parameter1)
 
+  const authObserver = afAuth.authState.subscribe(user => {
+    if (user) {
+      this.uid = user.uid;
+      this.email = user.email;
+      this.profile = this.AFdb.object('/users/' + this.uid).valueChanges();
+      console.log(" auth")
+      // this.navCtrl.setRoot(TabsPage);  
+      authObserver.unsubscribe();
+    } else {
+      console.log("no Auth!")
+    }
+  });
+ 
 
-
-  }
-
+}
   ionViewDidLoad() {
     console.log('ionViewDidLoad SaleListingDetailPage');
   }
 
+  enquirePage(parameter1) {
+    this.navCtrl.push(EnquirePage, {
+      param1: parameter1
+    });
+  }
+
+  markAsSold(parameter1){
+  this.soldDB = this.AFdb.list('/Admin/SoldProperties/')
+  this.soldDB.push(this.parameter1)
+  this.AFdb.list(`/ListedProperties/Sales/${parameter1.city}/` + parameter1.key).remove();
+  this.navCtrl.setRoot(HomePage)
+}
+
+  archive(parameter1) {
+    this.soldDB = this.AFdb.list('/Admin/Archive/')
+    this.soldDB.push(this.parameter1)
+    this.AFdb.list(`/ListedProperties/Sales/${parameter1.city}/` + parameter1.key).remove();
+    this.navCtrl.setRoot(HomePage)
+  }
+
+  delete(parameter1) {
+    let confirm = this.alertCtrl.create({
+      title: 'Really Delete?',
+      message: 'You cannot recover this listing after deleting.',
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Delete',
+          handler: () => {
+            this.AFdb.list(`/ListedProperties/Sales/${parameter1.city}/` + parameter1.key).remove();           
+            this.navCtrl.setRoot(HomePage)
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
 
   openImage1(parameter1) {
     this.parameter1 = this.navParams.get('param1');

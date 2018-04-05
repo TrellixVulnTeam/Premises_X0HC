@@ -26,8 +26,10 @@
         <ion-card-header no-margin>
             <ion-item no-padding>
                 <ion-icon name="ios-clipboard-outline" item-left color="darkGray"></ion-icon>
-                <b>Description:</b>
-                <div> {{ parameter1.description }}</div><br>
+                <b>Description:</b><br>
+                <div text-wrap>
+                    <br>{{ parameter1.description }}
+                </div><br>
                 <div>
                     {{parameter1.holding}}
                 </div>
@@ -191,47 +193,80 @@
             </ion-row>
         </ion-grid>
     </ion-card>
+
+    <ion-card align="center">
+        <ion-card-header>
+            <b>Enquire About This Property</b>
+        </ion-card-header>
+        <ion-card-content>
+            <button ion-button (click)="enquirePage(parameter1)">Click Here</button>
+        </ion-card-content>
+    </ion-card>
+
+    <!-- Admin options below-->
+    <ion-card *ngIf=" (profile | async)?.admin ">
+        <ion-item>
+            <b>Admin Card: (Only Admins can see this)</b>
+        </ion-item>
+        <ion-item>
+            <button ion-button (click)="markAsSold(parameter1) ">Mark As Sold</button>
+        </ion-item>
+        <ion-item>
+            <button ion-button (click)="archive(parameter1) ">Archive</button>
+        </ion-item>
+        <ion-item>
+            <button ion-button (click)="delete(parameter1) ">Delete</button>
+        </ion-item>
+        <ion-item no-lines>
+            <ion-label><u>Property Address:</u></ion-label>
+        </ion-item>
+        <ion-item>
+            <b>Unit Number:</b> {{ parameter1.unitNumber }}<br><br> <b>Complex Name:</b> {{parameter1.complexName }}<br><br> <b>Street Number:</b> {{ parameter1.streetNumber }}<br><br><b>Street Name:</b> {{parameter1.streetName }}<br><br> <b>Suburb/Town:</b>            {{ parameter1.suburb1 }}<br><br> <b>City:</b> {{ parameter1.city }}
+            <br><br> <b>Postal Code:</b> {{parameter1.postalCode }}<br><br> <b>ERF Number:</b> {{parameter1.erf }}<br><br>
+        </ion-item>
+    </ion-card>
 </ion-content>
 
 
-<!-- VAT: "Owner Is Not A VAT Vendor" 
-accessDoorHeights: "12" 
-agencyName: "No agency Again" 
-city: "Johannesburg" 
-complexName: "12" 
-contactNumber: "0110836578" 
-dateTime: "2018-03-23T11:41:20+02:00" 
-description: "asdfghjkl\nsdfghjkl\ndfghjkl\nfghjkl" 
-erf: "12" <-- This is the ERF number
-floorToCeilingHeights: "12" 
-fullName: "Luke Venter" 
-holding: "Sectional Title" 
-img1: "https://firebasestorage.googleapis.com/v0/b/pre..." 
-img2: "https://firebasestorage.googleapis.com/v0/b/pre..." 
-img3: "https://firebasestorage.googleapis.com/v0/b/pre..."
-img4: "https://firebasestorage.googleapis.com/v0/b/pre..." 
-img5: "https://firebasestorage.googleapis.com/v0/b/pre..." 
-img6: "https://firebasestorage.googleapis.com/v0/b/pre..." 
-key: "-L8HEMRl2N0WZDi4RgMs" 
-levy: "12" 
-otherOverheads: "12"
-otherProperty: "" 
-postalCode: "1609" 
-power: "Single Phase" 
-premisesType: "Retail" 
-rates: "12" 
-rental: "false" 
-sellingPrice: "123123123" 
-serviceCosts: "12"
-streetName: "11 St Dominic Road" 
-streetNumber: "Unit 1, Monique Office Park" 
-suburb1:" Airdlin" 
-suburbKey: "-L7U7e-n_jJ9v1Ps7Fk1" 
-thirdParty: "Third Party Tenant" 
-truckAccess: "No Truck Can Be Offloaded" 
-underCoverParking: "12" 
-unitNumber: "12" 
-userEmail: "qwertyuiop@qwertyuiop.com" -->
+
+<!-- VAT: "Owner Is Not A VAT Vendor " 
+accessDoorHeights: "12 " 
+agencyName: "No agency Again " 
+city: "Johannesburg " 
+complexName: "12 " 
+contactNumber: "0110836578 " 
+dateTime: "2018-03-23T11:41:20+02:00 " 
+description: "asdfghjkl\nsdfghjkl\ndfghjkl\nfghjkl " 
+erf: "12 " <-- This is the ERF number
+floorToCeilingHeights: "12 " 
+fullName: "Luke Venter " 
+holding: "Sectional Title " 
+img1: "https://firebasestorage.googleapis.com/v0/b/pre... " 
+img2: "https://firebasestorage.googleapis.com/v0/b/pre... " 
+img3: "https://firebasestorage.googleapis.com/v0/b/pre... "
+img4: "https://firebasestorage.googleapis.com/v0/b/pre... " 
+img5: "https://firebasestorage.googleapis.com/v0/b/pre... " 
+img6: "https://firebasestorage.googleapis.com/v0/b/pre... " 
+key: "-L8HEMRl2N0WZDi4RgMs " 
+levy: "12 " 
+otherOverheads: "12 "
+otherProperty: " " 
+postalCode: "1609 " 
+power: "Single Phase " 
+premisesType: "Retail " 
+rates: "12 " 
+rental: "false " 
+sellingPrice: "123123123 " 
+serviceCosts: "12 "
+streetName: "11 St Dominic Road " 
+streetNumber: "Unit 1, Monique Office Park " 
+suburb1:" Airdlin " 
+suburbKey: "-L7U7e-n_jJ9v1Ps7Fk1 " 
+thirdParty: "Third Party Tenant " 
+truckAccess: "No Truck Can Be Offloaded " 
+underCoverParking: "12 " 
+unitNumber: "12 " 
+userEmail: "qwertyuiop@qwertyuiop.com " -->
 
 <p>Images</p>
 <p>Enquire About Property Modal</p>

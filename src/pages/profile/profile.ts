@@ -5,6 +5,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { LoginPage } from '../login/login'
 import { ReviewSubmissionsPage } from '../review-submissions/review-submissions' 
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
+import { AdminEnquiriesPage } from '../admin-enquiries/admin-enquiries'
 
 /**
  * Generated class for the ProfilePage page.
@@ -58,6 +59,10 @@ export class ProfilePage {
 
   reviewSubmissions() {
     this.navCtrl.push(ReviewSubmissionsPage)
+  }
+
+  reviewEnquiries() {
+    this.navCtrl.push(AdminEnquiriesPage)
   }
 
 }

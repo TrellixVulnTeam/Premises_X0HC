@@ -1,0 +1,98 @@
+<!--
+  Generated template for the EnquirePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Enquire About Property</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item no-padding>
+        <b>Confirm Enquiry for:</b>
+    </ion-item>
+    <ion-item no-padding *ngIf="parameter1.premisesType != 'Other'">
+        <h4><b>Premises Type:</b></h4>
+        {{parameter1.premisesType}}</ion-item>
+    <ion-item no-padding *ngIf="parameter1.premisesType == 'Other'">
+        <h4><b>Premises Type:</b></h4>
+        {{parameter1.otherProperty}}</ion-item>
+
+    <ion-item no-padding>
+        <b>In Location:</b><br>
+        <div>{{ parameter1.suburb1 }}, {{ parameter1.city }}</div>
+    </ion-item>
+    <!--Form Below Here-->
+    <form [formGroup]="enuqirySubmissionForm" (submit)="submitEnquiry()">
+        <ion-item hidden>
+            <ion-input formControlName="fullName" type="text" value="{{ parameter1.fullName }}">{{ parameter1.fullName }}</ion-input>
+            <b>Full Name:</b> {{ parameter1.fullName }}<br><br>
+        </ion-item>
+
+        <ion-item hidden>
+            <ion-input formControlName="userEmail" type="text" value="{{ parameter1.userEmail }}">{{ parameter1.userEmail }}</ion-input>
+            <b>Email Address:</b> {{ parameter1.userEmail }}<br><br>
+        </ion-item>
+
+        <ion-item hidden>
+            <ion-input formControlName="contactNumber" type="text" value="{{ parameter1.contactNumber }}">{{ parameter1.contactNumber }}</ion-input>
+            <b>Contact Number:</b> {{ parameter1.contactNumber }}<br><br>
+        </ion-item>
+
+        <ion-item hidden>
+            <ion-input formControlName="premisesType" type="text" value="{{ parameter1.premisesType }}">{{ parameter1.premisesType }}</ion-input>
+            <b>Premises Type:</b> {{ parameter1.premisesType }}<br><br>
+        </ion-item>
+
+        <ion-item hidden>
+            <ion-input formControlName="unitNumber" type="text" value="{{ parameter1.unitNumber }}">{{ parameter1.unitNumber }}</ion-input>
+            <b>Unit Number:</b> {{ parameter1.unitNumber }}<br><br>
+        </ion-item>
+
+        <ion-item hidden>
+            <ion-input formControlName="complexName" type="text" value="{{ parameter1.complexName }}">{{ parameter1.complexName }}</ion-input>
+            <b>Complex Name:</b> {{parameter1.complexName }}<br><br>
+        </ion-item>
+
+        <ion-item hidden>
+            <ion-input formControlName="streetNumber" type="text" value="{{ parameter1.streetNumber }}">{{ parameter1.streetNumber }}</ion-input>
+            <b>Street Number:</b> {{ parameter1.streetNumber }}<br><br>
+        </ion-item>
+
+        <ion-item hidden>
+            <ion-input formControlName="streetName" type="text" value="{{ parameter1.streetName }}">{{ parameter1.streetName }}</ion-input>
+            <b>Street Name:</b> {{parameter1.streetName }}<br><br>
+        </ion-item>
+
+        <ion-item hidden>
+            <ion-input formControlName="suburb1" type="text" value="{{ parameter1.suburb1 }}">{{ parameter1.suburb1 }}</ion-input>
+            <b>Suburb/Town:</b>{{ parameter1.suburb1 }}<br><br>
+        </ion-item>
+
+        <ion-item hidden>
+            <ion-input formControlName="city" type="text" value="{{ parameter1.city }}">{{ parameter1.city }}</ion-input>
+            <b>City:</b> {{ parameter1.city }}<br><br>
+        </ion-item>
+
+        <ion-item hidden>
+            <ion-input formControlName="postalCode" type="text" value="{{ parameter1.postalCode }}">{{ parameter1.postalCode }}</ion-input>
+            <b>Postal Code:</b> {{parameter1.postalCode }}<br><br>
+        </ion-item>
+
+        <ion-item hidden>
+            <ion-input formControlName="erf" type="text" value="{{ parameter1.erf }}">{{ parameter1.erf }}</ion-input>
+            <b>ERF Number:</b> {{parameter1.erf }}<br><br>
+        </ion-item>
+        <ion-item hidden>
+            <ion-input formControlName="rental" type="text" value="{{ parameter1.rental }}">{{ parameter1.rental }}</ion-input>
+            <b>ERF Number:</b> {{parameter1.rental }}<br><br>
+        </ion-item>
+        <button ion-button block type="submit" (click)="presentToast()">Send Enquiry</button>
+    </form>
+</ion-content>
+
+fullName: userEmail: rental: premisesType:
