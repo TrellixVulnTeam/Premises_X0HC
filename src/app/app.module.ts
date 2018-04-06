@@ -95,6 +95,7 @@ class CameraMock extends Camera {
     ConfirmationPage,
     EnquirePage,
     AdminEnquiriesPage,
+    FilterResultsPage,
     // FileSelectDirective,
 
   ],
@@ -134,6 +135,7 @@ class CameraMock extends Camera {
     ConfirmationPage,
     EnquirePage,
     AdminEnquiriesPage,
+    FilterResultsPage,
   ],
   providers: [
     StatusBar,

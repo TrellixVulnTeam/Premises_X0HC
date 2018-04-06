@@ -5,12 +5,15 @@ import { AngularFireDatabaseModule, AngularFireList } from 'angularfire2/databas
 import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated'
 import { AngularFireDatabase } from 'angularfire2/database';
 import { SaleListingDetailPage } from '../sale-listing-detail/sale-listing-detail'
-import { AlertController } from 'ionic-angular';
+import { AlertController, ModalController } from 'ionic-angular';
 import { MainBuySearchPage } from '../main-buy-search/main-buy-search'
 import { FilterResultsPage } from '../filter-results/filter-results'
-import { App, FabContainer, ItemSliding, List, ModalController, ToastController, LoadingController, Refresher } from 'ionic-angular';
-import { PropertyData } from '../../providers/property-data';
-
+/**
+ * Generated class for the ListingsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
 @IonicPage()
 @Component({
@@ -24,9 +27,9 @@ export class ListingsPage {
   public listedPropertyList: Array<any>;
   public loadedListedPropertyList: Array<any>;
   public listedPropertyRef: firebase.database.Query;
+  
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public loadingCtrl: LoadingController, public modalCtrl: ModalController,
-
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public modalCtrl: ModalController,
 ) {
 
     this.parameter1 = navParams.get('param1'); 
@@ -67,36 +70,20 @@ export class ListingsPage {
   }
 
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ListingsPage');
-  }
-
-
-//This is all part of the filtering experiment now.
-
-
-  updateSchedule() {
-    // Close any open sliding items when the schedule updates
-    this.scheduleList && this.scheduleList.closeSlidingItems();
-
-    this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
-      this.shownSessions = data.shownSessions;
-      this.groups = data.groups;
-    });
-  }
-
 
   presentFilter() {
-    let modal = this.modalCtrl.create(FilterResultsPage, this.excludeTracks);
+    let modal = this.modalCtrl.create(FilterResultsPage);
     modal.present();
 
     modal.onWillDismiss((data: any[]) => {
       if (data) {
-        this.excludeTracks = data;
-        this.updateSchedule();
+console.log("Dismissed")
       }
     });
+  }
 
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ListingsPage');
   }
 
   

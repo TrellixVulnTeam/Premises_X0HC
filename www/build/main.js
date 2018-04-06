@@ -1,6 +1,135 @@
-webpackJsonp([16],{
+webpackJsonp([17],{
 
 /***/ 108:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MainBuySearchPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__listings_listings__ = __webpack_require__(197);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var MainBuySearchPage = (function () {
+    function MainBuySearchPage(navCtrl, navParams, authData, afAuth) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.authData = authData;
+        var authObserver = afAuth.authState.subscribe(function (user) {
+            if (user) {
+                console.log("auth");
+                // this.navCtrl.setRoot(TabsPage);
+                authObserver.unsubscribe();
+            }
+            else {
+                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__login_login__["a" /* LoginPage */]);
+                authObserver.unsubscribe();
+            }
+        });
+        this.submittedPropertyRef = __WEBPACK_IMPORTED_MODULE_5_firebase___default.a.database().ref('/ListedProperties/Sales');
+        this.submittedPropertyRef.on('value', function (submittedPropertyList) {
+            var properties = [];
+            submittedPropertyList.forEach(function (property) {
+                var item = property.val();
+                item.key = property.key;
+                properties.push(item);
+                return false;
+            });
+            _this.submittedPropertyList = properties;
+            _this.loadedSubmittedPropertyList = properties;
+            console.log("done loading");
+        });
+    }
+    //   toListingsPage(item) {
+    // this.navCtrl.push(ListingsPage, item);
+    //   };
+    MainBuySearchPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad MainBuySearchPage');
+    };
+    MainBuySearchPage.prototype.toJoburg = function (listing) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
+            param1: "Johannesburg"
+        });
+    };
+    MainBuySearchPage.prototype.toCapeTown = function (listing) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
+            param1: "CapeTown"
+        });
+    };
+    MainBuySearchPage.prototype.toDurban = function (listing) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
+            param1: "Durban"
+        });
+    };
+    MainBuySearchPage.prototype.toPietermaritzburg = function (listing) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
+            param1: "Pietermaritzburg"
+        });
+    };
+    MainBuySearchPage.prototype.toPretoria = function (listing) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
+            param1: "Pretoria"
+        });
+    };
+    MainBuySearchPage.prototype.toPortElizabeth = function (listing) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
+            param1: "PortElizabeth"
+        });
+    };
+    MainBuySearchPage.prototype.toBloemfontein = function (listing) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
+            param1: "Bloemfontein"
+        });
+    };
+    MainBuySearchPage.prototype.toNelspruit = function (listing) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
+            param1: "Nelspruit"
+        });
+    };
+    MainBuySearchPage.prototype.toKimberley = function (listing) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
+            param1: "Kimberley"
+        });
+    };
+    MainBuySearchPage.prototype.toPolokwane = function (listing) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
+            param1: "Polokwane"
+        });
+    };
+    MainBuySearchPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-main-buy-search',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/main-buy-search/main-buy-search.html"*/'<!--\n  Generated template for the MainBuySearchPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>Buy A Property</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n    <h3>Pick Your City</h3>\n    <ion-list>\n        <ion-item (click)="toJoburg(listing)">\n            <b>Johannesburg</b>\n        </ion-item>\n        <ion-item (click)="toCapeTown(listing)">\n            <b>Cape Town</b>\n        </ion-item>\n        <ion-item (click)="toDurban(listing)">\n            <b>Durban</b>\n        </ion-item>\n        <ion-item (click)="toPietermaritzburg(listing)">\n            <b>Pietermaritzburg</b>\n        </ion-item>\n        <ion-item (click)="toPretoria(listing)">\n            <b>Pretoria</b>\n        </ion-item>\n        <ion-item (click)="toPortElizabeth(listing)">\n            <b>Port-Elizabeth</b>\n        </ion-item>\n        <ion-item (click)="toBloemfontein(listing)">\n            <b>Bloemfontein</b>\n        </ion-item>\n        <ion-item (click)="toNelspruit(listing)">\n            <b>Nelspruit</b>\n        </ion-item>\n        <ion-item (click)="toKimberley(listing)">\n            <b>Kimberley</b>\n        </ion-item>\n        <ion-item (click)="toPolokwane(listing)">\n            <b>Polokwane</b>\n        </ion-item>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/main-buy-search/main-buy-search.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */]])
+    ], MainBuySearchPage);
+    return MainBuySearchPage;
+}());
+
+//# sourceMappingURL=main-buy-search.js.map
+
+/***/ }),
+
+/***/ 109:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66,7 +195,7 @@ var ReviewSubmissionsPage = (function () {
 
 /***/ }),
 
-/***/ 109:
+/***/ 110:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -84,7 +213,7 @@ var ReviewSubmissionsPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_common_http__ = __webpack_require__(468);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__confirmation_confirmation__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__confirmation_confirmation__ = __webpack_require__(193);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -439,7 +568,7 @@ var PropertySubmissionPage = (function () {
 
 /***/ }),
 
-/***/ 162:
+/***/ 163:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -479,7 +608,7 @@ var TabsPage = (function () {
 
 /***/ }),
 
-/***/ 166:
+/***/ 167:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -514,7 +643,7 @@ var ContactPage = (function () {
 
 /***/ }),
 
-/***/ 191:
+/***/ 192:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -606,7 +735,7 @@ var AdminEnquiriesPage = (function () {
 
 /***/ }),
 
-/***/ 192:
+/***/ 193:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -651,7 +780,7 @@ var ConfirmationPage = (function () {
 
 /***/ }),
 
-/***/ 193:
+/***/ 194:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -753,135 +882,6 @@ var EnquirePage = (function () {
 
 /***/ }),
 
-/***/ 194:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MainBuySearchPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__listings_listings__ = __webpack_require__(197);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-var MainBuySearchPage = (function () {
-    function MainBuySearchPage(navCtrl, navParams, authData, afAuth) {
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.authData = authData;
-        var authObserver = afAuth.authState.subscribe(function (user) {
-            if (user) {
-                console.log("auth");
-                // this.navCtrl.setRoot(TabsPage);
-                authObserver.unsubscribe();
-            }
-            else {
-                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__login_login__["a" /* LoginPage */]);
-                authObserver.unsubscribe();
-            }
-        });
-        this.submittedPropertyRef = __WEBPACK_IMPORTED_MODULE_5_firebase___default.a.database().ref('/ListedProperties/Sales');
-        this.submittedPropertyRef.on('value', function (submittedPropertyList) {
-            var properties = [];
-            submittedPropertyList.forEach(function (property) {
-                var item = property.val();
-                item.key = property.key;
-                properties.push(item);
-                return false;
-            });
-            _this.submittedPropertyList = properties;
-            _this.loadedSubmittedPropertyList = properties;
-            console.log("done loading");
-        });
-    }
-    //   toListingsPage(item) {
-    // this.navCtrl.push(ListingsPage, item);
-    //   };
-    MainBuySearchPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad MainBuySearchPage');
-    };
-    MainBuySearchPage.prototype.toJoburg = function (listing) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
-            param1: "Johannesburg"
-        });
-    };
-    MainBuySearchPage.prototype.toCapeTown = function (listing) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
-            param1: "CapeTown"
-        });
-    };
-    MainBuySearchPage.prototype.toDurban = function (listing) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
-            param1: "Durban"
-        });
-    };
-    MainBuySearchPage.prototype.toPietermaritzburg = function (listing) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
-            param1: "Pietermaritzburg"
-        });
-    };
-    MainBuySearchPage.prototype.toPretoria = function (listing) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
-            param1: "Pretoria"
-        });
-    };
-    MainBuySearchPage.prototype.toPortElizabeth = function (listing) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
-            param1: "PortElizabeth"
-        });
-    };
-    MainBuySearchPage.prototype.toBloemfontein = function (listing) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
-            param1: "Bloemfontein"
-        });
-    };
-    MainBuySearchPage.prototype.toNelspruit = function (listing) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
-            param1: "Nelspruit"
-        });
-    };
-    MainBuySearchPage.prototype.toKimberley = function (listing) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
-            param1: "Kimberley"
-        });
-    };
-    MainBuySearchPage.prototype.toPolokwane = function (listing) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__listings_listings__["a" /* ListingsPage */], {
-            param1: "Polokwane"
-        });
-    };
-    MainBuySearchPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-main-buy-search',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/main-buy-search/main-buy-search.html"*/'<!--\n  Generated template for the MainBuySearchPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>Buy A Property</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n    <h3>Pick Your City</h3>\n    <ion-list>\n        <ion-item (click)="toJoburg(listing)">\n            <b>Johannesburg</b>\n        </ion-item>\n        <ion-item (click)="toCapeTown(listing)">\n            <b>Cape Town</b>\n        </ion-item>\n        <ion-item (click)="toDurban(listing)">\n            <b>Durban</b>\n        </ion-item>\n        <ion-item (click)="toPietermaritzburg(listing)">\n            <b>Pietermaritzburg</b>\n        </ion-item>\n        <ion-item (click)="toPretoria(listing)">\n            <b>Pretoria</b>\n        </ion-item>\n        <ion-item (click)="toPortElizabeth(listing)">\n            <b>Port-Elizabeth</b>\n        </ion-item>\n        <ion-item (click)="toBloemfontein(listing)">\n            <b>Bloemfontein</b>\n        </ion-item>\n        <ion-item (click)="toNelspruit(listing)">\n            <b>Nelspruit</b>\n        </ion-item>\n        <ion-item (click)="toKimberley(listing)">\n            <b>Kimberley</b>\n        </ion-item>\n        <ion-item (click)="toPolokwane(listing)">\n            <b>Polokwane</b>\n        </ion-item>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/main-buy-search/main-buy-search.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */]])
-    ], MainBuySearchPage);
-    return MainBuySearchPage;
-}());
-
-//# sourceMappingURL=main-buy-search.js.map
-
-/***/ }),
-
 /***/ 195:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -897,7 +897,7 @@ var MainBuySearchPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__login_login__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__review_submissions_review_submissions__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__review_submissions_review_submissions__ = __webpack_require__(109);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1169,7 +1169,8 @@ var EmailValidator = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sale_listing_detail_sale_listing_detail__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__main_buy_search_main_buy_search__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__main_buy_search_main_buy_search__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__filter_results_filter_results__ = __webpack_require__(791);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1185,6 +1186,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the ListingsPage page.
  *
@@ -1192,11 +1194,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var ListingsPage = (function () {
-    function ListingsPage(navCtrl, navParams, alertCtrl) {
+    function ListingsPage(navCtrl, navParams, alertCtrl, modalCtrl) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.alertCtrl = alertCtrl;
+        this.modalCtrl = modalCtrl;
         this.parameter1 = navParams.get('param1');
         console.log(this.parameter1);
         this.listedPropertyRef = __WEBPACK_IMPORTED_MODULE_2_firebase___default.a.database().ref('/ListedProperties/Sales/' + this.parameter1 + '/');
@@ -1231,6 +1234,15 @@ var ListingsPage = (function () {
             }
         });
     }
+    ListingsPage.prototype.presentFilter = function () {
+        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_5__filter_results_filter_results__["a" /* FilterResultsPage */]);
+        modal.present();
+        modal.onWillDismiss(function (data) {
+            if (data) {
+                console.log("Dismissed");
+            }
+        });
+    };
     ListingsPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad ListingsPage');
     };
@@ -1241,12 +1253,12 @@ var ListingsPage = (function () {
     };
     ListingsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-listings',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/listings/listings.html"*/'<!-- Page for the properties for sale -->\n\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>Properties For Sale: {{ parameter1 }} </ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n    <h3>Here is where you\'ll do the main searching.</h3>\n    <ion-grid>\n        <ion-row>\n            <ion-col tappable col-6 col-sm *ngFor="let property of listedPropertyList" (click)="showDetail(property)">\n                <ion-card class="cardList">\n                    <img align="middle" src=\'{{ property.img1}}\' />\n                    <ion-card-header text-wrap>\n                        <b>For Sale</b><br><br>\n                        <b>Type: </b>\n                        <p align="center" *ngIf="property.premisesType != \'Other\'">{{ property.premisesType}}<br><br></p>\n                        <p align="center" *ngIf="property.premisesType == \'Other\'">{{ property.otherProperty}}<br><br></p>\n                        <b>Suburb: </b>{{ property.suburb1 }}, {{ property.city }}<br><br>\n                        <b>Selling price: R {{ property.sellingPrice }}</b><br>\n                        <hr>\n                    </ion-card-header>\n                    <ion-card-content>\n                    </ion-card-content>\n                    <button ion-button color="dark">See More</button>\n                </ion-card>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-content>'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/listings/listings.html"*/,
+            selector: 'page-listings',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/listings/listings.html"*/'<!-- Page for the properties for sale -->\n\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>Properties For Sale: {{ parameter1 }} </ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="presentFilter()">\n        <ion-icon ios="ios-options-outline" md="md-options"></ion-icon>\n      </button>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n    <h3>Here is where you\'ll do the main searching.</h3>\n    <ion-grid>\n        <ion-row>\n            <ion-col tappable col-12 col-sm *ngFor="let property of listedPropertyList" (click)="showDetail(property)">\n                <ion-card class="cardList">\n                    <img align="middle" src=\'{{ property.img1}}\' />\n                    <ion-card-header text-wrap>\n                        <b>For Sale</b><br><br>\n                        <b>Type: </b>\n                        <p align="center" *ngIf="property.premisesType != \'Other\'">{{ property.premisesType}}<br><br></p>\n                        <p align="center" *ngIf="property.premisesType == \'Other\'">{{ property.otherProperty}}<br><br></p>\n                        <b>Suburb: </b>{{ property.suburb1 }}, {{ property.city }}<br><br>\n                        <b>Selling price: R {{ property.sellingPrice }}</b><br>\n                        <hr>\n                    </ion-card-header>\n                    <ion-card-content>\n                    </ion-card-content>\n                    <button ion-button color="dark">See More</button>\n                </ion-card>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-content>'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/listings/listings.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]) === "function" && _d || Object])
     ], ListingsPage);
     return ListingsPage;
-    var _a, _b, _c;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=listings.js.map
@@ -1264,7 +1276,7 @@ var ListingsPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__enquire_enquire__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__enquire_enquire__ = __webpack_require__(194);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1622,7 +1634,7 @@ var MetroListPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__property_submission_property_submission__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__property_submission_property_submission__ = __webpack_require__(110);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1739,43 +1751,47 @@ webpackEmptyAsyncContext.id = 213;
 var map = {
 	"../pages/admin-enquiries/admin-enquiries.module": [
 		774,
-		15
+		16
 	],
 	"../pages/confirmation/confirmation.module": [
 		775,
-		14
+		15
 	],
 	"../pages/enquire/enquire.module": [
 		776,
-		13
+		14
+	],
+	"../pages/filter-results/filter-results.module": [
+		777,
+		1
 	],
 	"../pages/listings/listings.module": [
-		777,
-		12
+		778,
+		13
 	],
 	"../pages/login/login.module": [
-		778,
-		11
+		779,
+		12
 	],
 	"../pages/main-buy-search/main-buy-search.module": [
-		779,
-		10
+		780,
+		11
 	],
 	"../pages/main-rent-search/main-rent-search.module": [
-		780,
-		9
+		781,
+		10
 	],
 	"../pages/metro-list/metro-list.module": [
-		781,
-		8
+		789,
+		9
 	],
 	"../pages/profile/profile.module": [
 		782,
-		7
+		8
 	],
 	"../pages/property-submission/property-submission.module": [
 		783,
-		6
+		7
 	],
 	"../pages/reset-password/reset-password.module": [
 		784,
@@ -1783,23 +1799,23 @@ var map = {
 	],
 	"../pages/review-property-details/review-property-details.module": [
 		785,
-		5
+		6
 	],
 	"../pages/review-submissions/review-submissions.module": [
 		786,
-		4
+		5
 	],
 	"../pages/sale-listing-detail/sale-listing-detail.module": [
+		790,
+		4
+	],
+	"../pages/suburb-detail/suburb-detail.module": [
 		787,
 		3
 	],
-	"../pages/suburb-detail/suburb-detail.module": [
+	"../pages/suburb-list/suburb-list.module": [
 		788,
 		2
-	],
-	"../pages/suburb-list/suburb-list.module": [
-		789,
-		1
 	]
 };
 function webpackAsyncContext(req) {
@@ -1828,9 +1844,9 @@ module.exports = webpackAsyncContext;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__review_submissions_review_submissions__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__review_submissions_review_submissions__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_database__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__admin_enquiries_admin_enquiries__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__admin_enquiries_admin_enquiries__ = __webpack_require__(192);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1971,10 +1987,10 @@ var AuthProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs_tabs__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs_tabs__ = __webpack_require__(163);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__validators_email__ = __webpack_require__(196);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__signup_signup__ = __webpack_require__(463);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__contact_contact__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__contact_contact__ = __webpack_require__(167);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2410,12 +2426,12 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_storage__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_data__ = __webpack_require__(467);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_about_about__ = __webpack_require__(462);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_contact_contact__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_contact_contact__ = __webpack_require__(167);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_home_home__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_tabs_tabs__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_main_buy_search_main_buy_search__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_tabs_tabs__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_main_buy_search_main_buy_search__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_main_rent_search_main_rent_search__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_property_submission_property_submission__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_property_submission_property_submission__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_metro_list_metro_list__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_suburb_list_suburb_list__ = __webpack_require__(201);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_suburb_detail_suburb_detail__ = __webpack_require__(513);
@@ -2424,25 +2440,26 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_ionic_gallery_modal__ = __webpack_require__(464);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_login_login__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_signup_signup__ = __webpack_require__(463);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_confirmation_confirmation__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_confirmation_confirmation__ = __webpack_require__(193);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_profile_profile__ = __webpack_require__(323);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_review_submissions_review_submissions__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_review_submissions_review_submissions__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_review_property_details_review_property_details__ = __webpack_require__(195);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_listings_listings__ = __webpack_require__(197);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_sale_listing_detail_sale_listing_detail__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_enquire_enquire__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_admin_enquiries_admin_enquiries__ = __webpack_require__(191);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_angularfire2__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_angularfire2_auth__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__ionic_native_status_bar__ = __webpack_require__(508);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__ionic_native_splash_screen__ = __webpack_require__(509);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__providers_auth_auth__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__ionic_native_file_transfer__ = __webpack_require__(768);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__ionic_native_file__ = __webpack_require__(769);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__ionic_native_camera__ = __webpack_require__(770);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__ionic_native_in_app_browser__ = __webpack_require__(465);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__node_modules_ng2_file_upload__ = __webpack_require__(771);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__node_modules_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_39__node_modules_ng2_file_upload__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_enquire_enquire__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_admin_enquiries_admin_enquiries__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_filter_results_filter_results__ = __webpack_require__(791);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_angularfire2__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32_angularfire2_auth__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__ionic_native_status_bar__ = __webpack_require__(508);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__ionic_native_splash_screen__ = __webpack_require__(509);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__providers_auth_auth__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__ionic_native_file_transfer__ = __webpack_require__(768);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__ionic_native_file__ = __webpack_require__(769);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__ionic_native_camera__ = __webpack_require__(770);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__ionic_native_in_app_browser__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__node_modules_ng2_file_upload__ = __webpack_require__(771);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__node_modules_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_40__node_modules_ng2_file_upload__);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -2459,6 +2476,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -2519,7 +2537,7 @@ var CameraMock = (function (_super) {
         });
     };
     return CameraMock;
-}(__WEBPACK_IMPORTED_MODULE_37__ionic_native_camera__["a" /* Camera */]));
+}(__WEBPACK_IMPORTED_MODULE_38__ionic_native_camera__["a" /* Camera */]));
 var AppModule = (function () {
     function AppModule() {
     }
@@ -2547,6 +2565,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_22__pages_confirmation_confirmation__["a" /* ConfirmationPage */],
                 __WEBPACK_IMPORTED_MODULE_28__pages_enquire_enquire__["a" /* EnquirePage */],
                 __WEBPACK_IMPORTED_MODULE_29__pages_admin_enquiries_admin_enquiries__["a" /* AdminEnquiriesPage */],
+                __WEBPACK_IMPORTED_MODULE_30__pages_filter_results_filter_results__["a" /* FilterResultsPage */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
@@ -2555,26 +2574,27 @@ var AppModule = (function () {
                         { loadChildren: '../pages/admin-enquiries/admin-enquiries.module#AdminEnquiriesPageModule', name: 'AdminEnquiriesPage', segment: 'admin-enquiries', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/confirmation/confirmation.module#ConfirmationPageModule', name: 'ConfirmationPage', segment: 'confirmation', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/enquire/enquire.module#EnquirePageModule', name: 'EnquirePage', segment: 'enquire', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/filter-results/filter-results.module#FilterResultsPageModule', name: 'FilterResultsPage', segment: 'filter-results', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/listings/listings.module#ListingsPageModule', name: 'ListingsPage', segment: 'listings', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/main-buy-search/main-buy-search.module#MainBuySearchPageModule', name: 'MainBuySearchPage', segment: 'main-buy-search', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/main-rent-search/main-rent-search.module#MainRentSearchPageModule', name: 'MainRentSearchPage', segment: 'main-rent-search', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/metro-list/metro-list.module#MetroListPageModule', name: 'MetroListPage', segment: 'metro-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/property-submission/property-submission.module#PropertySubmissionPageModule', name: 'PropertySubmissionPage', segment: 'property-submission', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/reset-password/reset-password.module#ResetPasswordPageModule', name: 'ResetPasswordPage', segment: 'reset-password', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/review-property-details/review-property-details.module#ReviewPropertyDetailsPageModule', name: 'ReviewPropertyDetailsPage', segment: 'review-property-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/review-submissions/review-submissions.module#ReviewSubmissionsPageModule', name: 'ReviewSubmissionsPage', segment: 'review-submissions', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/sale-listing-detail/sale-listing-detail.module#SaleListingDetailPageModule', name: 'SaleListingDetailPage', segment: 'sale-listing-detail', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/suburb-detail/suburb-detail.module#SuburbDetailPageModule', name: 'SuburbDetailPage', segment: 'suburb-detail', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/suburb-list/suburb-list.module#SuburbListPageModule', name: 'SuburbListPage', segment: 'suburb-list', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/suburb-list/suburb-list.module#SuburbListPageModule', name: 'SuburbListPage', segment: 'suburb-list', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/metro-list/metro-list.module#MetroListPageModule', name: 'MetroListPage', segment: 'metro-list', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/sale-listing-detail/sale-listing-detail.module#SaleListingDetailPageModule', name: 'SaleListingDetailPage', segment: 'sale-listing-detail', priority: 'low', defaultHistory: [] }
                     ]
                 }),
-                __WEBPACK_IMPORTED_MODULE_30_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
+                __WEBPACK_IMPORTED_MODULE_31_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
                 __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__["b" /* AngularFireDatabaseModule */],
-                __WEBPACK_IMPORTED_MODULE_31_angularfire2_auth__["b" /* AngularFireAuthModule */],
+                __WEBPACK_IMPORTED_MODULE_32_angularfire2_auth__["b" /* AngularFireAuthModule */],
                 __WEBPACK_IMPORTED_MODULE_5_angularfire2_storage__["b" /* AngularFireStorageModule */],
-                __WEBPACK_IMPORTED_MODULE_39__node_modules_ng2_file_upload__["FileUploadModule"],
+                __WEBPACK_IMPORTED_MODULE_40__node_modules_ng2_file_upload__["FileUploadModule"],
                 __WEBPACK_IMPORTED_MODULE_18__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_19_ionic_gallery_modal__["b" /* GalleryModalModule */],
             ],
@@ -2601,17 +2621,18 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_22__pages_confirmation_confirmation__["a" /* ConfirmationPage */],
                 __WEBPACK_IMPORTED_MODULE_28__pages_enquire_enquire__["a" /* EnquirePage */],
                 __WEBPACK_IMPORTED_MODULE_29__pages_admin_enquiries_admin_enquiries__["a" /* AdminEnquiriesPage */],
+                __WEBPACK_IMPORTED_MODULE_30__pages_filter_results_filter_results__["a" /* FilterResultsPage */],
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_32__ionic_native_status_bar__["a" /* StatusBar */],
-                __WEBPACK_IMPORTED_MODULE_33__ionic_native_splash_screen__["a" /* SplashScreen */],
+                __WEBPACK_IMPORTED_MODULE_33__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_34__ionic_native_splash_screen__["a" /* SplashScreen */],
                 { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ErrorHandler"], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_34__providers_auth_auth__["a" /* AuthProvider */],
-                __WEBPACK_IMPORTED_MODULE_35__ionic_native_file_transfer__["a" /* FileTransfer */],
-                __WEBPACK_IMPORTED_MODULE_35__ionic_native_file_transfer__["b" /* FileTransferObject */],
+                __WEBPACK_IMPORTED_MODULE_35__providers_auth_auth__["a" /* AuthProvider */],
+                __WEBPACK_IMPORTED_MODULE_36__ionic_native_file_transfer__["a" /* FileTransfer */],
+                __WEBPACK_IMPORTED_MODULE_36__ionic_native_file_transfer__["b" /* FileTransferObject */],
                 __WEBPACK_IMPORTED_MODULE_17__ionic_native_file_chooser__["a" /* FileChooser */],
-                __WEBPACK_IMPORTED_MODULE_36__ionic_native_file__["a" /* File */],
-                __WEBPACK_IMPORTED_MODULE_38__ionic_native_in_app_browser__["a" /* InAppBrowser */],
+                __WEBPACK_IMPORTED_MODULE_37__ionic_native_file__["a" /* File */],
+                __WEBPACK_IMPORTED_MODULE_39__ionic_native_in_app_browser__["a" /* InAppBrowser */],
                 __WEBPACK_IMPORTED_MODULE_6__providers_data__["a" /* DataProvider */],
             ]
         })
@@ -2899,7 +2920,7 @@ webpackContext.id = 739;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(508);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(509);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(163);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(45);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2950,6 +2971,58 @@ var MyApp = (function () {
 
 /***/ }),
 
+/***/ 791:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterResultsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the FilterResultsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var FilterResultsPage = (function () {
+    function FilterResultsPage(navCtrl, navParams, viewCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.viewCtrl = viewCtrl;
+    }
+    FilterResultsPage.prototype.dismiss = function (data) {
+        // using the injected ViewController this page
+        // can "dismiss" itself and pass back data
+        this.viewCtrl.dismiss(data);
+    };
+    FilterResultsPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad FilterResultsPage');
+    };
+    FilterResultsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-filter-results',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/filter-results/filter-results.html"*/'<!--\n  Generated template for the FilterResultsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>Filter Results</ion-title>\n        <ion-buttons start>\n            <button ion-button (click)="dismiss()">Cancel</button>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    Filter Options Here.\n</ion-content>'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/filter-results/filter-results.html"*/,
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */]) === "function" && _c || Object])
+    ], FilterResultsPage);
+    return FilterResultsPage;
+    var _a, _b, _c;
+}());
+
+//# sourceMappingURL=filter-results.js.map
+
+/***/ }),
+
 /***/ 81:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2957,14 +3030,14 @@ var MyApp = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__main_buy_search_main_buy_search__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__main_buy_search_main_buy_search__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__main_rent_search_main_rent_search__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__property_submission_property_submission__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__property_submission_property_submission__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__metro_list_metro_list__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_auth__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angularfire2_auth__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__login_login__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__contact_contact__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__contact_contact__ = __webpack_require__(167);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);

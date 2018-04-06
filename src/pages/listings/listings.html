@@ -17,7 +17,7 @@
     <h3>Here is where you'll do the main searching.</h3>
     <ion-grid>
         <ion-row>
-            <ion-col tappable col-6 col-sm *ngFor="let property of listedPropertyList" (click)="showDetail(property)">
+            <ion-col tappable col-12 col-sm *ngFor="let property of listedPropertyList" (click)="showDetail(property)">
                 <ion-card class="cardList">
                     <img align="middle" src='{{ property.img1}}' />
                     <ion-card-header text-wrap>
