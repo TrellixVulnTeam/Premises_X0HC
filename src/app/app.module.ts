@@ -28,7 +28,6 @@ import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { ConfirmationPage } from '../pages/confirmation/confirmation'
 
-
 import { ProfilePage } from '../pages/profile/profile'
 import { ReviewSubmissionsPage } from '../pages/review-submissions/review-submissions'
 import { ReviewPropertyDetailsPage } from '../pages/review-property-details/review-property-details';
@@ -36,6 +35,8 @@ import { ListingsPage } from '../pages/listings/listings'
 import { SaleListingDetailPage } from '../pages/sale-listing-detail/sale-listing-detail'
 import { EnquirePage } from '../pages/enquire/enquire'
 import { AdminEnquiriesPage } from '../pages/admin-enquiries/admin-enquiries'
+import { FilterResultsPage } from '../pages/filter-results/filter-results'
+
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';

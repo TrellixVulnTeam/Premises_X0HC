@@ -16,7 +16,7 @@
                 <!--I need to rent out a property-->
                 <ion-col tappable col-6 col-sm>
                     <ion-card (click)="toMainRentSearch()">
-                        <img src="./assets/imgs/logo.png" />
+                        <img float="center" class="icon" src="./assets/imgs/iconrent.png" />
                         <ion-card-header text-wrap>
                             Need to Rent?
                         </ion-card-header>
@@ -28,7 +28,7 @@
                 <!--I need to buy a property-->
                 <ion-col tappable col-6 col-sm>
                     <ion-card (click)="toMainBuySearch()">
-                        <img src="./assets/imgs/logo.png" />
+                        <img class="icon" src="./assets/imgs/iconbuy.png" />
                         <ion-card-header text-wrap>
                             Need to Buy?
                         </ion-card-header>
@@ -51,8 +51,8 @@
                 </ion-col> -->
             </ion-row>
         </ion-grid>
-        <button ion-button type="button" mode="ios" block color="primary" outline margin-top (click)="toMetroList()">Submit A Property For Listing</button>
-        <button ion-button type="button" mode="ios" block color="dark" outline margin-top>Get In Touch With Us</button>
+        <button ion-button type="button" mode="ios" block color="dark" margin-top (click)="toMetroList()">Submit A Property For Listing</button>
+        <button ion-button type="button" mode="ios" block color="dark" outline margin-top (click)="toContact()">Get In Touch With Us</button>
     </div>
     <p align="center ">Copyright 2018: Premises (PTY) Ltd</p>
 </ion-content>

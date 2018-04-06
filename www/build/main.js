@@ -10,7 +10,7 @@ webpackJsonp([16],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__review_property_details_review_property_details__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__review_property_details_review_property_details__ = __webpack_require__(195);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -53,7 +53,7 @@ var ReviewSubmissionsPage = (function () {
     };
     ReviewSubmissionsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-review-submissions',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/review-submissions/review-submissions.html"*/'<!--\n  Generated template for the ReviewSubmissionsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>Review Submissions</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n    <u><h2>Properties For Sale</h2></u>\n    <ion-list *ngFor="let property of submittedList">\n        <ion-item *ngIf="property.rental == \'false\'" tappable (click)="toReviewDetails(property)">\n            <b>Listing: </b>{{property.premisesType}}. {{property.otherProperty}}<br> <b>Location: </b>{{property.suburb1}}, {{property.city}}\n            <hr>\n        </ion-item>\n    </ion-list>\n    <u><h2>Properties To Rent</h2></u>\n    <ion-list *ngFor="let property of submittedList">\n        <ion-item *ngIf="property.rental == \'true\'" tappable (click)="toReviewDetails(property)">\n            <b>Listing: </b>{{property.premisesType}}. {{property.otherProperty}}<br> <b>Location: </b>{{property.suburb1}}, {{property.city}}\n            <hr>\n        </ion-item>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/review-submissions/review-submissions.html"*/,
+            selector: 'page-review-submissions',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/review-submissions/review-submissions.html"*/'<ion-header>\n\n    <ion-navbar>\n        <ion-title>Review Submissions</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n    <u><h2>Properties For Sale:</h2></u>\n    <ion-list *ngFor="let property of submittedList">\n        <ion-item *ngIf="property.rental == \'false\'" tappable (click)="toReviewDetails(property)">\n            <b>Listing: </b>{{property.premisesType}}. {{property.otherProperty}}<br> <b>Location: </b>{{property.suburb1}}, {{property.city}}\n            <hr>\n        </ion-item>\n    </ion-list>\n    <u><h2>Properties To Rent:</h2></u>\n    <ion-list *ngFor="let property of submittedList">\n        <ion-item *ngIf="property.rental == \'true\'" tappable (click)="toReviewDetails(property)">\n            <b>Listing: </b>{{property.premisesType}}. {{property.otherProperty}}<br> <b>Location: </b>{{property.suburb1}}, {{property.city}}\n            <hr>\n        </ion-item>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/review-submissions/review-submissions.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
@@ -84,7 +84,7 @@ var ReviewSubmissionsPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_common_http__ = __webpack_require__(468);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__confirmation_confirmation__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__confirmation_confirmation__ = __webpack_require__(192);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -172,10 +172,10 @@ var PropertySubmissionPage = (function () {
         console.log(ref.getDownloadURL());
         this.adminDB = this.AFdb.list('/Admin/SubmittedProperties/'); //This needs to be the Admin Dashboard!
         //From there you need to push it into it's correct place, and be able to edit/approve/reject it from the admin dashboard.
-        this.adminDB2 = this.AFdb.list('/Metros/CapeTown/'); //This needs to be the Admin Dashboard!
+        this.adminDB2 = this.AFdb.list('/Metros/Durban/'); //!!!!!!!!!Change it here.
         this.suburbSubmissionForm = formBuilder.group({
             suburb: [],
-            metro: ['CapeTown'],
+            metro: ['Durban'],
         });
         this.propertySubmissionForm = formBuilder.group({
             fullName: [],
@@ -445,8 +445,8 @@ var PropertySubmissionPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__profile_profile__ = __webpack_require__(322);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__about_about__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__profile_profile__ = __webpack_require__(323);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__about_about__ = __webpack_require__(462);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(81);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -479,7 +479,42 @@ var TabsPage = (function () {
 
 /***/ }),
 
-/***/ 190:
+/***/ 166:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ContactPage = (function () {
+    function ContactPage(navCtrl) {
+        this.navCtrl = navCtrl;
+    }
+    ContactPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-contact',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/contact/contact.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>\n            Contact\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-item>\n        <ion-icon name="call" item-start></ion-icon>\n        Call Us on: 087 822 1102 </ion-item>\n    <ion-item>\n        <ion-icon name="mail" item-start></ion-icon>\n        Email Us: Contact@GetPremises.co.za </ion-item>\n</ion-content>'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/contact/contact.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]])
+    ], ContactPage);
+    return ContactPage;
+}());
+
+//# sourceMappingURL=contact.js.map
+
+/***/ }),
+
+/***/ 191:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -571,7 +606,7 @@ var AdminEnquiriesPage = (function () {
 
 /***/ }),
 
-/***/ 191:
+/***/ 192:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -616,7 +651,7 @@ var ConfirmationPage = (function () {
 
 /***/ }),
 
-/***/ 192:
+/***/ 193:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -718,7 +753,7 @@ var EnquirePage = (function () {
 
 /***/ }),
 
-/***/ 193:
+/***/ 194:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -730,7 +765,7 @@ var EnquirePage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__listings_listings__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__listings_listings__ = __webpack_require__(197);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -847,7 +882,7 @@ var MainBuySearchPage = (function () {
 
 /***/ }),
 
-/***/ 194:
+/***/ 195:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1100,7 +1135,7 @@ var ReviewPropertyDetailsPage = (function () {
 
 /***/ }),
 
-/***/ 195:
+/***/ 196:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1124,7 +1159,7 @@ var EmailValidator = (function () {
 
 /***/ }),
 
-/***/ 196:
+/***/ 197:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1133,7 +1168,8 @@ var EmailValidator = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sale_listing_detail_sale_listing_detail__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sale_listing_detail_sale_listing_detail__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__main_buy_search_main_buy_search__ = __webpack_require__(194);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1147,6 +1183,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 /**
  * Generated class for the ListingsPage page.
  *
@@ -1154,10 +1192,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var ListingsPage = (function () {
-    function ListingsPage(navCtrl, navParams) {
+    function ListingsPage(navCtrl, navParams, alertCtrl) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.alertCtrl = alertCtrl;
         this.parameter1 = navParams.get('param1');
         console.log(this.parameter1);
         this.listedPropertyRef = __WEBPACK_IMPORTED_MODULE_2_firebase___default.a.database().ref('/ListedProperties/Sales/' + this.parameter1 + '/');
@@ -1172,6 +1211,24 @@ var ListingsPage = (function () {
             _this.listedPropertyList = properties;
             _this.loadedListedPropertyList = properties;
             console.log("done loading");
+            if (_this.listedPropertyList.length == 0) {
+                var alert = _this.alertCtrl.create({
+                    title: 'Our Apologies',
+                    subTitle: 'There are no properties currently listed in this city.',
+                    buttons: [
+                        {
+                            text: 'Ok',
+                            role: 'cancel',
+                            handler: function () {
+                                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__main_buy_search_main_buy_search__["a" /* MainBuySearchPage */]);
+                            }
+                        },
+                    ]
+                });
+                alert.present();
+            }
+            else {
+            }
         });
     }
     ListingsPage.prototype.ionViewDidLoad = function () {
@@ -1186,16 +1243,17 @@ var ListingsPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-listings',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/listings/listings.html"*/'<!-- Page for the properties for sale -->\n\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>Properties For Sale: {{ parameter1 }} </ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n    <h3>Here is where you\'ll do the main searching.</h3>\n    <ion-grid>\n        <ion-row>\n            <ion-col tappable col-6 col-sm *ngFor="let property of listedPropertyList" (click)="showDetail(property)">\n                <ion-card class="cardList">\n                    <img align="middle" src=\'{{ property.img1}}\' />\n                    <ion-card-header text-wrap>\n                        <b>For Sale</b><br><br>\n                        <b>Type: </b>\n                        <p align="center" *ngIf="property.premisesType != \'Other\'">{{ property.premisesType}}<br><br></p>\n                        <p align="center" *ngIf="property.premisesType == \'Other\'">{{ property.otherProperty}}<br><br></p>\n                        <b>Suburb: </b>{{ property.suburb1 }}, {{ property.city }}<br><br>\n                        <b>Selling price: R {{ property.sellingPrice }}</b><br>\n                        <hr>\n                    </ion-card-header>\n                    <ion-card-content>\n                    </ion-card-content>\n                    <button ion-button color="dark">See More</button>\n                </ion-card>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-content>'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/listings/listings.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object])
     ], ListingsPage);
     return ListingsPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=listings.js.map
 
 /***/ }),
 
-/***/ 197:
+/***/ 198:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1206,7 +1264,7 @@ var ListingsPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__enquire_enquire__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__enquire_enquire__ = __webpack_require__(193);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1376,7 +1434,7 @@ var SaleListingDetailPage = (function () {
 
 /***/ }),
 
-/***/ 198:
+/***/ 199:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1440,7 +1498,7 @@ var MainRentSearchPage = (function () {
 
 /***/ }),
 
-/***/ 199:
+/***/ 200:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1449,7 +1507,7 @@ var MainRentSearchPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__suburb_list_suburb_list__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__suburb_list_suburb_list__ = __webpack_require__(201);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1553,7 +1611,7 @@ var MetroListPage = (function () {
 
 /***/ }),
 
-/***/ 200:
+/***/ 201:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1658,7 +1716,7 @@ var SuburbListPage = (function () {
 
 /***/ }),
 
-/***/ 212:
+/***/ 213:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -1671,11 +1729,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 212;
+webpackEmptyAsyncContext.id = 213;
 
 /***/ }),
 
-/***/ 256:
+/***/ 257:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -1716,11 +1774,11 @@ var map = {
 		7
 	],
 	"../pages/property-submission/property-submission.module": [
-		784,
+		783,
 		6
 	],
 	"../pages/reset-password/reset-password.module": [
-		783,
+		784,
 		0
 	],
 	"../pages/review-property-details/review-property-details.module": [
@@ -1755,12 +1813,12 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 256;
+webpackAsyncContext.id = 257;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 322:
+/***/ 323:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1772,7 +1830,7 @@ module.exports = webpackAsyncContext;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__review_submissions_review_submissions__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_database__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__admin_enquiries_admin_enquiries__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__admin_enquiries_admin_enquiries__ = __webpack_require__(191);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1914,9 +1972,9 @@ var AuthProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs_tabs__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__validators_email__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__signup_signup__ = __webpack_require__(462);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__contact_contact__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__validators_email__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__signup_signup__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__contact_contact__ = __webpack_require__(166);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2014,7 +2072,7 @@ var LoginPage = (function () {
 
 /***/ }),
 
-/***/ 461:
+/***/ 462:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2067,7 +2125,7 @@ var AboutPage = (function () {
 
 /***/ }),
 
-/***/ 462:
+/***/ 463:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2078,8 +2136,8 @@ var AboutPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__validators_email__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_firebase_app__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__validators_email__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_firebase_app__ = __webpack_require__(309);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_firebase_app__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2185,41 +2243,6 @@ var SignupPage = (function () {
 //     }
 //   } 
 //# sourceMappingURL=signup.js.map
-
-/***/ }),
-
-/***/ 463:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var ContactPage = (function () {
-    function ContactPage(navCtrl) {
-        this.navCtrl = navCtrl;
-    }
-    ContactPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-contact',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/contact/contact.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Contact\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>Follow us on Twitter</ion-list-header>\n    <ion-item>\n      <ion-icon name="ionic" item-start></ion-icon>\n      @ionicframework\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/contact/contact.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]])
-    ], ContactPage);
-    return ContactPage;
-}());
-
-//# sourceMappingURL=contact.js.map
 
 /***/ }),
 
@@ -2386,29 +2409,29 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_storage__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_data__ = __webpack_require__(467);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_about_about__ = __webpack_require__(461);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_contact_contact__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_about_about__ = __webpack_require__(462);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_contact_contact__ = __webpack_require__(166);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_home_home__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_tabs_tabs__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_main_buy_search_main_buy_search__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_main_rent_search_main_rent_search__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_main_buy_search_main_buy_search__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_main_rent_search_main_rent_search__ = __webpack_require__(199);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_property_submission_property_submission__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_metro_list_metro_list__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_suburb_list_suburb_list__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_metro_list_metro_list__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_suburb_list_suburb_list__ = __webpack_require__(201);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_suburb_detail_suburb_detail__ = __webpack_require__(513);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_file_chooser__ = __webpack_require__(767);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__angular_common_http__ = __webpack_require__(468);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_ionic_gallery_modal__ = __webpack_require__(464);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_login_login__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_signup_signup__ = __webpack_require__(462);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_confirmation_confirmation__ = __webpack_require__(191);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_profile_profile__ = __webpack_require__(322);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_signup_signup__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_confirmation_confirmation__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_profile_profile__ = __webpack_require__(323);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_review_submissions_review_submissions__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_review_property_details_review_property_details__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_listings_listings__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_sale_listing_detail_sale_listing_detail__ = __webpack_require__(197);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_enquire_enquire__ = __webpack_require__(192);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_admin_enquiries_admin_enquiries__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_review_property_details_review_property_details__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_listings_listings__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_sale_listing_detail_sale_listing_detail__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_enquire_enquire__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_admin_enquiries_admin_enquiries__ = __webpack_require__(191);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_angularfire2__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_angularfire2_auth__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__ionic_native_status_bar__ = __webpack_require__(508);
@@ -2538,8 +2561,8 @@ var AppModule = (function () {
                         { loadChildren: '../pages/main-rent-search/main-rent-search.module#MainRentSearchPageModule', name: 'MainRentSearchPage', segment: 'main-rent-search', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/metro-list/metro-list.module#MetroListPageModule', name: 'MetroListPage', segment: 'metro-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/reset-password/reset-password.module#ResetPasswordPageModule', name: 'ResetPasswordPage', segment: 'reset-password', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/property-submission/property-submission.module#PropertySubmissionPageModule', name: 'PropertySubmissionPage', segment: 'property-submission', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/reset-password/reset-password.module#ResetPasswordPageModule', name: 'ResetPasswordPage', segment: 'reset-password', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/review-property-details/review-property-details.module#ReviewPropertyDetailsPageModule', name: 'ReviewPropertyDetailsPage', segment: 'review-property-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/review-submissions/review-submissions.module#ReviewSubmissionsPageModule', name: 'ReviewSubmissionsPage', segment: 'review-submissions', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/sale-listing-detail/sale-listing-detail.module#SaleListingDetailPageModule', name: 'SaleListingDetailPage', segment: 'sale-listing-detail', priority: 'low', defaultHistory: [] },
@@ -2604,250 +2627,250 @@ var AppModule = (function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 339,
-	"./af.js": 339,
-	"./ar": 340,
-	"./ar-dz": 341,
-	"./ar-dz.js": 341,
-	"./ar-kw": 342,
-	"./ar-kw.js": 342,
-	"./ar-ly": 343,
-	"./ar-ly.js": 343,
-	"./ar-ma": 344,
-	"./ar-ma.js": 344,
-	"./ar-sa": 345,
-	"./ar-sa.js": 345,
-	"./ar-tn": 346,
-	"./ar-tn.js": 346,
-	"./ar.js": 340,
-	"./az": 347,
-	"./az.js": 347,
-	"./be": 348,
-	"./be.js": 348,
-	"./bg": 349,
-	"./bg.js": 349,
-	"./bm": 350,
-	"./bm.js": 350,
-	"./bn": 351,
-	"./bn.js": 351,
-	"./bo": 352,
-	"./bo.js": 352,
-	"./br": 353,
-	"./br.js": 353,
-	"./bs": 354,
-	"./bs.js": 354,
-	"./ca": 355,
-	"./ca.js": 355,
-	"./cs": 356,
-	"./cs.js": 356,
-	"./cv": 357,
-	"./cv.js": 357,
-	"./cy": 358,
-	"./cy.js": 358,
-	"./da": 359,
-	"./da.js": 359,
-	"./de": 360,
-	"./de-at": 361,
-	"./de-at.js": 361,
-	"./de-ch": 362,
-	"./de-ch.js": 362,
-	"./de.js": 360,
-	"./dv": 363,
-	"./dv.js": 363,
-	"./el": 364,
-	"./el.js": 364,
-	"./en-au": 365,
-	"./en-au.js": 365,
-	"./en-ca": 366,
-	"./en-ca.js": 366,
-	"./en-gb": 367,
-	"./en-gb.js": 367,
-	"./en-ie": 368,
-	"./en-ie.js": 368,
-	"./en-il": 369,
-	"./en-il.js": 369,
-	"./en-nz": 370,
-	"./en-nz.js": 370,
-	"./eo": 371,
-	"./eo.js": 371,
-	"./es": 372,
-	"./es-do": 373,
-	"./es-do.js": 373,
-	"./es-us": 374,
-	"./es-us.js": 374,
-	"./es.js": 372,
-	"./et": 375,
-	"./et.js": 375,
-	"./eu": 376,
-	"./eu.js": 376,
-	"./fa": 377,
-	"./fa.js": 377,
-	"./fi": 378,
-	"./fi.js": 378,
-	"./fo": 379,
-	"./fo.js": 379,
-	"./fr": 380,
-	"./fr-ca": 381,
-	"./fr-ca.js": 381,
-	"./fr-ch": 382,
-	"./fr-ch.js": 382,
-	"./fr.js": 380,
-	"./fy": 383,
-	"./fy.js": 383,
-	"./gd": 384,
-	"./gd.js": 384,
-	"./gl": 385,
-	"./gl.js": 385,
-	"./gom-latn": 386,
-	"./gom-latn.js": 386,
-	"./gu": 387,
-	"./gu.js": 387,
-	"./he": 388,
-	"./he.js": 388,
-	"./hi": 389,
-	"./hi.js": 389,
-	"./hr": 390,
-	"./hr.js": 390,
-	"./hu": 391,
-	"./hu.js": 391,
-	"./hy-am": 392,
-	"./hy-am.js": 392,
-	"./id": 393,
-	"./id.js": 393,
-	"./is": 394,
-	"./is.js": 394,
-	"./it": 395,
-	"./it.js": 395,
-	"./ja": 396,
-	"./ja.js": 396,
-	"./jv": 397,
-	"./jv.js": 397,
-	"./ka": 398,
-	"./ka.js": 398,
-	"./kk": 399,
-	"./kk.js": 399,
-	"./km": 400,
-	"./km.js": 400,
-	"./kn": 401,
-	"./kn.js": 401,
-	"./ko": 402,
-	"./ko.js": 402,
-	"./ky": 403,
-	"./ky.js": 403,
-	"./lb": 404,
-	"./lb.js": 404,
-	"./lo": 405,
-	"./lo.js": 405,
-	"./lt": 406,
-	"./lt.js": 406,
-	"./lv": 407,
-	"./lv.js": 407,
-	"./me": 408,
-	"./me.js": 408,
-	"./mi": 409,
-	"./mi.js": 409,
-	"./mk": 410,
-	"./mk.js": 410,
-	"./ml": 411,
-	"./ml.js": 411,
-	"./mr": 412,
-	"./mr.js": 412,
-	"./ms": 413,
-	"./ms-my": 414,
-	"./ms-my.js": 414,
-	"./ms.js": 413,
-	"./mt": 415,
-	"./mt.js": 415,
-	"./my": 416,
-	"./my.js": 416,
-	"./nb": 417,
-	"./nb.js": 417,
-	"./ne": 418,
-	"./ne.js": 418,
-	"./nl": 419,
-	"./nl-be": 420,
-	"./nl-be.js": 420,
-	"./nl.js": 419,
-	"./nn": 421,
-	"./nn.js": 421,
-	"./pa-in": 422,
-	"./pa-in.js": 422,
-	"./pl": 423,
-	"./pl.js": 423,
-	"./pt": 424,
-	"./pt-br": 425,
-	"./pt-br.js": 425,
-	"./pt.js": 424,
-	"./ro": 426,
-	"./ro.js": 426,
-	"./ru": 427,
-	"./ru.js": 427,
-	"./sd": 428,
-	"./sd.js": 428,
-	"./se": 429,
-	"./se.js": 429,
-	"./si": 430,
-	"./si.js": 430,
-	"./sk": 431,
-	"./sk.js": 431,
-	"./sl": 432,
-	"./sl.js": 432,
-	"./sq": 433,
-	"./sq.js": 433,
-	"./sr": 434,
-	"./sr-cyrl": 435,
-	"./sr-cyrl.js": 435,
-	"./sr.js": 434,
-	"./ss": 436,
-	"./ss.js": 436,
-	"./sv": 437,
-	"./sv.js": 437,
-	"./sw": 438,
-	"./sw.js": 438,
-	"./ta": 439,
-	"./ta.js": 439,
-	"./te": 440,
-	"./te.js": 440,
-	"./tet": 441,
-	"./tet.js": 441,
-	"./tg": 442,
-	"./tg.js": 442,
-	"./th": 443,
-	"./th.js": 443,
-	"./tl-ph": 444,
-	"./tl-ph.js": 444,
-	"./tlh": 445,
-	"./tlh.js": 445,
-	"./tr": 446,
-	"./tr.js": 446,
-	"./tzl": 447,
-	"./tzl.js": 447,
-	"./tzm": 448,
-	"./tzm-latn": 449,
-	"./tzm-latn.js": 449,
-	"./tzm.js": 448,
-	"./ug-cn": 450,
-	"./ug-cn.js": 450,
-	"./uk": 451,
-	"./uk.js": 451,
-	"./ur": 452,
-	"./ur.js": 452,
-	"./uz": 453,
-	"./uz-latn": 454,
-	"./uz-latn.js": 454,
-	"./uz.js": 453,
-	"./vi": 455,
-	"./vi.js": 455,
-	"./x-pseudo": 456,
-	"./x-pseudo.js": 456,
-	"./yo": 457,
-	"./yo.js": 457,
-	"./zh-cn": 458,
-	"./zh-cn.js": 458,
-	"./zh-hk": 459,
-	"./zh-hk.js": 459,
-	"./zh-tw": 460,
-	"./zh-tw.js": 460
+	"./af": 340,
+	"./af.js": 340,
+	"./ar": 341,
+	"./ar-dz": 342,
+	"./ar-dz.js": 342,
+	"./ar-kw": 343,
+	"./ar-kw.js": 343,
+	"./ar-ly": 344,
+	"./ar-ly.js": 344,
+	"./ar-ma": 345,
+	"./ar-ma.js": 345,
+	"./ar-sa": 346,
+	"./ar-sa.js": 346,
+	"./ar-tn": 347,
+	"./ar-tn.js": 347,
+	"./ar.js": 341,
+	"./az": 348,
+	"./az.js": 348,
+	"./be": 349,
+	"./be.js": 349,
+	"./bg": 350,
+	"./bg.js": 350,
+	"./bm": 351,
+	"./bm.js": 351,
+	"./bn": 352,
+	"./bn.js": 352,
+	"./bo": 353,
+	"./bo.js": 353,
+	"./br": 354,
+	"./br.js": 354,
+	"./bs": 355,
+	"./bs.js": 355,
+	"./ca": 356,
+	"./ca.js": 356,
+	"./cs": 357,
+	"./cs.js": 357,
+	"./cv": 358,
+	"./cv.js": 358,
+	"./cy": 359,
+	"./cy.js": 359,
+	"./da": 360,
+	"./da.js": 360,
+	"./de": 361,
+	"./de-at": 362,
+	"./de-at.js": 362,
+	"./de-ch": 363,
+	"./de-ch.js": 363,
+	"./de.js": 361,
+	"./dv": 364,
+	"./dv.js": 364,
+	"./el": 365,
+	"./el.js": 365,
+	"./en-au": 366,
+	"./en-au.js": 366,
+	"./en-ca": 367,
+	"./en-ca.js": 367,
+	"./en-gb": 368,
+	"./en-gb.js": 368,
+	"./en-ie": 369,
+	"./en-ie.js": 369,
+	"./en-il": 370,
+	"./en-il.js": 370,
+	"./en-nz": 371,
+	"./en-nz.js": 371,
+	"./eo": 372,
+	"./eo.js": 372,
+	"./es": 373,
+	"./es-do": 374,
+	"./es-do.js": 374,
+	"./es-us": 375,
+	"./es-us.js": 375,
+	"./es.js": 373,
+	"./et": 376,
+	"./et.js": 376,
+	"./eu": 377,
+	"./eu.js": 377,
+	"./fa": 378,
+	"./fa.js": 378,
+	"./fi": 379,
+	"./fi.js": 379,
+	"./fo": 380,
+	"./fo.js": 380,
+	"./fr": 381,
+	"./fr-ca": 382,
+	"./fr-ca.js": 382,
+	"./fr-ch": 383,
+	"./fr-ch.js": 383,
+	"./fr.js": 381,
+	"./fy": 384,
+	"./fy.js": 384,
+	"./gd": 385,
+	"./gd.js": 385,
+	"./gl": 386,
+	"./gl.js": 386,
+	"./gom-latn": 387,
+	"./gom-latn.js": 387,
+	"./gu": 388,
+	"./gu.js": 388,
+	"./he": 389,
+	"./he.js": 389,
+	"./hi": 390,
+	"./hi.js": 390,
+	"./hr": 391,
+	"./hr.js": 391,
+	"./hu": 392,
+	"./hu.js": 392,
+	"./hy-am": 393,
+	"./hy-am.js": 393,
+	"./id": 394,
+	"./id.js": 394,
+	"./is": 395,
+	"./is.js": 395,
+	"./it": 396,
+	"./it.js": 396,
+	"./ja": 397,
+	"./ja.js": 397,
+	"./jv": 398,
+	"./jv.js": 398,
+	"./ka": 399,
+	"./ka.js": 399,
+	"./kk": 400,
+	"./kk.js": 400,
+	"./km": 401,
+	"./km.js": 401,
+	"./kn": 402,
+	"./kn.js": 402,
+	"./ko": 403,
+	"./ko.js": 403,
+	"./ky": 404,
+	"./ky.js": 404,
+	"./lb": 405,
+	"./lb.js": 405,
+	"./lo": 406,
+	"./lo.js": 406,
+	"./lt": 407,
+	"./lt.js": 407,
+	"./lv": 408,
+	"./lv.js": 408,
+	"./me": 409,
+	"./me.js": 409,
+	"./mi": 410,
+	"./mi.js": 410,
+	"./mk": 411,
+	"./mk.js": 411,
+	"./ml": 412,
+	"./ml.js": 412,
+	"./mr": 413,
+	"./mr.js": 413,
+	"./ms": 414,
+	"./ms-my": 415,
+	"./ms-my.js": 415,
+	"./ms.js": 414,
+	"./mt": 416,
+	"./mt.js": 416,
+	"./my": 417,
+	"./my.js": 417,
+	"./nb": 418,
+	"./nb.js": 418,
+	"./ne": 419,
+	"./ne.js": 419,
+	"./nl": 420,
+	"./nl-be": 421,
+	"./nl-be.js": 421,
+	"./nl.js": 420,
+	"./nn": 422,
+	"./nn.js": 422,
+	"./pa-in": 423,
+	"./pa-in.js": 423,
+	"./pl": 424,
+	"./pl.js": 424,
+	"./pt": 425,
+	"./pt-br": 426,
+	"./pt-br.js": 426,
+	"./pt.js": 425,
+	"./ro": 427,
+	"./ro.js": 427,
+	"./ru": 428,
+	"./ru.js": 428,
+	"./sd": 429,
+	"./sd.js": 429,
+	"./se": 430,
+	"./se.js": 430,
+	"./si": 431,
+	"./si.js": 431,
+	"./sk": 432,
+	"./sk.js": 432,
+	"./sl": 433,
+	"./sl.js": 433,
+	"./sq": 434,
+	"./sq.js": 434,
+	"./sr": 435,
+	"./sr-cyrl": 436,
+	"./sr-cyrl.js": 436,
+	"./sr.js": 435,
+	"./ss": 437,
+	"./ss.js": 437,
+	"./sv": 438,
+	"./sv.js": 438,
+	"./sw": 439,
+	"./sw.js": 439,
+	"./ta": 440,
+	"./ta.js": 440,
+	"./te": 441,
+	"./te.js": 441,
+	"./tet": 442,
+	"./tet.js": 442,
+	"./tg": 443,
+	"./tg.js": 443,
+	"./th": 444,
+	"./th.js": 444,
+	"./tl-ph": 445,
+	"./tl-ph.js": 445,
+	"./tlh": 446,
+	"./tlh.js": 446,
+	"./tr": 447,
+	"./tr.js": 447,
+	"./tzl": 448,
+	"./tzl.js": 448,
+	"./tzm": 449,
+	"./tzm-latn": 450,
+	"./tzm-latn.js": 450,
+	"./tzm.js": 449,
+	"./ug-cn": 451,
+	"./ug-cn.js": 451,
+	"./uk": 452,
+	"./uk.js": 452,
+	"./ur": 453,
+	"./ur.js": 453,
+	"./uz": 454,
+	"./uz-latn": 455,
+	"./uz-latn.js": 455,
+	"./uz.js": 454,
+	"./vi": 456,
+	"./vi.js": 456,
+	"./x-pseudo": 457,
+	"./x-pseudo.js": 457,
+	"./yo": 458,
+	"./yo.js": 458,
+	"./zh-cn": 459,
+	"./zh-cn.js": 459,
+	"./zh-hk": 460,
+	"./zh-hk.js": 460,
+	"./zh-tw": 461,
+	"./zh-tw.js": 461
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -2934,13 +2957,14 @@ var MyApp = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__main_buy_search_main_buy_search__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__main_rent_search_main_rent_search__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__main_buy_search_main_buy_search__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__main_rent_search_main_rent_search__ = __webpack_require__(199);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__property_submission_property_submission__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__metro_list_metro_list__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__metro_list_metro_list__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_auth__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angularfire2_auth__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__login_login__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__contact_contact__ = __webpack_require__(166);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2950,6 +2974,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -2988,9 +3013,12 @@ var HomePage = (function () {
     HomePage.prototype.toMetroList = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__metro_list_metro_list__["a" /* MetroListPage */]);
     };
+    HomePage.prototype.toContact = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__contact_contact__["a" /* ContactPage */]);
+    };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/home/home.html"*/'<ion-header>\n    <!-- <ion-navbar>\n    <ion-title>Home</ion-title>\n  </ion-navbar> -->\n</ion-header>\n\n<ion-content class="masters">\n    <div class="landing-container">\n        <img class="logo" src="./assets/imgs/logo.png" />\n        <h2>Welcome to Premises!</h2>\n        <p>\n            Click the option that best describes you below:\n        </p>\n        <ion-grid>\n            <ion-row>\n                <!--I need to rent out a property-->\n                <ion-col tappable col-6 col-sm>\n                    <ion-card (click)="toMainRentSearch()">\n                        <img src="./assets/imgs/logo.png" />\n                        <ion-card-header text-wrap>\n                            Need to Rent?\n                        </ion-card-header>\n                        <ion-card-content>\n                            Click Here\n                        </ion-card-content>\n                    </ion-card>\n                </ion-col>\n                <!--I need to buy a property-->\n                <ion-col tappable col-6 col-sm>\n                    <ion-card (click)="toMainBuySearch()">\n                        <img src="./assets/imgs/logo.png" />\n                        <ion-card-header text-wrap>\n                            Need to Buy?\n                        </ion-card-header>\n                        <ion-card-content>\n                            Click Here\n                        </ion-card-content>\n                    </ion-card>\n                </ion-col>\n                <!--I want to sell a property-->\n                <!-- <ion-col tappable col-6 col-sm>\n                    <ion-card (click)="toMetroList()">\n                        <img src=" ./assets/imgs/logo.png " />\n                        <ion-card-header text-wrap>\n                            Need to Sell or Let out a property?\n                        </ion-card-header>\n                        <ion-card-content>\n                            Click Here\n                        </ion-card-content>\n                    </ion-card>\n                </ion-col> -->\n            </ion-row>\n        </ion-grid>\n        <button ion-button type="button" mode="ios" block color="primary" outline margin-top (click)="toMetroList()">Submit A Property For Listing</button>\n        <button ion-button type="button" mode="ios" block color="dark" outline margin-top>Get In Touch With Us</button>\n    </div>\n    <p align="center ">Copyright 2018: Premises (PTY) Ltd</p>\n</ion-content>'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/LukeVenter/Desktop/Premises/src/pages/home/home.html"*/'<ion-header>\n    <!-- <ion-navbar>\n    <ion-title>Home</ion-title>\n  </ion-navbar> -->\n</ion-header>\n\n<ion-content class="masters">\n    <div class="landing-container">\n        <img class="logo" src="./assets/imgs/logo.png" />\n        <h2>Welcome to Premises!</h2>\n        <p>\n            Click the option that best describes you below:\n        </p>\n        <ion-grid>\n            <ion-row>\n                <!--I need to rent out a property-->\n                <ion-col tappable col-6 col-sm>\n                    <ion-card (click)="toMainRentSearch()">\n                        <img float="center" class="icon" src="./assets/imgs/iconrent.png" />\n                        <ion-card-header text-wrap>\n                            Need to Rent?\n                        </ion-card-header>\n                        <ion-card-content>\n                            Click Here\n                        </ion-card-content>\n                    </ion-card>\n                </ion-col>\n                <!--I need to buy a property-->\n                <ion-col tappable col-6 col-sm>\n                    <ion-card (click)="toMainBuySearch()">\n                        <img class="icon" src="./assets/imgs/iconbuy.png" />\n                        <ion-card-header text-wrap>\n                            Need to Buy?\n                        </ion-card-header>\n                        <ion-card-content>\n                            Click Here\n                        </ion-card-content>\n                    </ion-card>\n                </ion-col>\n                <!--I want to sell a property-->\n                <!-- <ion-col tappable col-6 col-sm>\n                    <ion-card (click)="toMetroList()">\n                        <img src=" ./assets/imgs/logo.png " />\n                        <ion-card-header text-wrap>\n                            Need to Sell or Let out a property?\n                        </ion-card-header>\n                        <ion-card-content>\n                            Click Here\n                        </ion-card-content>\n                    </ion-card>\n                </ion-col> -->\n            </ion-row>\n        </ion-grid>\n        <button ion-button type="button" mode="ios" block color="dark" margin-top (click)="toMetroList()">Submit A Property For Listing</button>\n        <button ion-button type="button" mode="ios" block color="dark" outline margin-top (click)="toContact()">Get In Touch With Us</button>\n    </div>\n    <p align="center ">Copyright 2018: Premises (PTY) Ltd</p>\n</ion-content>'/*ion-inline-end:"/Users/LukeVenter/Desktop/Premises/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_6__providers_auth_auth__["a" /* AuthProvider */], __WEBPACK_IMPORTED_MODULE_7_angularfire2_auth__["a" /* AngularFireAuth */]])
     ], HomePage);

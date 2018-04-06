@@ -1,9 +1,3 @@
-<!--
-  Generated template for the ReviewSubmissionsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
     <ion-navbar>
@@ -13,14 +7,14 @@
 </ion-header>
 
 <ion-content padding>
-    <u><h2>Properties For Sale</h2></u>
+    <u><h2>Properties For Sale:</h2></u>
     <ion-list *ngFor="let property of submittedList">
         <ion-item *ngIf="property.rental == 'false'" tappable (click)="toReviewDetails(property)">
             <b>Listing: </b>{{property.premisesType}}. {{property.otherProperty}}<br> <b>Location: </b>{{property.suburb1}}, {{property.city}}
             <hr>
         </ion-item>
     </ion-list>
-    <u><h2>Properties To Rent</h2></u>
+    <u><h2>Properties To Rent:</h2></u>
     <ion-list *ngFor="let property of submittedList">
         <ion-item *ngIf="property.rental == 'true'" tappable (click)="toReviewDetails(property)">
             <b>Listing: </b>{{property.premisesType}}. {{property.otherProperty}}<br> <b>Location: </b>{{property.suburb1}}, {{property.city}}

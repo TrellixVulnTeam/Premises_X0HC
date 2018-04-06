@@ -108,13 +108,13 @@ export class PropertySubmissionPage {
 
     this.adminDB = this.AFdb.list('/Admin/SubmittedProperties/'); //This needs to be the Admin Dashboard!
    //From there you need to push it into it's correct place, and be able to edit/approve/reject it from the admin dashboard.
-    this.adminDB2 = this.AFdb.list('/Metros/CapeTown/'); //This needs to be the Admin Dashboard!
+    this.adminDB2 = this.AFdb.list('/Metros/Durban/'); //!!!!!!!!!Change it here.
 
 
     this.suburbSubmissionForm = formBuilder.group({
       suburb: [],
-      metro: ['CapeTown'],
-    });
+      metro: ['Durban'], //!!!!!!!!!Change it here.
+    }); 
 
     this.propertySubmissionForm = formBuilder.group({
       fullName: [],

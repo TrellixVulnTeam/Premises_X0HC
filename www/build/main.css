@@ -25695,6 +25695,15 @@ page-home .logo {
   margin-bottom: 2vh;
 }
 
+page-home .icon {
+  width: 150px;
+  height: 110px;
+  padding-top: 2vh;
+  margin-bottom: 2vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 page-home .landing-container {
   color: #666666;
   position: top;

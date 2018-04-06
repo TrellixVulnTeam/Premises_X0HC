@@ -8,6 +8,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { LoginPage } from '../login/login';
 import {TabsPage } from '../tabs/tabs';
+import { ContactPage } from '../contact/contact';
 
 @Component({
   selector: 'page-home',
@@ -42,6 +43,10 @@ export class HomePage {
 
   toMetroList() {
     this.navCtrl.push(MetroListPage)
+  }
+
+  toContact() {
+    this.navCtrl.push(ContactPage)
   }
 
 }
