@@ -5,10 +5,10 @@ webpackJsonp([13],{
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListingsPageModule", function() { return ListingsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FilterResultsPageModule", function() { return FilterResultsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__listings__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__filter_results__ = __webpack_require__(199);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ListingsPageModule = (function () {
-    function ListingsPageModule() {
+var FilterResultsPageModule = (function () {
+    function FilterResultsPageModule() {
     }
-    ListingsPageModule = __decorate([
+    FilterResultsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__listings__["a" /* ListingsPage */],
+                __WEBPACK_IMPORTED_MODULE_2__filter_results__["a" /* FilterResultsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__listings__["a" /* ListingsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__filter_results__["a" /* FilterResultsPage */]),
             ],
         })
-    ], ListingsPageModule);
-    return ListingsPageModule;
+    ], FilterResultsPageModule);
+    return FilterResultsPageModule;
 }());
 
-//# sourceMappingURL=listings.module.js.map
+//# sourceMappingURL=filter-results.module.js.map
 
 /***/ })
 

@@ -1,14 +1,14 @@
 webpackJsonp([3],{
 
-/***/ 787:
+/***/ 790:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SuburbDetailPageModule", function() { return SuburbDetailPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SaleListingDetailPageModule", function() { return SaleListingDetailPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__suburb_detail__ = __webpack_require__(513);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sale_listing_detail__ = __webpack_require__(198);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var SuburbDetailPageModule = (function () {
-    function SuburbDetailPageModule() {
+var SaleListingDetailPageModule = (function () {
+    function SaleListingDetailPageModule() {
     }
-    SuburbDetailPageModule = __decorate([
+    SaleListingDetailPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__suburb_detail__["a" /* SuburbDetailPage */],
+                __WEBPACK_IMPORTED_MODULE_2__sale_listing_detail__["a" /* SaleListingDetailPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__suburb_detail__["a" /* SuburbDetailPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__sale_listing_detail__["a" /* SaleListingDetailPage */]),
             ],
         })
-    ], SuburbDetailPageModule);
-    return SuburbDetailPageModule;
+    ], SaleListingDetailPageModule);
+    return SaleListingDetailPageModule;
 }());
 
-//# sourceMappingURL=suburb-detail.module.js.map
+//# sourceMappingURL=sale-listing-detail.module.js.map
 
 /***/ })
 
