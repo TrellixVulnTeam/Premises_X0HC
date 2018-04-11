@@ -1,0 +1,248 @@
+<!--
+  Generated template for the RentalListDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Viewing Property in {{ parameter1.suburb1 }}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding class="content" [class.transition]="transition">
+
+    <!--*********** Image header  ***********-->
+    <div class="detail-header" [ngStyle]="{'background-image': 'url(' + parameter1.img1 + ')'}">
+        <h2 class="detail-type "> {{ parameter1.propertyType }}</h2>
+        <div class="detail-city ">{{ parameter1.suburb1 }}, {{ parameter1.city }}</div>
+    </div>
+
+    <!--***********  Description ***********-->
+    <ion-card>
+        <ion-card-header no-margin>
+            <ion-item no-padding>
+                <ion-icon name="ios-clipboard-outline" item-left color="darkGray"></ion-icon>
+                <b>Description:</b><br>
+                <div text-wrap>
+                    <br>{{ parameter1.description }}
+                </div><br>
+                <div>
+                    {{parameter1.holding}}
+                </div>
+            </ion-item>
+            <hr>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-item no-padding *ngIf="parameter1.premisesType != 'Other'">
+                <h4><b>Premises Type:</b></h4>
+                <ion-icon name="ios-map-outline" item-left color="darkGray"></ion-icon>
+                {{parameter1.premisesType}}</ion-item>
+            <ion-item no-padding *ngIf="parameter1.premisesType == 'Other'">
+                <h4><b>Premises Type:</b></h4>
+                <ion-icon name="ios-map-outline" item-left color="darkGray"></ion-icon>
+                {{parameter1.otherProperty}}</ion-item>
+            <ion-item no-padding>
+                <ion-icon name="ios-pricetag-outline" item-left color="darkGray"></ion-icon>
+                <h4><b>Monthly Rental:</b></h4> {{ parameter1.rentalPrice }}<br><br></ion-item>
+            <ion-item no-padding>
+                <ion-icon name="ios-pricetag-outline" item-left color="darkGray"></ion-icon>
+                <h4><b>Date Listed:</b></h4> {{ parameter1.dateTime }}<br><br></ion-item>
+        </ion-card-content>
+    </ion-card>
+
+    <!--*********** Extra Details  ***********-->
+    <ion-card>
+        <ion-card-header no-margin>
+            <ion-item>
+                <b>Extra Information:</b>
+            </ion-item>
+            <hr>
+        </ion-card-header>
+        <div class="info">
+            <ion-list no-lines>
+                <ion-item>
+                    <ion-icon name="ios-cube-outline" item-left color="darkGray"></ion-icon>
+                    <ion-label>Lettable Space:</ion-label>
+                </ion-item>
+                <ion-item *ngIf="parameter1.factorySize > 0">
+                    <b>Factory Size:</b> {{ parameter1.factorySize }} m&#178;
+                </ion-item>
+                <ion-item *ngIf="parameter1.officeSize > 0">
+                    <b>Office Size:</b> {{ parameter1.officeSize }} m&#178;
+                </ion-item>
+                <ion-item *ngIf="parameter1.totalSize > 0">
+                    <b>Total Factory and Office Size:</b> {{ parameter1.totalSize }} m&#178;
+                </ion-item>
+                <ion-item *ngIf="parameter1.shopSize > 0">
+                    <b>Shop Size:</b> {{ parameter1.shopSize }} m&#178;
+                </ion-item>
+                <ion-item *ngIf="parameter1.usableYard > 0">
+                    <b>Usable Yard Size:</b> {{ parameter1.usableYard }} m&#178;
+                </ion-item>
+                <ion-item *ngIf="parameter1.sizeOfERF > 0">
+                    <b>Size of erf:</b> {{ parameter1.sizeOfERF }} m&#178;
+                </ion-item>
+                <hr>
+                <ion-item>
+                    <ion-label>Parking:</ion-label>
+                    <ion-icon name="ios-car-outline" item-left color="darkGray"></ion-icon>
+                </ion-item>
+                <ion-item *ngIf="parameter1.openParking > 0">
+                    <b>Open Parking:</b> {{ parameter1.openParking }} bays
+                </ion-item>
+                <ion-item *ngIf="parameter1.underCoverParking > 0">
+                    <b>Under Cover Parking:</b> {{ parameter1.underCoverParking }} bays
+                </ion-item>
+                <ion-item *ngIf="!parameter1.openParking">
+                    <i>No open parking specified.</i>
+                </ion-item>
+                <ion-item *ngIf="!parameter1.underCoverParking">
+                    <i>No under cover parking specified.</i>
+                </ion-item>
+                <hr>
+                <ion-item>
+                    <ion-label>Heights:</ion-label>
+                    <ion-icon name="ios-arrow-dropup-outline" item-left color="darkGray"></ion-icon>
+                </ion-item>
+                <ion-item *ngIf="parameter1.floorToCeilingHeights > 0">
+                    <b>Floor to Roof in Factory/Warehouse:</b> {{ parameter1.floorToCeilingHeights }} m
+                </ion-item>
+                <ion-item *ngIf="!parameter1.floorToCeilingHeights">
+                    <i>No floor to roof height specified.</i>
+                </ion-item>
+                <ion-item *ngIf="parameter1.accessDoorHeights > 0">
+                    <b>Access Door Heights:</b> {{ parameter1.accessDoorHeights }} m
+                </ion-item>
+                <ion-item *ngIf="!parameter1.accessDoorHeights">
+                    <i>No access door heights specified.</i>
+                </ion-item>
+                <hr>
+                <ion-item>
+                    <ion-label>Truck Access:</ion-label>
+                    <ion-icon name="ios-bus-outline" item-left color="darkGray"></ion-icon>
+                </ion-item>
+                <ion-item>
+                    {{ parameter1.truckAccess }}
+                </ion-item>
+                <ion-item *ngIf="!parameter1.truckAccess">
+                    <i>No truck access specified.</i>
+                </ion-item>
+                <hr>
+                <ion-item>
+                    <ion-label>Power:</ion-label>
+                    <ion-icon name="ios-power-outline" item-left color="darkGray"></ion-icon>
+                </ion-item>
+                <ion-item>
+                    <b>Power Type:</b> {{ parameter1.power }}
+                </ion-item>
+                <ion-item *ngIf="parameter1.amperage > 0">
+                    <b>Amperage</b> {{ parameter1.amperage }}
+                </ion-item>
+                <hr>
+                <ion-item>
+                    <ion-label>Costs:</ion-label>
+                    <ion-icon name="ios-card-outline" item-left color="darkGray"></ion-icon>
+                </ion-item>
+                <ion-item>
+                    <b>Rates:</b> R {{ parameter1.rates }}
+                </ion-item>
+                <ion-item>
+                    <b>Levy:</b> R {{ parameter1.levy }}
+                </ion-item>
+                <ion-item>
+                    <b>Price Per Parking Bay:</b> R {{ parameter1.pricePerBay }}
+                </ion-item>
+                <ion-item>
+                    <b>Contribution to Service Costs:</b> R {{ parameter1.serviceCosts }}
+                    <p *ngIf="!parameter1.serviceCosts">No service costs.</p>
+                </ion-item>
+                <ion-item>
+                    <b>Other Overheads:</b> R {{ parameter1.otherOverheads }}
+                    <p *ngIf="!parameter1.otherOverheads">No other overheads.</p>
+                </ion-item>
+                <hr>
+                <ion-item>
+                    <ion-label>Other Information:</ion-label>
+                    <ion-icon name="ios-information-circle-outline" item-left color="darkGray"></ion-icon>
+                </ion-item>
+                <ion-item>
+                    <b>Annual Escalation:</b> {{ parameter1.escalation }} %
+                    <p *ngIf="!parameter1.escalation">No escalation specified.</p>
+                </ion-item>
+                <ion-item>
+                    <b>Minimum Lease Term:</b> {{ parameter1.minLeaseTerm }}
+                    <p *ngIf="!parameter1.minLeaseTerm">No minimum lease term specified.</p>
+                </ion-item>
+                <ion-item>
+                    <b>Maximum Lease Term:</b> {{ parameter1.maxLeaseTerm }}
+                    <p *ngIf="!parameter1.maxLeaseTerm">No maximum lease term specified..</p>
+                </ion-item>
+            </ion-list>
+        </div>
+    </ion-card>
+    <!--***********  Thumbnail images ***********-->
+    <ion-card>
+        <ion-item>
+            <b>Property Photos:</b>
+        </ion-item>
+        <hr>
+        <ion-grid>
+            <ion-row wrap color="gray">
+                <ion-col tappable col-4>
+                    <img class="expanded-image" [src]="parameter1.img1" (click)="openImage1(parameter1)" />
+                </ion-col>
+                <ion-col tappable col-4>
+                    <img class="expanded-image" [src]="parameter1.img2" (click)="openImage2(parameter1)" />
+                </ion-col>
+                <ion-col tappable col-4>
+                    <img class="expanded-image" [src]="parameter1.img3" (click)="openImage3(parameter1)" />
+                </ion-col>
+                <ion-col tappable col-4>
+                    <img class="expanded-image" [src]="parameter1.img4" (click)="openImage4(parameter1)" />
+                </ion-col>
+                <ion-col tappable col-4>
+                    <img class="expanded-image" [src]="parameter1.img5" (click)="openImage5(parameter1)" />
+                </ion-col>
+                <ion-col tappable col-4>
+                    <img class="expanded-image" [src]="parameter1.img6" (click)="openImage6(parameter1)" />
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card>
+
+    <ion-card align="center">
+        <ion-card-header>
+            <b>Enquire About This Property</b>
+        </ion-card-header>
+        <ion-card-content>
+            <button ion-button (click)="enquirePage(parameter1)">Click Here</button>
+        </ion-card-content>
+    </ion-card>
+
+    <!-- Admin options below-->
+    <ion-card *ngIf=" (profile | async)?.admin ">
+        <ion-item>
+            <b>Admin Card: (Only Admins can see this)</b>
+        </ion-item>
+        <ion-item>
+            <button ion-button (click)="markAsLet(parameter1) ">Mark As Sold</button>
+        </ion-item>
+        <ion-item>
+            <button ion-button (click)="archive(parameter1) ">Archive</button>
+        </ion-item>
+        <ion-item>
+            <button ion-button (click)="delete(parameter1) ">Delete</button>
+        </ion-item>
+        <ion-item no-lines>
+            <ion-label><u>Property Address:</u></ion-label>
+        </ion-item>
+        <ion-item>
+            <b>Unit Number:</b> {{ parameter1.unitNumber }}<br><br> <b>Complex Name:</b> {{parameter1.complexName }}<br><br> <b>Street Number:</b> {{ parameter1.streetNumber }}<br><br><b>Street Name:</b> {{parameter1.streetName }}<br><br> <b>Suburb/Town:</b>            {{ parameter1.suburb1 }}<br><br> <b>City:</b> {{ parameter1.city }}
+            <br><br> <b>Postal Code:</b> {{parameter1.postalCode }}<br><br> <b>ERF Number:</b> {{parameter1.erf }}<br><br>
+        </ion-item>
+    </ion-card>
+</ion-content>

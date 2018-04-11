@@ -23,7 +23,6 @@ import { FileChooser } from '@ionic-native/file-chooser';
 import { HttpClientModule } from '@angular/common/http';
 import * as ionicGalleryModal from 'ionic-gallery-modal';
 
-
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { ConfirmationPage } from '../pages/confirmation/confirmation'
@@ -35,8 +34,8 @@ import { ListingsPage } from '../pages/listings/listings'
 import { SaleListingDetailPage } from '../pages/sale-listing-detail/sale-listing-detail'
 import { EnquirePage } from '../pages/enquire/enquire'
 import { AdminEnquiriesPage } from '../pages/admin-enquiries/admin-enquiries'
-import { FilterResultsPage } from '../pages/filter-results/filter-results'
-
+import { RentalListingPage } from '../pages/rental-listing/rental-listing'
+import { RentalListDetailPage } from '../pages/rental-list-detail/rental-list-detail'
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -95,7 +94,8 @@ class CameraMock extends Camera {
     ConfirmationPage,
     EnquirePage,
     AdminEnquiriesPage,
-    FilterResultsPage,
+    RentalListingPage,
+    RentalListDetailPage
     // FileSelectDirective,
 
   ],
@@ -135,7 +135,8 @@ class CameraMock extends Camera {
     ConfirmationPage,
     EnquirePage,
     AdminEnquiriesPage,
-    FilterResultsPage,
+    RentalListingPage,
+    RentalListDetailPage,
   ],
   providers: [
     StatusBar,

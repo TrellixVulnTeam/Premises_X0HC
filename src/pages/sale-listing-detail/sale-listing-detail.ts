@@ -34,7 +34,13 @@ export class SaleListingDetailPage {
   email: any;
   profile: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public AFdb: AngularFireDatabase, afAuth: AngularFireAuth, public alertCtrl: AlertController,
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public modalCtrl: ModalController,
+    public AFdb: AngularFireDatabase,
+    afAuth: AngularFireAuth,
+    public alertCtrl: AlertController,
 ) {
     this.parameter1 = navParams.get('param1');
    // console.log(this.parameter1)

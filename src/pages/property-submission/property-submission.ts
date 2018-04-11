@@ -48,7 +48,7 @@ export class PropertySubmissionPage {
   profileArray: any = [];
   profile: any;
   uid: any;
-  dateTime = moment().format();
+  dateTime = moment().format('MMMM Do YYYY, h:mm:ss a');
   selectedFile: any = [];
   // selectedFile2 = File = null;
   selectedFile2: any = [];
@@ -143,8 +143,8 @@ export class PropertySubmissionPage {
       usableYard: [],
       sizeOfERF: [],
       //Heights Field
-      floorToCeilingHeights: [], 
-      accessDoorHeights: [], 
+      floorToCeilingHeights: [],
+      accessDoorHeights: [],
       //AccessFields
       truckAccess: ['', Validators.required],
       power: ['', Validators.required],

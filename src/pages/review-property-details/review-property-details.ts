@@ -43,7 +43,7 @@ export class ReviewPropertyDetailsPage {
   profile: any;
   uid: any;
   city: any;
-  dateTime = moment().format();
+  dateTime = moment().format('MMMM Do YYYY, h:mm:ss a');
   selectedFile = File = null;
   public vatOptioned: boolean = true;
   public tenantOption: boolean = true;
@@ -149,51 +149,67 @@ export class ReviewPropertyDetailsPage {
       escalation: [],
       minLeaseTerm: [],
       maxLeaseTerm: [],
-      img1: [],
-      img2: [],
-      img3: [],
-      img4: [],
-      img5: [],
-      img6: [],
-      img7: [],
-      img8: [],
-      img9: [],
-      img10: [],
+      img1: [this.img1Url],
+      img2: [this.img2Url],
+      img3: [this.img3Url],
+      img4: [this.img4Url],
+      img5: [this.img5Url],
+      img6: [this.img6Url],
     });
 
     this.property = this.navParams.data;
 
 //Below somewhat works!
 
-    console.log("Image NAME::::::::::", this.property.img1)
+    // console.log("Image NAME::::::::::", this.property.img1)
 
-    const ref1 = this.afStorage.ref("/resized-" + this.property.img1); //This gets the download URL. You need to dynamically pass in the file name here.
-    this.img1Url = ref1.getDownloadURL()
-    console.log(this.img1Url)
+    const ref1 = firebase.storage().ref("/resized-" + this.property.img1); //This gets the download URL. You need to dynamically pass in the file name here.
+    ref1.getDownloadURL().then(url => {
+      this.img1Url = url;
+      console.log(this.img1Url);
+    });
 
-    const ref2 = this.afStorage.ref("/resized-" + this.property.img2); //This gets the download URL. You need to dynamically pass in the file name here.
-    this.img2Url = ref2.getDownloadURL()
-    console.log(this.img2Url)
 
-    const ref3 = this.afStorage.ref("/resized-" + this.property.img3); //This gets the download URL. You need to dynamically pass in the file name here.
-    this.img3Url = ref3.getDownloadURL()
-    console.log(this.img3Url)
+    const ref2 = firebase.storage().ref("/resized-" + this.property.img2); //This gets the download URL. You need to dynamically pass in the file name here.
+    ref2.getDownloadURL().then(url => {
+      this.img2Url = url;
+      console.log(this.img2Url);
+    });
 
-    const ref4 = this.afStorage.ref("/resized-" + this.property.img4); //This gets the download URL. You need to dynamically pass in the file name here.
-    this.img4Url = ref4.getDownloadURL()
-    console.log(this.img4Url)
 
-    const ref5 = this.afStorage.ref("/resized-" + this.property.img5); //This gets the download URL. You need to dynamically pass in the file name here.
-    this.img5Url = ref5.getDownloadURL()
-    console.log(this.img5Url)
+    const ref3 = firebase.storage().ref("/resized-" + this.property.img3); //This gets the download URL. You need to dynamically pass in the file name here.
+    ref3.getDownloadURL().then(url => {
+      this.img3Url = url;
+      console.log(this.img3Url);
+    });
+    
+    const ref4 = firebase.storage().ref("/resized-" + this.property.img4); //This gets the download URL. You need to dynamically pass in the file name here.
+    ref4.getDownloadURL().then(url => {
+      this.img4Url = url;
+      console.log(this.img4Url);
+    });
 
-    const ref6 = this.afStorage.ref("/resized-" + this.property.img6); //This gets the download URL. You need to dynamically pass in the file name here.
-    this.img6Url = ref6.getDownloadURL()
-    console.log(this.img6Url)
+    const ref5 = firebase.storage().ref("/resized-" + this.property.img5); //This gets the download URL. You need to dynamically pass in the file name here.
+    ref5.getDownloadURL().then(url => {
+      this.img5Url = url;
+      console.log(this.img5Url);
+    });
+
+    const ref6 = firebase.storage().ref("/resized-" + this.property.img6); //This gets the download URL. You need to dynamically pass in the file name here.
+    ref6.getDownloadURL().then(url => {
+      this.img6Url = url;
+      console.log(this.img6Url);
+    });
+
+    // const ref2 = this.afStorage.ref("/resized-" + this.property.img2); //This gets the download URL. You need to dynamically pass in the file name here.
+    // this.img2Url = ref2.getDownloadURL()
+    // // console.log(this.img2Url);
+
+    // console.log(this.img6Url)
     //push the image url to under the property!
     // this.propertyRef = this.AFdb.object('/Admin/SubmittedProperties/');
     // this.propertyRef.update(this.property)
-    console.log("Image URL::::::::::", ref1.getDownloadURL())
+    // console.log("Image URL::::::::::", ref1.getDownloadURL())
   }
 
   //submitPropertyToListingRental() {
@@ -203,15 +219,13 @@ export class ReviewPropertyDetailsPage {
 
   submitPropertyToListingRental(property) {
     const toSend = this.AFdb.list(`/ListedProperties/Rentals/${property.city}/`);
-    toSend.push(this.property);
+    toSend.push(this.propertySubmissionForm.value);
     //console.log(property.city)
-  }
-
-  
+  }  
 
   submitPropertyToListingSale(property) {
     const toSend = this.AFdb.list(`/ListedProperties/Sales/${property.city}/`);
-    toSend.push(this.property);
+    toSend.push(this.propertySubmissionForm.value);
   }; //It's an entirely new submission, to elsewhere on the DB.
 
   deleteOnSubmit(property) {
@@ -235,6 +249,15 @@ export class ReviewPropertyDetailsPage {
     confirm.present();
   }
 
+
+logURLS(){
+  console.log(this.img1Url)
+  console.log(this.img2Url)
+  console.log(this.img3Url)
+  console.log(this.img4Url)
+  console.log(this.img5Url)
+  console.log(this.img6Url)
+}
 
   deleteConfirm() {
     let confirm = this.alertCtrl.create({

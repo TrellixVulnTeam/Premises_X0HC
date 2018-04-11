@@ -1,0 +1,162 @@
+<!--
+  Generated template for the RentalListingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Properties For Rent: {{ parameter1 }}</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="filterToggle()" *ngIf="showFilters == false">
+        <ion-icon ios="ios-options-outline" md="md-options"></ion-icon>
+      </button>
+            <button ion-button icon-only (click)="filterToggleHide()" *ngIf="showFilters == true">
+        <ion-icon ios="ios-options-outline" md="md-options"></ion-icon>
+      </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <h3 *ngIf="showFilters == true" text-wrap>Complete the filters that are important to your search.</h3>
+
+    <!--Property Type Filter-->
+    <ion-item *ngIf="showFilters == true">
+        <label text-wrap>Select Property Type</label><br><br>
+        <select [(ngModel)]="premisesType" (change)="filterExact('premisesType', premisesType)">
+<option value="Mini factory up to 500sqm">Mini factory up to 500sqm</option>
+<option value="A Factory/Warehouse over 500sqm">A Factory/Warehouse over 500sqm</option>
+<option value="Offices">Offices</option>
+<option value="Retail">Retail</option>
+<option value="A mixed use building">A mixed use building</option>
+<option value="A stand alone house to be used as offices">A stand alone house to be used as offices</option>
+<option value="Other">Other</option>
+</select>
+        <button *ngIf="premisesType" (click)="removeFilter('premisesType')">Remove Filter</button>
+    </ion-item>
+
+    <!--Rental Price-->
+    <ion-item *ngIf="showFilters == true">
+        <label text-wrap>Maximum Monthly Rental</label><br><br>
+        <input type="number" [(ngModel)]="rentalPrice" (change)="filterGreaterThan('rentalPrice', rentalPrice)">
+        <button *ngIf="rentalPrice" (click)="removeFilter('rentalPrice')">Remove Filter</button>
+    </ion-item>
+
+    <!--Factory Size Filter-->
+    <ion-item *ngIf="showFilters == true">
+        <label text-wrap *ngIf="showFilters == true">Minimum Factory Size (m&#178;)</label><br><br>
+        <input type="number" [(ngModel)]="factorySize" (change)="filterGreaterThan('factorySize', factorySize)">
+        <button *ngIf="factorySize" (click)="removeFilter('factorySize')">Remove Filter</button>
+    </ion-item>
+
+    <!--Office Size Filter-->
+    <ion-item *ngIf="showFilters == true">
+        <label text-wrap>Minimum Office Size (m&#178;)</label><br><br>
+        <input type="number" [(ngModel)]="officeSize" (change)="filterGreaterThan('officeSize', officeSize)">
+        <button *ngIf="officeSize" (click)="removeFilter('officeSize')">Remove Filter</button>
+    </ion-item>
+
+    <!--Shop Size Filter-->
+    <ion-item *ngIf="showFilters == true">
+        <label text-wrap>Minimum Shop Size (Retail) (m&#178;)</label><br><br>
+        <input type="number" [(ngModel)]="shopSize" (change)="filterGreaterThan('shopSize', shopSize)">
+        <button *ngIf="shopSize" (click)="removeFilter('shopSize')">Remove Filter</button>
+    </ion-item>
+
+    <!--Open Parking Filter-->
+    <ion-item *ngIf="showFilters == true">
+        <label text-wrap>How many open parking bays?</label><br><br>
+        <input type="number" [(ngModel)]="openParking" (change)="filterGreaterThan('openParking', openParking)">
+        <button *ngIf="openParking" (click)="removeFilter('openParking')">Remove Filter</button>
+    </ion-item>
+
+    <!--Covered Parking Filter-->
+    <ion-item *ngIf="showFilters == true">
+        <label text-wrap>How many covered parking bays?</label><br><br>
+        <input type="number" [(ngModel)]="underCoverParking" (change)="filterGreaterThan('underCoverParking', underCoverParking)">
+        <button *ngIf="underCoverParking" (click)="removeFilter('underCoverParking')">Remove Filter</button>
+    </ion-item>
+
+    <!--Usable Yard Filter-->
+    <ion-item *ngIf="showFilters == true">
+        <label text-wrap>Size of Usable Yard</label><br><br>
+        <input type="number" [(ngModel)]="usableYard" (change)="filterGreaterThan('usableYard', usableYard)">
+        <button *ngIf="usableYard" (click)="removeFilter('usableYard')">Remove Filter</button>
+    </ion-item>
+
+    <!--Floor To Ceiling Filter-->
+    <ion-item *ngIf="showFilters == true">
+        <label text-wrap>Floor To Ceiling in Warehouse (m)</label><br><br>
+        <input type="number" [(ngModel)]="floorToCeilingHeights" (change)="filterGreaterThan('floorToCeilingHeights', floorToCeilingHeights)">
+        <button *ngIf="floorToCeilingHeights" (click)="removeFilter('floorToCeilingHeights')">Remove Filter</button>
+    </ion-item>
+
+    <!--Access Door Filter-->
+    <ion-item *ngIf="showFilters == true">
+        <label text-wrap>Access Door Height (m)</label><br><br>
+        <input type="number" [(ngModel)]="accessDoorHeights" (change)="filterGreaterThan('accessDoorHeights', accessDoorHeights)">
+        <button *ngIf="accessDoorHeights" (click)="removeFilter('accessDoorHeights')">Remove Filter</button>
+    </ion-item>
+
+    <!--Access Door Filter-->
+    <ion-item *ngIf="showFilters == true">
+        <label text-wrap>Access Door Height (m)</label><br><br>
+        <input type="number" [(ngModel)]="accessDoorHeights" (change)="filterGreaterThan('accessDoorHeights', accessDoorHeights)">
+        <button *ngIf="accessDoorHeights" (click)="removeFilter('accessDoorHeights')">Remove Filter</button>
+    </ion-item>
+
+    <!--Truck Access Filter-->
+    <ion-item *ngIf="showFilters == true">
+        <label text-wrap>Truck Access Requirements</label><br><br>
+        <select [(ngModel)]="truckAccess" (change)="filterExact('truckAccess', truckAccess)">
+<option value="Rigid Trucks Only">Rigid Trucks Only</option>
+<option value="Up To Semi Trucks">Up To Semi Trucks</option>
+<option value="Up To Interlinks">Up To Interlinks</option>
+</select>
+        <button *ngIf="truckAccess" (click)="removeFilter('truckAccess')">Remove Filter</button>
+    </ion-item>
+
+    <!--Power Filter-->
+    <ion-item *ngIf="showFilters == true">
+        <label text-wrap>Power Requirements</label><br><br>
+        <select [(ngModel)]="power" (change)="filterExact('power', power)">
+<option value="Single Phase">Single Phase</option>
+<option value="Three Phase">Three Phase</option>
+</select>
+        <button *ngIf="power" (click)="removeFilter('power')">Remove Filter</button>
+    </ion-item>
+
+    <ion-item *ngIf="showFilters == true">
+        <label text-wrap>Minimum Amperage Required</label><br><br>
+        <input type="number" [(ngModel)]="amperage" (change)="filterGreaterThan('amperage', amperage)">
+        <button *ngIf="amperage" (click)="removeFilter('amperage')">Remove Filter</button>
+    </ion-item>
+
+    <button *ngIf="showFilters == true" ion-button full outline (click)="filterToggleHide()">Hide Filters</button>
+    <!--Actual Listing Below-->
+    <ion-grid>
+        <ion-row>
+            <ion-col tappable col-12 col-sm *ngFor="let newProperty of filteredProperties" (click)="showDetail(newProperty)">
+                <ion-card class="cardList">
+                    <img class="image" align="middle" src='{{ newProperty.img1 }}' />
+                    <ion-card-header text-wrap>
+                        <b>Type: </b>
+                        <p align="center" *ngIf="newProperty.premisesType != 'Other'">{{ newProperty.premisesType}}<br><br></p>
+                        <p align="center" *ngIf="newProperty.premisesType == 'Other'">{{ newProperty.otherProperty}}<br><br></p>
+                        <b>Suburb: </b>{{ newProperty.suburb1 }}, {{ newProperty.city }}<br><br>
+                        <b>Rental Price: R {{ newProperty.rentalPrice }}</b><br>
+                        <hr>
+                    </ion-card-header>
+                    <ion-card-content>
+                    </ion-card-content>
+                    <button ion-button color="dark">See More</button>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

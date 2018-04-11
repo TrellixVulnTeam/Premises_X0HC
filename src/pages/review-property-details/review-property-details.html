@@ -17,6 +17,8 @@
     <h2>Edit the lsiting before it gets published.</h2>
     <p>Currently reviewing a property in <b>{{ property.suburb1 }}, {{ property.city }}</b>, submitted by <b>{{ property.fullName }}</b>, from <b>{{ property.agencyName }}</b></p>
     <p> You can contact them on <b>{{ property.contactNumber }}</b> or <b>{{ property.userEmail }}</b></p>
+    <p> Property submitted on <b>{{ property.dateTime }}</b></p>
+
     <hr>
     <ion-item no-padding no-lines *ngIf="property.rental == 'true'">Property submitted as a Rental</ion-item>
     <ion-item no-padding no-lines *ngIf="property.rental == 'false'">Property submitted as a Sale</ion-item>
@@ -34,6 +36,10 @@
         <ion-item hidden no-lines>
             <ion-label>Suburb:</ion-label>
             <ion-input formControlName="suburb1" value="{{property.suburb1}}">{{property.suburb1}}</ion-input>
+        </ion-item>
+        <ion-item hidden no-lines>
+            <ion-label>Date & Time:</ion-label>
+            <ion-input formControlName="dateTime" value="{{property.dateTime}}">{{property.dateTime}}</ion-input>
         </ion-item>
 
         <!--User details-->
@@ -402,29 +408,30 @@
         <ion-item no-lines>
             <ion-label><u>Property Images:</u></ion-label>
         </ion-item>
-        <ion-item no-lines>
-            <img src="{{ property.img1 }}">
-            <ion-input formControlName="img1" type="text" value="{{ property.img1 }}">{{ property.img1 }}</ion-input>
+        <img src="{{ this.img1Url }}"><br>
+        <img src="{{ this.img2Url }}"><br>
+        <img src="{{ this.img3Url }}"><br>
+        <img src="{{ this.img4Url }}"><br>
+        <img src="{{ this.img5Url }}"><br>
+        <img src="{{ this.img6Url }}"><br>
+
+        <ion-item hidden no-lines>
+            <ion-input formControlName="img1" type="text" value="{{ this.img1Url }}">{{ this.img1Url }}</ion-input>
         </ion-item>
-        <ion-item no-lines>
-            <img src="{{ property.img2 }}">
-            <ion-input formControlName="img2" type="text" value="{{ property.img2 }}">{{ property.img2 }}</ion-input>
+        <ion-item hidden no-lines>
+            <ion-input formControlName="img2" type="text" value="{{ this.img2Url }}">{{ this.img2Url }}</ion-input>
         </ion-item>
-        <ion-item no-lines>
-            <img src="{{ property.img3 }}">
-            <ion-input formControlName="img3" type="text" value="{{ property.img3 }}">{{ property.img3 }}</ion-input>
+        <ion-item hidden no-lines>
+            <ion-input formControlName="img3" type="text" value="{{ this.img3Url }}">{{ this.img3Url }}</ion-input>
         </ion-item>
-        <ion-item no-lines>
-            <img src="{{ property.img4 }}">
-            <ion-input formControlName="img4" type="text" value="{{ property.img4 }}">{{ property.img4 }}</ion-input>
+        <ion-item hidden no-lines>
+            <ion-input formControlName="img4" type="text" value="{{ this.img4Url }}">{{ this.img4Url }}</ion-input>
         </ion-item>
-        <ion-item no-lines>
-            <img src="{{ property.img5 }}">
-            <ion-input formControlName="img5" type="text" value="{{ property.img5 }}">{{ property.img5 }}</ion-input>
+        <ion-item hidden no-lines>
+            <ion-input formControlName="img5" type="text" value="{{ this.img5Url }}">{{ this.img5Url }}</ion-input>
         </ion-item>
-        <ion-item no-lines>
-            <img src="{{ property.img6 }}">
-            <ion-input formControlName="img6" type="text" value="{{ property.img6 }}">{{ property.img6 }}</ion-input>
+        <ion-item hidden no-lines>
+            <ion-input formControlName="img6" type="text" value="{{ this.img6Url }}">{{ this.img6Url }}</ion-input>
         </ion-item>
         <!-- End of Uploaded Images -->
 
