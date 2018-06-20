@@ -55,12 +55,12 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { FileUploadModule } from '../../node_modules/ng2-file-upload';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBPIuf4cdQ1TIII2tJ0YmCbdcdH99JGkHc",
-  authDomain: "premises-1bc9e.firebaseapp.com",
-  databaseURL: "https://premises-1bc9e.firebaseio.com",
-  projectId: "premises-1bc9e",
-  storageBucket: "premises-1bc9e.appspot.com",
-  messagingSenderId: "1059170929031"
+  apiKey: "",
+  authDomain: "",
+  databaseURL: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: ""
 };
 
 class CameraMock extends Camera {
